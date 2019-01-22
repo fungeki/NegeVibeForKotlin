@@ -6,14 +6,14 @@
     <group android:checkableBehavior="single">
         <item
                 android:id="@+id/nav_camera"
-                android:icon="@drawable/ic_menu_camera"
-                android:title="Import"/>
+                android:icon="@drawable/ic_bot_temp_events"
+                android:title="אירועים"/>
         <item
                 android:id="@+id/nav_gallery"
-                android:icon="@drawable/ic_menu_gallery"
-                android:title="Gallery"/>
+                android:icon="@drawable/ic_bot_temp_chat"
+                android:title="צ׳אט"/>
         <item
-                android:id="@+id/nav_slideshow"
+                android:id="@+id/nav_slideshowּ"
                 android:icon="@drawable/ic_menu_slideshow"
                 android:title="Slideshow"/>
         <item
@@ -22,7 +22,7 @@
                 android:title="Tools"/>
     </group>
 
-    <item android:title="Communicate">
+    <item android:title="שיתוף">
         <menu>
             <item
                     android:id="@+id/nav_share"
