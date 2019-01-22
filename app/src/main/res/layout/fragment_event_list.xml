@@ -3,14 +3,13 @@
                                              xmlns:app="http://schemas.android.com/apk/res-auto" xmlns:tools="http://schemas.android.com/tools"
              android:layout_width="match_parent"
              android:layout_height="match_parent"
-             tools:context=".EventListFragment">
+             tools:context=".Fragments.EventListFragment">
     <TextView
-            android:text="chat here"
+            android:text="MITZI WINS!!!"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:id="@+id/chat" app:layout_constraintTop_toTopOf="parent"
-            android:layout_marginTop="355dp" app:layout_constraintStart_toStartOf="parent"
-            android:layout_marginStart="176dp" app:layout_constraintEnd_toEndOf="parent"
-            android:layout_marginEnd="176dp" android:layout_marginBottom="357dp"
-            app:layout_constraintBottom_toBottomOf="parent"/>
+            android:id="@+id/textView2" android:layout_marginEnd="176dp" app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintTop_toTopOf="parent" android:layout_marginTop="356dp"
+            app:layout_constraintStart_toStartOf="parent" android:layout_marginStart="177dp"
+    />
 </android.support.constraint.ConstraintLayout>
