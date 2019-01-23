@@ -29,7 +29,6 @@ class MainActivity : AppCompatActivity(), NavigationView.OnNavigationItemSelecte
         val toggle = ActionBarDrawerToggle(
             this, drawer_layout, toolbar, R.string.navigation_drawer_open, R.string.navigation_drawer_close
         )
-
         bottom_nav_bar.selectedItemId = R.id.bot_nav_event_list
         drawer_layout.addDrawerListener(toggle)
         toggle.syncState()
