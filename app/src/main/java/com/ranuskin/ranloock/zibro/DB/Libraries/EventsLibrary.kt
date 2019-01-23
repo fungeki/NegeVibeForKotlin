@@ -3,20 +3,18 @@ package com.ranuskin.ranloock.zibro.DB.Libraries
 import com.ranuskin.ranloock.zibro.DB.Get.getEvents
 import com.ranuskin.ranloock.zibro.Objects.ZibroEvent
 
+
+//declartion for singleton
 object EventsLibrary{
+    //initializes the var only on creation
     private lateinit var events: List<ZibroEvent>
-//    init {
-//        getEvents { events->
-//            this.events = events
-//        }
-//    }
 
     fun getMyEvents(completion: (List<ZibroEvent>)->Unit){
+        //checks if events is initialized
         if (this::events.isInitialized) {
-            println("events were initialized")
             completion(events)
         } else {
-            println("initializing events")
+            // download events and returns
             getEvents { events ->
                 println("finished creating events")
                 this.events = events
@@ -24,5 +22,8 @@ object EventsLibrary{
             }
         }
 
+    }
+    fun getMyEvents(): List<ZibroEvent>{
+        return events
     }
 }

@@ -8,11 +8,10 @@ import android.support.v7.widget.LinearLayoutManager
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
-import android.widget.LinearLayout
 import com.ranuskin.ranloock.zibro.Adapters.GeneralEventListAdapter
 
 import com.ranuskin.ranloock.zibro.R
-import kotlinx.android.synthetic.main.fragment_event_list.*
+import kotlinx.android.synthetic.main.fragment_general_event_list.*
 
 // TODO: Rename parameter arguments, choose names that match
 // the fragment initialization parameters, e.g. ARG_ITEM_NUMBER
@@ -37,12 +36,11 @@ class EventListFragment : Fragment() {
         savedInstanceState: Bundle?
     ): View? {
         // Inflate the layout for this fragment
-        return inflater.inflate(R.layout.fragment_event_list, container, false)
+        return inflater.inflate(R.layout.fragment_general_event_list, container, false)
     }
 
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
-        general_event_list.setBackgroundColor(Color.BLUE)
         general_event_list.layoutManager = LinearLayoutManager(context)
         general_event_list.adapter = GeneralEventListAdapter()
 

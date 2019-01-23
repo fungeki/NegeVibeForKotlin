@@ -38,11 +38,7 @@ class MainActivity : AppCompatActivity(), NavigationView.OnNavigationItemSelecte
         nav_view.setNavigationItemSelectedListener(this)
         bottom_nav_bar.setOnNavigationItemSelectedListener(mOnNavigationItemSelectedListener)
         supportFragmentManager.beginTransaction().replace(R.id.fragments_container, EventListFragment()).commit()
-        EventsLibrary.getMyEvents { events ->
-            for (mEvent in events) {
-                println(mEvent.title)
-            }
-        }
+
 
     }
 

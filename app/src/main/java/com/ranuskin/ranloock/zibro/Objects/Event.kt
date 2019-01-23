@@ -10,7 +10,8 @@ class ZibroEvent(
     val organizerid: Int,
     val type: Int,
     val price: Int,
-    val date: String
+    val date: String,
+    val images: List<EventImage>
 ) {
 
 }
