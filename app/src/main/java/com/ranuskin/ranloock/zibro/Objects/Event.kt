@@ -1,6 +1,7 @@
 package com.ranuskin.ranloock.zibro.Objects
 
 import com.google.gson.annotations.SerializedName
+import java.io.Serializable
 
 
 class ZibroEvent(
@@ -12,6 +13,6 @@ class ZibroEvent(
     val price: Int,
     val date: String,
     val images: List<EventImage>
-) {
+): Serializable {
 
 }

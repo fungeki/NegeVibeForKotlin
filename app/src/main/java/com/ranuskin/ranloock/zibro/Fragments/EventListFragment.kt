@@ -4,6 +4,7 @@ package com.ranuskin.ranloock.zibro.Fragments
 import android.graphics.Color
 import android.os.Bundle
 import android.support.v4.app.Fragment
+import android.support.v4.app.FragmentTransaction
 import android.support.v7.widget.LinearLayoutManager
 import android.view.LayoutInflater
 import android.view.View
@@ -27,6 +28,7 @@ import kotlinx.android.synthetic.main.fragment_general_event_list.*
 class EventListFragment : Fragment() {
 
 
+
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
     }
@@ -42,7 +44,17 @@ class EventListFragment : Fragment() {
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
         general_event_list.layoutManager = LinearLayoutManager(context)
-        general_event_list.adapter = GeneralEventListAdapter()
+        general_event_list.adapter = GeneralEventListAdapter{ event ->
+            println(event.title)
+            println("${event.title} was clicked ")
+            val bundle = Bundle()
+            bundle.putSerializable("event",event)
+            val ft = activity!!.supportFragmentManager.beginTransaction().addToBackStack(null)
+                .setCustomAnimations(R.anim.enter_from_right, R.anim.exit_from_right, R.anim.enter_from_right, R.anim.exit_from_right)
+            val eventDetailFragment = EventDetailsFragment()
+            eventDetailFragment.arguments = bundle
+            ft.replace(R.id.fragments_container, eventDetailFragment).commit()
+        }
 
 
     }
