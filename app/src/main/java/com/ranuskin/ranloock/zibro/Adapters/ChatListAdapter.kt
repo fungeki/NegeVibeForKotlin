@@ -13,13 +13,14 @@ class ChatListAdapter(): RecyclerView.Adapter<ChatListViewHolder>(){
 
     lateinit var arr: List<ZibroEvent>
     override fun onCreateViewHolder(p0: ViewGroup, p1: Int): ChatListViewHolder {
-        arr = EventsLibrary.getMyEvents()
+
         var layoutInflater = LayoutInflater.from(p0.context)
         var cellForRow = layoutInflater.inflate(R.layout.row_general_chat_list, p0, false)
         return ChatListViewHolder(cellForRow)
     }
 
     override fun getItemCount(): Int {
+        arr = EventsLibrary.getMyEvents()
         return arr.size
     }
 

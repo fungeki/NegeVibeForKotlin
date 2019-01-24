@@ -11,6 +11,7 @@ import android.view.Gravity
 import android.view.Menu
 import android.view.MenuItem
 import com.ranuskin.ranloock.zibro.DB.Libraries.EventsLibrary
+import com.ranuskin.ranloock.zibro.Fragments.ChatListFragment
 import com.ranuskin.ranloock.zibro.Fragments.EventListFragment
 import kotlinx.android.synthetic.main.activity_main.*
 import kotlinx.android.synthetic.main.app_bar_main.*
@@ -114,7 +115,10 @@ class MainActivity : AppCompatActivity(), NavigationView.OnNavigationItemSelecte
                 supportFragmentManager.beginTransaction().replace(R.id.fragments_container, EventListFragment()).commit()
                 return@OnNavigationItemSelectedListener true
             }
-            R.id.bot_nav_chats ->{}
+            R.id.bot_nav_chats ->{
+                supportFragmentManager.beginTransaction().replace(R.id.fragments_container, ChatListFragment()).commit()
+                return@OnNavigationItemSelectedListener true
+            }
 
         }
         false
