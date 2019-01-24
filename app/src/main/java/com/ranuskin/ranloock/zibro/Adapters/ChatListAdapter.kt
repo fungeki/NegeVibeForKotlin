@@ -26,7 +26,7 @@ class ChatListAdapter(): RecyclerView.Adapter<ChatListViewHolder>(){
 
     override fun onBindViewHolder(p0: ChatListViewHolder, p1: Int) {
         p0.itemView.chat_list_event_title_textview.text = arr.get(p1).title
-        val image =
+
     }
 
 }
