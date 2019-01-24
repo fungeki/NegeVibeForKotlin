@@ -1,37 +1,35 @@
 <?xml version="1.0" encoding="utf-8"?>
 <menu xmlns:android="http://schemas.android.com/apk/res/android"
       xmlns:tools="http://schemas.android.com/tools"
+      xmlns:app="http://schemas.android.com/apk/res-auto"
       tools:showIn="navigation_view">
 
     <group android:checkableBehavior="single">
         <item
                 android:id="@+id/nav_camera"
+                app:showAsAction="always"
                 android:icon="@drawable/ic_bot_temp_events"
-                android:title="אירועים"/>
+                android:title="@string/eventsHebrew"/>
         <item
                 android:id="@+id/nav_gallery"
                 android:icon="@drawable/ic_bot_temp_chat"
-                android:title="צ׳אט"/>
-        <item
-                android:id="@+id/nav_slideshowּ"
-                android:icon="@drawable/ic_menu_slideshow"
-                android:title="Slideshow"/>
+                android:title="@string/chatHebrew"/>
         <item
                 android:id="@+id/nav_manage"
                 android:icon="@drawable/ic_menu_manage"
-                android:title="Tools"/>
+                android:title="@string/settingsHebrew"/>
     </group>
 
-    <item android:title="שיתוף">
+    <item android:title="@string/shareHebrew">
         <menu>
             <item
                     android:id="@+id/nav_share"
                     android:icon="@drawable/ic_menu_share"
-                    android:title="Share"/>
+                    android:title="@string/shareHebrew"/>
             <item
                     android:id="@+id/nav_send"
                     android:icon="@drawable/ic_menu_send"
-                    android:title="Send"/>
+                    android:title="@string/sendHebrew"/>
         </menu>
     </item>
 

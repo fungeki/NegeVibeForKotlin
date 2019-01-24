@@ -3,7 +3,6 @@ package com.ranuskin.ranloock.zibro.Objects
 import com.google.gson.annotations.SerializedName
 import java.io.Serializable
 
-
 class ZibroEvent(
     val id: Int,
     val title: String,

@@ -4,8 +4,10 @@ import android.os.Bundle
 import android.support.design.widget.BottomNavigationView
 import android.support.design.widget.NavigationView
 import android.support.v4.view.GravityCompat
+import android.support.v4.view.ViewCompat
 import android.support.v7.app.ActionBarDrawerToggle
 import android.support.v7.app.AppCompatActivity
+import android.view.Gravity
 import android.view.Menu
 import android.view.MenuItem
 import com.ranuskin.ranloock.zibro.DB.Libraries.EventsLibrary
@@ -34,8 +36,10 @@ class MainActivity : AppCompatActivity(), NavigationView.OnNavigationItemSelecte
         drawer_layout.addDrawerListener(toggle)
         toggle.syncState()
 
+
        // supportFragmentManager.beginTransaction().add(R.id.main_fragment_container, EventListFragment()).commit()
         nav_view.setNavigationItemSelectedListener(this)
+        ViewCompat.setLayoutDirection(nav_view,ViewCompat.LAYOUT_DIRECTION_RTL)
         bottom_nav_bar.setOnNavigationItemSelectedListener(mOnNavigationItemSelectedListener)
         supportFragmentManager.beginTransaction().replace(R.id.fragments_container, EventListFragment()).commit()
 
@@ -60,18 +64,27 @@ class MainActivity : AppCompatActivity(), NavigationView.OnNavigationItemSelecte
     }
 
     override fun onOptionsItemSelected(item: MenuItem): Boolean {
-        // Handle action bar item clicks here. The action bar will
-        // automatically handle clicks on the Home/Up button, so long
-        // as you specify a parent activity in AndroidManifest.xml.
+        val id = item.itemId
+
+
+
+
         return false
 //        when (item.itemId) {
 //            R.id.action_settings -> return true
 //            else -> return super.onOptionsItemSelected(item)
 //        }
+
+
     }
 
     override fun onNavigationItemSelected(item: MenuItem): Boolean {
         // Handle navigation view item clicks here.
+        if(drawer_layout.isDrawerOpen(Gravity.RIGHT)){
+            drawer_layout.closeDrawer(Gravity.RIGHT)
+        }else{
+            drawer_layout.openDrawer(Gravity.RIGHT)
+        }
         when (item.itemId) {
             R.id.nav_camera -> {
                 // Handle the camera action
@@ -106,3 +119,5 @@ class MainActivity : AppCompatActivity(), NavigationView.OnNavigationItemSelecte
     }
 
 }
+
+

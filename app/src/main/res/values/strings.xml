@@ -9,4 +9,9 @@
 
     <!-- TODO: Remove or change this placeholder text -->
     <string name="hello_blank_fragment">Hello blank fragment</string>
+    <string name="eventsHebrew">אירועים</string>
+    <string name="chatHebrew">צ׳אט</string>
+    <string name="settingsHebrew">הגדרות</string>
+    <string name="sendHebrew">לשלוח</string>
+    <string name="shareHebrew">שיתוף</string>
 </resources>

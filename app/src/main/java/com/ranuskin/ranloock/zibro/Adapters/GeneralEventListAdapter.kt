@@ -41,6 +41,7 @@ class GeneralEventListAdapter(val listener: (ZibroEvent) -> Unit): RecyclerView.
 
         p0.itemView.setOnClickListener {
             listener(model)
+
         }
     }
 
