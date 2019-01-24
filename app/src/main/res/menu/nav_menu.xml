@@ -3,20 +3,12 @@
 
 
 
-    <item
-            android:id="@+id/bot_nav_notifications"
-            android:icon="@drawable/ic_bot_temp_notifications"
-            android:title="התראות"/>
-    <item
-            android:id="@+id/bot_nav_my_events"
-            android:icon="@drawable/ic_bot_temp_events"
-            android:title="האירועים שלי"/>
 
 
     <item
-            android:id="@+id/bot_nav_add_event"
-            android:icon="@drawable/ic_bot_temp_add_event"
-            android:title="הוספת אירוע"/>
+            android:id="@+id/bot_nav_event_list"
+            android:icon="@drawable/ic_bot_temp_event_list"
+            android:title="רשימת אירועים"/>
 
     <item
             android:id="@+id/bot_nav_chats"
@@ -25,9 +17,18 @@
 
 
     <item
-            android:id="@+id/bot_nav_event_list"
-            android:icon="@drawable/ic_bot_temp_event_list"
-            android:title="רשימת אירועים"/>
+            android:id="@+id/bot_nav_add_event"
+            android:icon="@drawable/ic_bot_temp_add_event"
+            android:title="הוספת אירוע"/>
+    <item
+            android:id="@+id/bot_nav_my_events"
+            android:icon="@drawable/ic_bot_temp_events"
+            android:title="האירועים שלי"/>
+
+    <item
+            android:id="@+id/bot_nav_notifications"
+            android:icon="@drawable/ic_bot_temp_notifications"
+            android:title="התראות"/>
 
 
 </menu>

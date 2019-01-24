@@ -27,8 +27,6 @@ import kotlinx.android.synthetic.main.fragment_general_event_list.*
  */
 class EventListFragment : Fragment() {
 
-
-
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
     }
