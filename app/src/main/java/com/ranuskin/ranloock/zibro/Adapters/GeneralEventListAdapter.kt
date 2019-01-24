@@ -1,21 +1,15 @@
 package com.ranuskin.ranloock.zibro.Adapters
 
 
-import android.content.Context
-import android.os.Bundle
 import android.support.v7.widget.RecyclerView
-import android.text.Layout
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import com.ranuskin.ranloock.zibro.DB.Libraries.EventsLibrary
-import com.ranuskin.ranloock.zibro.Fragments.EventDetailsFragment
 import com.ranuskin.ranloock.zibro.Objects.ZibroEvent
 import com.ranuskin.ranloock.zibro.R
 import com.squareup.picasso.Picasso
-import kotlinx.android.synthetic.main.fragment_general_event_list.*
-import kotlinx.android.synthetic.main.general_event_row.view.*
-import kotlinx.android.synthetic.main.nav_header_main.view.*
+import kotlinx.android.synthetic.main.row_general_event.view.*
 
 class GeneralEventListAdapter(val listener: (ZibroEvent) -> Unit): RecyclerView.Adapter<GeneralEventListViewHolder>(){
 
@@ -28,7 +22,7 @@ class GeneralEventListAdapter(val listener: (ZibroEvent) -> Unit): RecyclerView.
 
     override fun onCreateViewHolder(p0: ViewGroup, p1: Int): GeneralEventListViewHolder {
         var layoutInflater = LayoutInflater.from(p0.context)
-        var cellForRow = layoutInflater.inflate(R.layout.general_event_row, p0, false)
+        var cellForRow = layoutInflater.inflate(R.layout.row_general_event, p0, false)
         return GeneralEventListViewHolder(cellForRow)
     }
 

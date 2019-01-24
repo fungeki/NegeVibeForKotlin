@@ -114,6 +114,8 @@ class MainActivity : AppCompatActivity(), NavigationView.OnNavigationItemSelecte
                 supportFragmentManager.beginTransaction().replace(R.id.fragments_container, EventListFragment()).commit()
                 return@OnNavigationItemSelectedListener true
             }
+            R.id.bot_nav_chats ->{}
+
         }
         false
     }

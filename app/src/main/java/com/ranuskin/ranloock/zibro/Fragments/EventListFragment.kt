@@ -43,8 +43,6 @@ class EventListFragment : Fragment() {
         super.onViewCreated(view, savedInstanceState)
         general_event_list.layoutManager = LinearLayoutManager(context)
         general_event_list.adapter = GeneralEventListAdapter{ event ->
-            println(event.title)
-            println("${event.title} was clicked ")
             val bundle = Bundle()
             bundle.putSerializable("event",event)
             val ft = activity!!.supportFragmentManager.beginTransaction().addToBackStack(null)
