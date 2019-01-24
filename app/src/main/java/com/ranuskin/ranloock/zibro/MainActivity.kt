@@ -39,7 +39,6 @@ class MainActivity : AppCompatActivity(), NavigationView.OnNavigationItemSelecte
 
        // supportFragmentManager.beginTransaction().add(R.id.main_fragment_container, EventListFragment()).commit()
         nav_view.setNavigationItemSelectedListener(this)
-        ViewCompat.setLayoutDirection(nav_view,ViewCompat.LAYOUT_DIRECTION_RTL)
         bottom_nav_bar.setOnNavigationItemSelectedListener(mOnNavigationItemSelectedListener)
         supportFragmentManager.beginTransaction().replace(R.id.fragments_container, EventListFragment()).commit()
 
