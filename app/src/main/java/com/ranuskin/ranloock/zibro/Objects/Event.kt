@@ -11,6 +11,9 @@ class ZibroEvent(
     val type: Int,
     val price: Int,
     val date: String,
+    val datedescription: String,
+    val locationname: String,
+    val status: Int,
     val images: List<EventImage>
 ): Serializable {
 
