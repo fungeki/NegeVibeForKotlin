@@ -27,8 +27,8 @@ class GeneralEventListAdapter(val listener: (ZibroEvent) -> Unit): RecyclerView.
     }
 
     override fun onBindViewHolder(p0: GeneralEventListViewHolder, p1: Int) {
-        val model = events.get(p1)
-        Picasso.get().load(model.images.get(0).link).placeholder(R.drawable.zebra)
+        val model = events[p1]
+        Picasso.get().load(model.images[0].link).placeholder(R.drawable.zebra)
             .into(p0.itemView.eventImageView)
         p0.itemView.general_event_description.text = model.description
         p0.itemView.general_event_name.text = model.title

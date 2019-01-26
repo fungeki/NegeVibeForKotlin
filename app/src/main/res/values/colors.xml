@@ -1,6 +1,7 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
-    <color name="colorPrimary">#DB8E46</color>
-    <color name="colorPrimaryDark">#704B23</color>
+    <color name="colorPrimary">#1D233C</color>
+    <color name="colorPrimaryDark">#171B2E</color>
     <color name="colorAccent">#D81B60</color>
+    <color name="yellowForMyEventList">#CB983A</color>
 </resources>
