@@ -25,7 +25,7 @@
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:id="@+id/textView6"
-            android:textColor="@color/yellowForMyEventList"
+            android:textColor="@color/colorYellow"
             app:layout_constraintTop_toTopOf="@+id/my_events_imageview"
             app:layout_constraintBottom_toBottomOf="@+id/my_events_imageview"
             app:layout_constraintStart_toStartOf="parent" android:layout_marginStart="32dp"/>
