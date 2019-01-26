@@ -4,4 +4,5 @@
     <color name="colorPrimaryDark">#171B2E</color>
     <color name="colorAccent">#D81B60</color>
     <color name="yellowForMyEventList">#CB983A</color>
+    <color name="white">#ffff</color>
 </resources>
