@@ -26,8 +26,8 @@
             android:title="האירועים שלי"/>
 
     <item
-            android:id="@+id/bot_nav_notifications"
-            android:icon="@drawable/ic_bot_temp_notifications"
+            android:id="@+id/bot_nav_tickets"
+            android:icon="@drawable/ic_bot_nav_temp_tickets"
             android:title="התראות"/>
 
 
