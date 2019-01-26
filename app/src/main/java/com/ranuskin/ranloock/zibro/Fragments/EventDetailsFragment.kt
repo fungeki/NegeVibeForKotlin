@@ -6,10 +6,13 @@ import android.support.v4.app.Fragment
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
+import com.ranuskin.ranloock.zibro.DB.Libraries.EventsLibrary
 import com.ranuskin.ranloock.zibro.Objects.ZibroEvent
 
 import com.ranuskin.ranloock.zibro.R
-
+import com.squareup.picasso.Picasso
+import kotlinx.android.synthetic.main.fragment_event_details.*
+import kotlinx.android.synthetic.main.row_general_event.view.*
 
 
 /**
@@ -17,6 +20,7 @@ import com.ranuskin.ranloock.zibro.R
  *
  */
 class EventDetailsFragment : Fragment() {
+    private var events = EventsLibrary.getMyEvents()
 
     override fun onCreateView(
         inflater: LayoutInflater, container: ViewGroup?,
@@ -32,7 +36,12 @@ class EventDetailsFragment : Fragment() {
         bundle?.let {
             bundle ->
             val event = bundle.getSerializable("event") as ZibroEvent
-            println("${event.title}")
+            eventDetailsTitleEvent.text = event.title
+            eventDetailsEventDate.text = event.date
+            eventDetailsLocation.text = event.locationname
+
+            Picasso.get().load(event.images[0].link).placeholder(R.drawable.zebra)
+                .into(eventDetailsImage)
         }
 
     }
