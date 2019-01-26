@@ -58,18 +58,15 @@ class MainActivity : AppCompatActivity(), NavigationView.OnNavigationItemSelecte
 
     override fun onCreateOptionsMenu(menu: Menu): Boolean {
         // Inflate the menu; this adds items to the action bar if it is present.
-        return false
-//        menuInflater.inflate(R.menu.main, menu)
-//        return true
+        menuInflater.inflate(R.menu.main, menu)
+        return true
     }
 
     override fun onOptionsItemSelected(item: MenuItem): Boolean {
         val id = item.itemId
+        Toast.makeText(this, "לחצת על התראות, אין בנתיים",Toast.LENGTH_LONG).show()
+        return true
 
-
-
-
-        return false
 //        when (item.itemId) {
 //            R.id.action_settings -> return true
 //            else -> return super.onOptionsItemSelected(item)
