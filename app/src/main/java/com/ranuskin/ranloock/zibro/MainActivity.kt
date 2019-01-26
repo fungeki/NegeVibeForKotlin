@@ -14,6 +14,7 @@ import android.widget.Toast
 import com.ranuskin.ranloock.zibro.DB.Libraries.EventsLibrary
 import com.ranuskin.ranloock.zibro.Fragments.ChatListFragment
 import com.ranuskin.ranloock.zibro.Fragments.EventListFragment
+import com.ranuskin.ranloock.zibro.Fragments.MyEventsListFragment
 import kotlinx.android.synthetic.main.activity_main.*
 import kotlinx.android.synthetic.main.app_bar_main.*
 import kotlinx.android.synthetic.main.content_main.*
@@ -113,6 +114,10 @@ class MainActivity : AppCompatActivity(), NavigationView.OnNavigationItemSelecte
             }
             R.id.bot_nav_chats ->{
                 supportFragmentManager.beginTransaction().replace(R.id.fragments_container, ChatListFragment()).commit()
+                return@OnNavigationItemSelectedListener true
+            }
+            R.id.bot_nav_my_events -> {
+                supportFragmentManager.beginTransaction().replace(R.id.fragments_container, MyEventsListFragment()).commit()
                 return@OnNavigationItemSelectedListener true
             }
 

@@ -27,9 +27,9 @@ class ChatListAdapter(): RecyclerView.Adapter<ChatListViewHolder>(){
     }
 
     override fun onBindViewHolder(p0: ChatListViewHolder, p1: Int) {
-        val model = arr.get(p1)
+        val model = arr[p1]
         p0.itemView.chat_list_event_title_textview.text = model.title
-        Picasso.get().load(model.images.get(0).link).placeholder(R.drawable.zebra)
+        Picasso.get().load(model.images[0].link).placeholder(R.drawable.zebra)
             .into(p0.itemView.chat_list_imageview)
     }
 

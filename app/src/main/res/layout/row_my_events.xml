@@ -1,0 +1,32 @@
+<?xml version="1.0" encoding="utf-8"?>
+<android.support.constraint.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+                                             xmlns:app="http://schemas.android.com/apk/res-auto"
+                                             xmlns:tools="http://schemas.android.com/tools"
+                                             android:layoutDirection="ltr"
+                                             android:layout_width="match_parent"
+                                             android:layout_height="wrap_content">
+    <TextView
+            android:layout_width="0dp"
+            android:layout_height="0dp"
+            android:id="@+id/background_for_my_events_cell"
+            android:background="@color/colorPrimary"
+            app:layout_constraintTop_toTopOf="@+id/my_events_imageview"
+            app:layout_constraintBottom_toBottomOf="@+id/my_events_imageview"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"/>
+    <ImageView
+            android:layout_width="80dp"
+            android:layout_height="80dp" app:srcCompat="@drawable/zebra"
+            android:id="@+id/my_events_imageview"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintTop_toTopOf="parent" android:layout_marginTop="24dp" android:scaleType="centerCrop"/>
+    <TextView
+            android:text="משתתפים"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:id="@+id/textView6"
+            android:textColor="@color/yellowForMyEventList"
+            app:layout_constraintTop_toTopOf="@+id/my_events_imageview"
+            app:layout_constraintBottom_toBottomOf="@+id/my_events_imageview"
+            app:layout_constraintStart_toStartOf="parent" android:layout_marginStart="32dp"/>
+</android.support.constraint.ConstraintLayout>
