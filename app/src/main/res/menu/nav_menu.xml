@@ -28,7 +28,7 @@
     <item
             android:id="@+id/bot_nav_tickets"
             android:icon="@drawable/ic_bot_nav_temp_tickets"
-            android:title="התראות"/>
+            android:title="כרטיסים"/>
 
 
 </menu>

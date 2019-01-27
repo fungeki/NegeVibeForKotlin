@@ -15,6 +15,7 @@ import com.ranuskin.ranloock.zibro.DB.Libraries.EventsLibrary
 import com.ranuskin.ranloock.zibro.Fragments.ChatListFragment
 import com.ranuskin.ranloock.zibro.Fragments.EventListFragment
 import com.ranuskin.ranloock.zibro.Fragments.MyEventsListFragment
+import com.ranuskin.ranloock.zibro.Fragments.MyTicketListFragment
 import kotlinx.android.synthetic.main.activity_main.*
 import kotlinx.android.synthetic.main.app_bar_main.*
 import kotlinx.android.synthetic.main.content_main.*
@@ -105,19 +106,28 @@ class MainActivity : AppCompatActivity(), NavigationView.OnNavigationItemSelecte
         return true
     }
 
+
     private val mOnNavigationItemSelectedListener = BottomNavigationView.OnNavigationItemSelectedListener { item ->
         when (item.itemId) {
             R.id.bot_nav_event_list -> {
                 println("meow")
                 supportFragmentManager.beginTransaction().replace(R.id.fragments_container, EventListFragment()).commit()
+                actionBar.title = "אירועים"
                 return@OnNavigationItemSelectedListener true
             }
             R.id.bot_nav_chats ->{
                 supportFragmentManager.beginTransaction().replace(R.id.fragments_container, ChatListFragment()).commit()
+                actionBar.title = "הצ׳אטים שלי"
                 return@OnNavigationItemSelectedListener true
             }
             R.id.bot_nav_my_events -> {
                 supportFragmentManager.beginTransaction().replace(R.id.fragments_container, MyEventsListFragment()).commit()
+                actionBar.title = "האירועים שלי"
+                return@OnNavigationItemSelectedListener true
+            }
+            R.id.bot_nav_tickets ->{
+                supportFragmentManager.beginTransaction().replace(R.id.fragments_container, MyTicketListFragment()).commit()
+                actionBar.title = "הכרטיסים"
                 return@OnNavigationItemSelectedListener true
             }
 

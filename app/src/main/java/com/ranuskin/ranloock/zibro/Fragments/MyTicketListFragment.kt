@@ -27,11 +27,10 @@ class MyTicketListFragment : Fragment() {
         return inflater.inflate(R.layout.fragment_my_ticket_list, container, false)
     }
 
-    override fun onCreate(savedInstanceState: Bundle?) {
-        super.onCreate(savedInstanceState)
+    override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
+        super.onViewCreated(view, savedInstanceState)
         my_tickets_recyclerview.layoutManager = LinearLayoutManager(context)
         my_tickets_recyclerview.adapter = MyTicketsAdapter()
-
     }
 
 

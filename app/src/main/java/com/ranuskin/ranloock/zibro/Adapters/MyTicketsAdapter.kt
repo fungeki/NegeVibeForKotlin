@@ -27,13 +27,13 @@ class MyTicketsAdapter(): RecyclerView.Adapter<MyTicketsViewHolder>(){
 
     override fun onBindViewHolder(p0: MyTicketsViewHolder, p1: Int) {
        val model = mTickets[p1]
-        val sdf = SimpleDateFormat("yyyy-MM-dd'T'HH:mm:ss.SSSZ", Locale("en_US"))
+        val sdf = SimpleDateFormat("yyyy-MM-dd'T'HH:mm:ss.SSS'Z'", Locale("en_US"))
         val date = sdf.parse(model.date)
-        val day = SimpleDateFormat("dd", Locale("iw_IL"))
+        val day = SimpleDateFormat("dd", Locale("he"))
         val dayStr = day.format(date)
         p0.itemView.row_my_tickets_day_textview.text = dayStr
-        val month = SimpleDateFormat("MMMM", Locale("iw_IL"))
-        val monthStr = month.format(month)
+        val month = SimpleDateFormat("MMMM", Locale("he"))
+        val monthStr = month.format(date)
         p0.itemView.row_my_tickets_month_textview.text = monthStr
         p0.itemView.row_my_tickets_event_name_textview.text = model.title
         p0.itemView.row_my_tickets_location_textview.text = model.locationname
