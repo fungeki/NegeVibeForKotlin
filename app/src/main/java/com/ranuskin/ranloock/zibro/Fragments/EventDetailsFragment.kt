@@ -13,6 +13,9 @@ import com.ranuskin.ranloock.zibro.R
 import com.squareup.picasso.Picasso
 import kotlinx.android.synthetic.main.fragment_event_details.*
 import kotlinx.android.synthetic.main.row_general_event.view.*
+import kotlinx.android.synthetic.main.row_my_tickets.view.*
+import java.text.SimpleDateFormat
+import java.util.*
 
 
 /**
@@ -37,8 +40,18 @@ class EventDetailsFragment : Fragment() {
             bundle ->
             val event = bundle.getSerializable("event") as ZibroEvent
             eventDetailsTitleEvent.text = event.title
-            eventDetailsEventDate.text = event.date
             eventDetailsLocation.text = event.locationname
+
+            val sdf = SimpleDateFormat("yyyy-MM-dd'T'HH:mm:ss.SSS'Z'", Locale("en_US"))
+            val date = sdf.parse(event.date)
+
+            val hebrewDate = SimpleDateFormat("EEEE d MMMM yyyy", Locale("he"))
+            var hebrewDateStr = hebrewDate.format(date)
+            eventDetailsEventDate.text = hebrewDateStr
+
+            val time = SimpleDateFormat("HH:mm:ss",Locale("he"))
+            val timeStr = time.format(date)
+            eventDetailsTime.text = timeStr
 
             Picasso.get().load(event.images[0].link).placeholder(R.drawable.zebra)
                 .into(eventDetailsImage)
