@@ -112,22 +112,22 @@ class MainActivity : AppCompatActivity(), NavigationView.OnNavigationItemSelecte
             R.id.bot_nav_event_list -> {
                 println("meow")
                 supportFragmentManager.beginTransaction().replace(R.id.fragments_container, EventListFragment()).commit()
-                actionBar.title = "אירועים"
+                supportActionBar!!.title = "אירועים"
                 return@OnNavigationItemSelectedListener true
             }
             R.id.bot_nav_chats ->{
                 supportFragmentManager.beginTransaction().replace(R.id.fragments_container, ChatListFragment()).commit()
-                actionBar.title = "הצ׳אטים שלי"
+                supportActionBar!!.title = "הצ׳אטים שלי"
                 return@OnNavigationItemSelectedListener true
             }
             R.id.bot_nav_my_events -> {
                 supportFragmentManager.beginTransaction().replace(R.id.fragments_container, MyEventsListFragment()).commit()
-                actionBar.title = "האירועים שלי"
+                supportActionBar!!.title = "האירועים שלי"
                 return@OnNavigationItemSelectedListener true
             }
             R.id.bot_nav_tickets ->{
                 supportFragmentManager.beginTransaction().replace(R.id.fragments_container, MyTicketListFragment()).commit()
-                actionBar.title = "הכרטיסים"
+                supportActionBar!!.title = "הכרטיסים שלי"
                 return@OnNavigationItemSelectedListener true
             }
 
