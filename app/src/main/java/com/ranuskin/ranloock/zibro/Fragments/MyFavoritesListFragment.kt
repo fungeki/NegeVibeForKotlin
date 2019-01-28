@@ -8,7 +8,7 @@ import android.view.View
 import android.view.ViewGroup
 
 import com.ranuskin.ranloock.zibro.R
-
+import kotlinx.android.synthetic.main.fragment_my_favorites_list.view.*
 
 
 /**
@@ -26,4 +26,7 @@ class MyFavoritesListFragment : Fragment() {
     }
 
 
+    override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
+        super.onViewCreated(view, savedInstanceState)
+    }
 }
