@@ -6,11 +6,12 @@
 
     <group android:checkableBehavior="single">
         <item
-                android:id="@+id/nav_camera"
+                android:id="@+id/nav_favorites"
                 app:showAsAction="always"
-                android:icon="@drawable/ic_bot_temp_events"
-                android:title="@string/eventsHebrew"/>
+                android:icon="@drawable/ic_drawer_temp_favorites"
+                android:title="מועדפים"/>
         <item
+
                 android:id="@+id/nav_gallery"
                 android:icon="@drawable/ic_bot_temp_chat"
                 android:title="@string/chatHebrew"/>

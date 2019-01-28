@@ -11,7 +11,6 @@ import android.view.Gravity
 import android.view.Menu
 import android.view.MenuItem
 import android.widget.Toast
-import com.ranuskin.ranloock.zibro.DB.Libraries.EventsLibrary
 import com.ranuskin.ranloock.zibro.Fragments.ChatListFragment
 import com.ranuskin.ranloock.zibro.Fragments.EventListFragment
 import com.ranuskin.ranloock.zibro.Fragments.MyEventsListFragment
@@ -35,6 +34,7 @@ class MainActivity : AppCompatActivity(), NavigationView.OnNavigationItemSelecte
         val toggle = ActionBarDrawerToggle(
             this, drawer_layout, toolbar, R.string.navigation_drawer_open, R.string.navigation_drawer_close
         )
+        nav_view.itemIconTintList = null
 
         bottom_nav_bar.selectedItemId = R.id.bot_nav_event_list
         drawer_layout.addDrawerListener(toggle)
@@ -85,7 +85,7 @@ class MainActivity : AppCompatActivity(), NavigationView.OnNavigationItemSelecte
             drawer_layout.openDrawer(Gravity.RIGHT)
         }
         when (item.itemId) {
-            R.id.nav_camera -> {
+            R.id.nav_favorites -> {
                 // Handle the camera action
             }
             R.id.nav_gallery -> {
