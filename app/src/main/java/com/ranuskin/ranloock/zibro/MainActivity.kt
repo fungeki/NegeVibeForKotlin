@@ -11,10 +11,7 @@ import android.view.Gravity
 import android.view.Menu
 import android.view.MenuItem
 import android.widget.Toast
-import com.ranuskin.ranloock.zibro.Fragments.ChatListFragment
-import com.ranuskin.ranloock.zibro.Fragments.EventListFragment
-import com.ranuskin.ranloock.zibro.Fragments.MyEventsListFragment
-import com.ranuskin.ranloock.zibro.Fragments.MyTicketListFragment
+import com.ranuskin.ranloock.zibro.Fragments.*
 import kotlinx.android.synthetic.main.activity_main.*
 import kotlinx.android.synthetic.main.app_bar_main.*
 import kotlinx.android.synthetic.main.content_main.*
@@ -87,6 +84,7 @@ class MainActivity : AppCompatActivity(), NavigationView.OnNavigationItemSelecte
         when (item.itemId) {
             R.id.nav_favorites -> {
                 // Handle the camera action
+                supportFragmentManager.beginTransaction().replace(R.id.fragments_container, MyFavoritesListFragment()).commit()
             }
             R.id.nav_gallery -> {
 
