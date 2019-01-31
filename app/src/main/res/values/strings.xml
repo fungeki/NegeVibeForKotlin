@@ -11,7 +11,9 @@
     <string name="hello_blank_fragment">Hello blank fragment</string>
     <string name="eventsHebrew">אירועים</string>
     <string name="chatHebrew">צ׳אט</string>
-    <string name="settingsHebrew">הגדרות</string>
     <string name="sendHebrew">לשלוח</string>
     <string name="shareHebrew">שיתוף</string>
+    <string name="updateHebrew">עדכונים</string>
+    <string name="settingsHebrew">הגדרות</string>
+    <string name="ticketCountHebrew">כרטיסים שנשארו</string>
 </resources>
