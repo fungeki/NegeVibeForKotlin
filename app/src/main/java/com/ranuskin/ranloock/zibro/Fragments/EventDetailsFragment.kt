@@ -7,6 +7,7 @@ import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import com.ranuskin.ranloock.zibro.DB.Libraries.EventsLibrary
+import com.ranuskin.ranloock.zibro.Objects.Category
 import com.ranuskin.ranloock.zibro.Objects.ZibroEvent
 
 import com.ranuskin.ranloock.zibro.R
@@ -41,6 +42,7 @@ class EventDetailsFragment : Fragment() {
             val event = bundle.getSerializable("event") as ZibroEvent
             eventDetailsTitleEvent.text = event.title
             eventDetailsLocation.text = event.locationname
+          //  eventDetailsCategory.text = Category.values(Category)
 
             val sdf = SimpleDateFormat("yyyy-MM-dd'T'HH:mm:ss.SSS'Z'", Locale("en_US"))
             val date = sdf.parse(event.date)
@@ -52,6 +54,9 @@ class EventDetailsFragment : Fragment() {
             val time = SimpleDateFormat("HH:mm:ss",Locale("he"))
             val timeStr = time.format(date)
             eventDetailsTime.text = timeStr
+
+            eventDetailsEventDescription.text = event.description
+            eventDetailsPrice.text = " מחיר :  ${event.price} ₪"
 
             Picasso.get().load(event.images[0].link).placeholder(R.drawable.zebra)
                 .into(eventDetailsImage)
