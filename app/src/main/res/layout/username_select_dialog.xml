@@ -1,0 +1,43 @@
+<?xml version="1.0" encoding="utf-8"?>
+<android.support.constraint.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+                                             xmlns:app="http://schemas.android.com/apk/res-auto"
+                                             xmlns:tools="http://schemas.android.com/tools"
+                                             android:layoutDirection="ltr"
+                                             android:layout_width="match_parent"
+                                             android:layout_height="wrap_content">
+
+    <TextView
+            android:text="בחר כינוי לצ׳אט"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:gravity="center"
+            android:textSize="24sp"
+            android:id="@+id/username_select_dialog_explanation_textview" app:layout_constraintStart_toStartOf="parent"
+            android:layout_marginStart="16dp" app:layout_constraintEnd_toEndOf="parent"
+            android:layout_marginEnd="16dp" android:layout_marginTop="16dp" app:layout_constraintTop_toTopOf="parent"/>
+    <EditText
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:inputType="textPersonName"
+            android:ems="10"
+            android:hint="אותיות או מספרים"
+            android:gravity="right"
+            android:id="@+id/username_select_dialog_name_edittext" android:layout_marginTop="8dp"
+            app:layout_constraintTop_toBottomOf="@+id/username_select_dialog_explanation_textview"
+            android:layout_marginEnd="16dp" app:layout_constraintEnd_toEndOf="parent" android:layout_marginStart="16dp"
+            app:layout_constraintStart_toStartOf="parent"/>
+    <Button
+            android:text="ביטול"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:id="@+id/username_select_dialog_cancel" app:layout_constraintEnd_toEndOf="parent"
+            android:layout_marginEnd="16dp" android:layout_marginTop="8dp"
+            app:layout_constraintTop_toBottomOf="@+id/username_select_dialog_name_edittext"/>
+    <Button
+            android:text="אישור"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:id="@+id/username_select_dialog_accept" android:layout_marginTop="8dp"
+            app:layout_constraintTop_toBottomOf="@+id/username_select_dialog_name_edittext"
+            app:layout_constraintStart_toStartOf="parent" android:layout_marginStart="16dp"/>
+</android.support.constraint.ConstraintLayout>

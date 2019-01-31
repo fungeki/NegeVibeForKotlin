@@ -4,7 +4,8 @@
       xmlns:app="http://schemas.android.com/apk/res-auto"
       tools:showIn="navigation_view">
 
-    <group android:checkableBehavior="single">
+    <group android:id="@+id/menu_drawer_group1"
+           android:checkableBehavior="single">
         <item
                 android:id="@+id/nav_favorites"
                 app:showAsAction="always"
@@ -14,24 +15,25 @@
 
                 android:id="@+id/nav_gallery"
                 android:icon="@drawable/ic_bot_temp_chat"
-                android:title="@string/chatHebrew"/>
+                android:title="@string/updateHebrew"/>
         <item
                 android:id="@+id/nav_manage"
                 android:icon="@drawable/ic_menu_manage"
-                android:title="@string/settingsHebrew"/>
+                android:title="אירועים פעילים"/>
     </group>
 
-    <item android:title="@string/shareHebrew">
-        <menu>
+    <group android:id="@+id/menu_drawer_group2"
+             android:checkableBehavior="single">
+
             <item
                     android:id="@+id/nav_share"
                     android:icon="@drawable/ic_menu_share"
-                    android:title="@string/shareHebrew"/>
+                    android:title="@string/settingsHebrew"/>
             <item
                     android:id="@+id/nav_send"
                     android:icon="@drawable/ic_menu_send"
-                    android:title="@string/sendHebrew"/>
-        </menu>
-    </item>
+                    android:title="יציאה"/>
+
+    </group>
 
 </menu>

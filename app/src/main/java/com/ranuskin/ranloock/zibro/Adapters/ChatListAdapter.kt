@@ -8,10 +8,9 @@ import com.ranuskin.ranloock.zibro.DB.Libraries.EventsLibrary
 import com.ranuskin.ranloock.zibro.Objects.ZibroEvent
 import com.ranuskin.ranloock.zibro.R
 import com.squareup.picasso.Picasso
-import kotlinx.android.synthetic.main.nav_header_main.view.*
 import kotlinx.android.synthetic.main.row_general_chat_list.view.*
 
-class ChatListAdapter(): RecyclerView.Adapter<ChatListViewHolder>(){
+class ChatListAdapter(val listener: (ZibroEvent) -> Unit): RecyclerView.Adapter<ChatListViewHolder>(){
 
     lateinit var arr: List<ZibroEvent>
     override fun onCreateViewHolder(p0: ViewGroup, p1: Int): ChatListViewHolder {
@@ -31,6 +30,9 @@ class ChatListAdapter(): RecyclerView.Adapter<ChatListViewHolder>(){
         p0.itemView.chat_list_event_title_textview.text = model.title
         Picasso.get().load(model.images[0].link).placeholder(R.drawable.zebra)
             .into(p0.itemView.chat_list_imageview)
+        p0.itemView.setOnClickListener {
+            listener(model)
+        }
     }
 
 }
