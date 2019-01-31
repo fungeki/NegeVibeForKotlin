@@ -1,0 +1,62 @@
+{
+  "project_info": {
+    "project_number": "743719005617",
+    "firebase_url": "https://negevibe-2cad5.firebaseio.com",
+    "project_id": "negevibe-2cad5",
+    "storage_bucket": "negevibe-2cad5.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:743719005617:android:9563a4eaa10aa4d9",
+        "android_client_info": {
+          "package_name": "com.ranuskin.ranloock.zibro"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "743719005617-fmp4u832glo16at3cjl6iqom3ir4okdj.apps.googleusercontent.com",
+          "client_type": 1,
+          "android_info": {
+            "package_name": "com.ranuskin.ranloock.zibro",
+            "certificate_hash": "7819b45389072d7af5387632df1fa9d10656bef4"
+          }
+        },
+        {
+          "client_id": "743719005617-ijef13efmaev03r1j1dvnj1reij0p67o.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyACAVCIK7kMqY_bFckPST1Z7ioxdPR0_Pw"
+        }
+      ],
+      "services": {
+        "analytics_service": {
+          "status": 1
+        },
+        "appinvite_service": {
+          "status": 2,
+          "other_platform_oauth_client": [
+            {
+              "client_id": "743719005617-ijef13efmaev03r1j1dvnj1reij0p67o.apps.googleusercontent.com",
+              "client_type": 3
+            },
+            {
+              "client_id": "743719005617-rlo4u6heba83a7uep36d5je4928sg764.apps.googleusercontent.com",
+              "client_type": 2,
+              "ios_info": {
+                "bundle_id": "com.ranuskin.project.NegeVibe"
+              }
+            }
+          ]
+        },
+        "ads_service": {
+          "status": 2
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}
