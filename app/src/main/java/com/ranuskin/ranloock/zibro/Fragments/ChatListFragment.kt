@@ -53,10 +53,12 @@ class ChatListFragment : Fragment() {
         dialogView.username_select_dialog_accept.isEnabled = false
         dialogView.username_select_dialog_accept.setOnClickListener {
 
+
         }
         dialogView.username_select_dialog_cancel.setOnClickListener {
             dialog.dismiss()
         }
+
         dialogView.username_select_dialog_name_edittext.addTextChangedListener(object: TextWatcher{
             override fun afterTextChanged(s: Editable?) {
 
