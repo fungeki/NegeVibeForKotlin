@@ -11,6 +11,8 @@ import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import com.ranuskin.ranloock.zibro.Adapters.ChatListAdapter
+import com.ranuskin.ranloock.zibro.DB.Libraries.SignedInUser
+import com.ranuskin.ranloock.zibro.DB.Update.updateUsername
 import com.ranuskin.ranloock.zibro.R
 import kotlinx.android.synthetic.main.fragment_chat_list.*
 import kotlinx.android.synthetic.main.username_select_dialog.view.*
@@ -22,6 +24,7 @@ import java.util.regex.Pattern
  *
  */
 class ChatListFragment : Fragment() {
+
 
     override fun onCreateView(
         inflater: LayoutInflater, container: ViewGroup?,
@@ -36,7 +39,10 @@ class ChatListFragment : Fragment() {
         super.onViewCreated(view, savedInstanceState)
         chat_list_recycler_view.layoutManager = LinearLayoutManager(context)
         chat_list_recycler_view.adapter = ChatListAdapter{ event ->
-            showUsernameDialog()
+            if (SignedInUser.getUsername() == null){
+                showUsernameDialog()
+            }
+
 
         }
 
@@ -52,8 +58,13 @@ class ChatListFragment : Fragment() {
         dialog.show()
         dialogView.username_select_dialog_accept.isEnabled = false
         dialogView.username_select_dialog_accept.setOnClickListener {
-
-
+            val uid = SignedInUser.getUID()
+            if (uid.isNotEmpty()){
+                updateUsername(dialogView.username_select_dialog_name_edittext.text.toString().trim()) {
+                    println("meow")
+                    println("new usernamed successfully updated")
+                }
+            }
         }
         dialogView.username_select_dialog_cancel.setOnClickListener {
             dialog.dismiss()
@@ -70,7 +81,8 @@ class ChatListFragment : Fragment() {
 
             override fun onTextChanged(s: CharSequence?, start: Int, before: Int, count: Int) {
                 s?.let { str->
-                    dialogView.username_select_dialog_accept.isEnabled = str.length > 4 && isValidName(str.toString())
+                    val strTrimmed = str.trim()
+                    dialogView.username_select_dialog_accept.isEnabled = strTrimmed.length > 4 && isValidName(strTrimmed.toString())
                 }
             }
 
