@@ -14,11 +14,11 @@
         <item
 
                 android:id="@+id/nav_gallery"
-                android:icon="@drawable/ic_bot_temp_chat"
+                android:icon="@drawable/ic_updates"
                 android:title="@string/updateHebrew"/>
         <item
                 android:id="@+id/nav_manage"
-                android:icon="@drawable/ic_menu_manage"
+                android:icon="@drawable/ic_active_events"
                 android:title="אירועים פעילים"/>
     </group>
 
@@ -27,11 +27,11 @@
 
             <item
                     android:id="@+id/nav_share"
-                    android:icon="@drawable/ic_menu_share"
+                    android:icon="@drawable/ic_settings"
                     android:title="@string/settingsHebrew"/>
             <item
                     android:id="@+id/nav_send"
-                    android:icon="@drawable/ic_menu_send"
+                    android:icon="@drawable/ic_logout"
                     android:title="יציאה"/>
 
     </group>

@@ -60,6 +60,8 @@ class EventDetailsFragment : Fragment() {
 
             Picasso.get().load(event.images[0].link).placeholder(R.drawable.zebra)
                 .into(eventDetailsImage)
+
+
         }
 
     }

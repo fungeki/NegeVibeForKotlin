@@ -16,4 +16,6 @@
     <string name="updateHebrew">עדכונים</string>
     <string name="settingsHebrew">הגדרות</string>
     <string name="ticketCountHebrew">כרטיסים שנשארו</string>
+    <string name="buyHebrew">לרכישה</string>
+    <string name="to_chatHebrew">לציאט האירועו</string>
 </resources>
