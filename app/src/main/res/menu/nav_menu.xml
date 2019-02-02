@@ -12,22 +12,22 @@
 
     <item
             android:id="@+id/bot_nav_chats"
-            android:icon="@drawable/ic_bot_temp_chat"
+            android:icon="@drawable/ic_chat_purple"
             android:title="צ׳אטים"/>
 
 
     <item
             android:id="@+id/bot_nav_add_event"
-            android:icon="@drawable/ic_bot_temp_add_event"
+            android:icon="@drawable/ic_plus_green"
             android:title="הוספת אירוע"/>
     <item
             android:id="@+id/bot_nav_my_events"
-            android:icon="@drawable/ic_bot_temp_events"
+            android:icon="@drawable/ic_your_event"
             android:title="האירועים שלי"/>
 
     <item
             android:id="@+id/bot_nav_tickets"
-            android:icon="@drawable/ic_bot_nav_temp_tickets"
+            android:icon="@drawable/ic_ticket_blue"
             android:title="כרטיסים"/>
 
 
