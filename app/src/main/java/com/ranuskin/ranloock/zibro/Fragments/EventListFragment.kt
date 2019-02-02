@@ -1,16 +1,13 @@
 package com.ranuskin.ranloock.zibro.Fragments
 
 
-import android.graphics.Color
 import android.os.Bundle
 import android.support.v4.app.Fragment
-import android.support.v4.app.FragmentTransaction
 import android.support.v7.widget.LinearLayoutManager
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import com.ranuskin.ranloock.zibro.Adapters.GeneralEventListAdapter
-
 import com.ranuskin.ranloock.zibro.R
 import kotlinx.android.synthetic.main.fragment_general_event_list.*
 
@@ -54,4 +51,6 @@ class EventListFragment : Fragment() {
 
 
     }
+
+
 }
