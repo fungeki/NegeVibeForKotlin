@@ -8,7 +8,7 @@
     <item
             android:id="@+id/bot_nav_event_list"
             android:icon="@drawable/ic_bot_temp_event_list"
-            android:title="רשימת אירועים"/>
+            android:title="אירועים"/>
 
     <item
             android:id="@+id/bot_nav_chats"
