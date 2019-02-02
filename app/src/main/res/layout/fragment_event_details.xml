@@ -74,10 +74,10 @@
                             android:layout_height="wrap_content"
                             android:orientation="horizontal"
                             android:layoutDirection="rtl">
-                        <ImageButton
+                        <ImageView
                                 android:layout_width="wrap_content"
                                 android:layout_height="wrap_content"
-                                android:src="@drawable/ic_bot_temp_events"
+                                android:src="@drawable/ic_date_blue"
                                 android:background="@color/colorPrimary"
                                 android:layout_weight="1"
                                 android:paddingTop="4dp"
@@ -117,13 +117,13 @@
                             android:orientation="horizontal"
                             android:layout_marginBottom="6dp"
                             android:layout_marginTop="6dp">
-                        <ImageButton
+                        <ImageView
                                 android:layout_width="wrap_content"
                                 android:layout_height="wrap_content"
-                                android:src="@drawable/ic_bot_temp_events"
                                 android:background="@color/colorPrimary"
                                 android:paddingStart="5dp"
-                                android:layout_marginStart="12dp"/>
+                                android:layout_marginStart="12dp"
+                                android:src="@drawable/ic_category_blue"/>
                         <TextView
                                 android:id="@+id/eventDetailsCategory"
                                 android:layout_width="wrap_content"
@@ -142,7 +142,7 @@
                             android:orientation="horizontal"
                             android:layout_marginBottom="12dp"
                             android:layout_marginTop="6dp">
-                        <ImageButton
+                        <ImageView
                                 android:layout_width="wrap_content"
                                 android:layout_height="wrap_content"
                                 android:src="@drawable/ic_bot_temp_events"
@@ -167,7 +167,7 @@
                             android:orientation="horizontal"
                             android:layout_marginBottom="6dp"
                             android:layout_marginTop="6dp">
-                        <ImageButton
+                        <ImageView
                                 android:layout_width="wrap_content"
                                 android:layout_height="wrap_content"
                                 android:src="@drawable/ic_bot_temp_events"
@@ -192,7 +192,7 @@
                             android:orientation="horizontal"
                             android:layout_marginBottom="6dp"
                             android:layout_marginTop="6dp">
-                        <ImageButton
+                        <ImageView
                                 android:layout_width="wrap_content"
                                 android:layout_height="wrap_content"
                                 android:src="@drawable/ic_bot_temp_events"
