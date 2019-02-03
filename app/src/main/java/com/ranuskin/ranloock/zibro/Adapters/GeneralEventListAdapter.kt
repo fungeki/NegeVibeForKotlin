@@ -8,6 +8,8 @@ import android.view.View
 import android.view.ViewGroup
 import android.view.animation.Animation
 import android.view.animation.AnimationUtils
+import android.widget.Filter
+import android.widget.Filterable
 import com.ranuskin.ranloock.zibro.DB.Libraries.EventsLibrary
 import com.ranuskin.ranloock.zibro.Objects.ZibroEvent
 import com.ranuskin.ranloock.zibro.R
@@ -17,14 +19,15 @@ import kotlinx.android.synthetic.main.row_general_event.view.*
 
 
 
-class GeneralEventListAdapter(val listener: (ZibroEvent) -> Unit): RecyclerView.Adapter<GeneralEventListViewHolder>(){
+class GeneralEventListAdapter(val listener: (ZibroEvent) -> Unit): RecyclerView.Adapter<GeneralEventListViewHolder>(), Filterable{
 
+    var searchedEvents: MutableList<ZibroEvent> = EventsLibrary.getMyEvents()
     var isFavorite = false
     lateinit var mContext: Context
     private var events = EventsLibrary.getMyEvents()
     //number of items
     override fun getItemCount(): Int {
-        return events.size
+        return searchedEvents.size
     }
 
 
@@ -36,7 +39,7 @@ class GeneralEventListAdapter(val listener: (ZibroEvent) -> Unit): RecyclerView.
     }
 
     override fun onBindViewHolder(p0: GeneralEventListViewHolder, p1: Int) {
-        val model = events[p1]
+        val model = searchedEvents[p1]
         Picasso.get().load(model.images[0].link).placeholder(com.ranuskin.ranloock.zibro.R.drawable.zebra)
             .into(p0.itemView.eventImageView)
         p0.itemView.general_event_description.text = model.description
@@ -112,6 +115,37 @@ class GeneralEventListAdapter(val listener: (ZibroEvent) -> Unit): RecyclerView.
     }
 
 
+    override fun getFilter(): Filter {
+        return eventsFilter
+    }
+
+    private var eventsFilter = object: Filter(){
+        override fun performFiltering(constraint: CharSequence?): FilterResults {
+            var filteredList = mutableListOf<ZibroEvent>()
+            if (constraint == null || constraint.length < 2){
+                filteredList.addAll(events)
+            } else {
+                val filterPattern = constraint.toString().trim()
+                for (model in events){
+                    if (model.title.toLowerCase().contains(filterPattern)){
+                        filteredList.add(model)
+                    }
+                }
+            }
+
+            var results = FilterResults()
+            results.values = filteredList
+            return results
+        }
+
+        override fun publishResults(constraint: CharSequence?, results: FilterResults?) {
+            searchedEvents.clear()
+            results?.let { mResults ->
+                searchedEvents.addAll(mResults.values as List<ZibroEvent>)
+            }
+        }
+
+    }
 }
 
 class GeneralEventListViewHolder(v: View): RecyclerView.ViewHolder(v){

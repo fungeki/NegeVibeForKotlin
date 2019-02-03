@@ -4,6 +4,8 @@ package com.ranuskin.ranloock.zibro.Fragments
 import android.os.Bundle
 import android.support.v4.app.Fragment
 import android.support.v7.widget.LinearLayoutManager
+import android.text.Editable
+import android.text.TextWatcher
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
@@ -39,7 +41,7 @@ class EventListFragment : Fragment() {
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
         general_event_list.layoutManager = LinearLayoutManager(context)
-        general_event_list.adapter = GeneralEventListAdapter{ event ->
+        val mAdapter = GeneralEventListAdapter{ event ->
             val bundle = Bundle()
             bundle.putSerializable("event",event)
             val ft = activity!!.supportFragmentManager.beginTransaction().addToBackStack(null)
@@ -48,6 +50,25 @@ class EventListFragment : Fragment() {
             eventDetailFragment.arguments = bundle
             ft.replace(R.id.fragments_container, eventDetailFragment).commit()
         }
+        general_event_list.adapter = mAdapter
+        general_event_list_search_edittext.addTextChangedListener(object: TextWatcher{
+            override fun afterTextChanged(s: Editable?) {
+
+            }
+
+            override fun beforeTextChanged(s: CharSequence?, start: Int, count: Int, after: Int) {
+
+            }
+
+            override fun onTextChanged(s: CharSequence?, start: Int, before: Int, count: Int) {
+                s?.let{ str->
+                    mAdapter.filter.filter(str)
+                    mAdapter.notifyDataSetChanged()
+                }
+
+            }
+
+        })
 
 
     }

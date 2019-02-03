@@ -23,7 +23,7 @@ object EventsLibrary{
         }
 
     }
-    fun getMyEvents(): List<ZibroEvent>{
-        return events
+    fun getMyEvents(): MutableList<ZibroEvent>{
+        return events.toMutableList()
     }
 }
