@@ -2,6 +2,7 @@ package com.ranuskin.ranloock.zibro.Adapters
 
 
 import android.content.Context
+import android.content.Intent
 import android.support.v7.widget.RecyclerView
 import android.view.LayoutInflater
 import android.view.View
@@ -48,6 +49,14 @@ class GeneralEventListAdapter(val listener: (ZibroEvent) -> Unit): RecyclerView.
         p0.itemView.setOnClickListener {
             listener(model)
 
+        }
+
+        p0.itemView.general_event_share.setOnClickListener {
+            var sendIntent = Intent()
+            sendIntent.action = Intent.ACTION_SEND
+            sendIntent.putExtra(Intent.EXTRA_TEXT, "מנשמע זיברואים? יום אחד בא אלי חבר, אמר לי מוישה, בוא נלך ל" + "${model.title}")
+            sendIntent.type = "text/plain"
+            mContext.startActivity(Intent.createChooser(sendIntent, "למי לשלוח?"))
         }
         p0.itemView.general_event_add_to_favorites.setOnClickListener {
             p0.itemView.general_event_add_to_favorites.isEnabled = false
