@@ -18,13 +18,16 @@
     <TextView
             android:text="שם האירוע"
             android:layout_width="0dp"
-            android:layout_height="26dp"
+            android:textSize="20sp"
+            android:maxLines="1"
+            android:ellipsize="end"
+            android:layout_height="wrap_content"
             android:id="@+id/general_event_name"
-            app:layout_constraintEnd_toEndOf="parent"
-            android:layout_marginEnd="8dp" app:layout_constraintStart_toStartOf="parent"
             android:layout_marginStart="8dp"
-            app:layout_constraintHorizontal_bias="0.0"
-            android:layout_marginTop="8dp" app:layout_constraintTop_toBottomOf="@+id/eventImageView"/>
+            app:layout_constraintEnd_toStartOf="@+id/row_general_event_month_textview" android:layout_marginEnd="16dp"
+            app:layout_constraintTop_toTopOf="@+id/row_general_event_month_textview"
+            app:layout_constraintBottom_toBottomOf="@+id/row_general_event_month_textview"
+            app:layout_constraintStart_toEndOf="@+id/general_event_share"/>
     <TextView
             android:text="תיאור"
             android:maxLines="3"
@@ -32,12 +35,11 @@
             android:layout_width="0dp"
             android:layout_height="56dp"
             android:id="@+id/general_event_description"
-            app:layout_constraintEnd_toEndOf="parent"
-            android:layout_marginEnd="8dp" app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
             android:layout_marginStart="8dp"
-            app:layout_constraintHorizontal_bias="1.0"
-            android:layout_marginTop="8dp" app:layout_constraintTop_toBottomOf="@+id/general_event_name"
-            app:layout_constraintBottom_toBottomOf="parent" android:layout_marginBottom="8dp"/>
+            android:layout_marginTop="4dp" app:layout_constraintTop_toBottomOf="@+id/general_event_name"
+            app:layout_constraintBottom_toBottomOf="parent" android:layout_marginBottom="8dp"
+            app:layout_constraintEnd_toEndOf="@+id/general_event_name"/>
     <ImageView
             android:layout_width="40dp"
             android:layout_height="40dp"
@@ -64,4 +66,23 @@
             app:layout_constraintTop_toBottomOf="@+id/eventImageView"
             app:layout_constraintBottom_toBottomOf="@+id/eventImageView"
             app:layout_constraintStart_toEndOf="@+id/general_event_like_imageview" android:layout_marginStart="8dp"/>
+    <TextView
+            android:text="חודש"
+            android:layout_width="wrap_content"
+            android:textSize="20sp"
+            android:layout_height="wrap_content"
+            android:textColor="@color/colorAccentLight"
+            android:id="@+id/row_general_event_month_textview" app:layout_constraintEnd_toEndOf="parent"
+            android:layout_marginEnd="8dp" android:layout_marginTop="8dp"
+            app:layout_constraintTop_toBottomOf="@+id/eventImageView"/>
+    <TextView
+            android:text="יום"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:textSize="20sp"
+            android:id="@+id/row_general_event_day_textview"
+            app:layout_constraintStart_toStartOf="@+id/row_general_event_month_textview"
+            app:layout_constraintEnd_toEndOf="@+id/row_general_event_month_textview"
+            app:layout_constraintTop_toBottomOf="@+id/row_general_event_month_textview"
+            android:layout_marginStart="4dp"/>
 </android.support.constraint.ConstraintLayout>

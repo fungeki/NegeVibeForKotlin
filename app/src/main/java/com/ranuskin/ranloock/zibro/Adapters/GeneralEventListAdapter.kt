@@ -16,8 +16,8 @@ import com.ranuskin.ranloock.zibro.Objects.ZibroEvent
 import com.ranuskin.ranloock.zibro.R
 import com.squareup.picasso.Picasso
 import kotlinx.android.synthetic.main.row_general_event.view.*
-
-
+import java.text.SimpleDateFormat
+import java.util.*
 
 
 class GeneralEventListAdapter(val listener: (ZibroEvent) -> Unit): RecyclerView.Adapter<GeneralEventListViewHolder>(), Filterable{
@@ -41,6 +41,18 @@ class GeneralEventListAdapter(val listener: (ZibroEvent) -> Unit): RecyclerView.
 
     override fun onBindViewHolder(p0: GeneralEventListViewHolder, p1: Int) {
         val model = searchedEvents[p1]
+
+        //date initializing
+        val sdf = SimpleDateFormat("yyyy-MM-dd'T'HH:mm:ss.SSS'Z'", Locale("en_US"))
+        val date = sdf.parse(model.date)
+        val day = SimpleDateFormat("dd", Locale("he"))
+        val dayStr = day.format(date)
+        p0.itemView.row_general_event_day_textview.text = dayStr
+        val month = SimpleDateFormat("MMM", Locale("he"))
+        val monthStr = month.format(date)
+        p0.itemView.row_general_event_month_textview.text = monthStr
+
+        //views init
         Picasso.get().load(model.images[0].link).placeholder(com.ranuskin.ranloock.zibro.R.drawable.zebra)
             .into(p0.itemView.eventImageView)
         p0.itemView.general_event_description.text = model.description
