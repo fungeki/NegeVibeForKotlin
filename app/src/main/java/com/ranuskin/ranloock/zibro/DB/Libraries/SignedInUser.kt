@@ -7,6 +7,7 @@ import com.google.firebase.firestore.DocumentReference
 import com.google.firebase.firestore.FirebaseFirestore
 import com.ranuskin.ranloock.zibro.DB.Constructors.CreateAnonUser
 import com.ranuskin.ranloock.zibro.DB.Get.getUser
+import com.ranuskin.ranloock.zibro.DB.Get.getUserFavorites
 import com.ranuskin.ranloock.zibro.Objects.UserUtils.User
 import com.ranuskin.ranloock.zibro.Objects.UserUtils.UserFavorites
 
@@ -30,9 +31,13 @@ object SignedInUser{
                 currentUser = mUser
                 getUser { user ->
                     this.user = user
-                    completion?.let { completion ->
-                        completion(true)
+                    getUserFavorites { favorites ->
+                        userFavorites = favorites
+                        completion?.let { completion ->
+                            completion(true)
+                        }
                     }
+
                 }
 
         } else {
@@ -42,6 +47,7 @@ object SignedInUser{
                     val user = mAuth.currentUser
                     this.currentUser = user
                     CreateAnonUser {
+                        userFavorites = mutableListOf()
                         completion?.let {
                             completion(true)
                         }
