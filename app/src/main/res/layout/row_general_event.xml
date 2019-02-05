@@ -33,7 +33,7 @@
             android:maxLines="3"
             android:ellipsize="end"
             android:layout_width="0dp"
-            android:layout_height="56dp"
+            android:layout_height="58dp"
             android:id="@+id/general_event_description"
             app:layout_constraintStart_toStartOf="parent"
             android:layout_marginStart="8dp"
