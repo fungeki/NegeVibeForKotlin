@@ -18,4 +18,6 @@
     <string name="ticketCountHebrew">כרטיסים שנשארו</string>
     <string name="buyHebrew">לרכישה</string>
     <string name="to_chatHebrew">לציאט האירועו</string>
+    <string name="eventNameHebrew">שם האירוע</string>
+    <string name="eventDescriptionHebrew">תיאור האירוע</string>
 </resources>

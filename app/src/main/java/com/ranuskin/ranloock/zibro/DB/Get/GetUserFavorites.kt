@@ -11,12 +11,12 @@ fun getUserFavorites(completion: (MutableList<UserFavorites>)->Unit) {
         documentSnapshot ->
         if (documentSnapshot != null){
             val data = documentSnapshot.data
-            for (field in data!!){
+       /*     for (field in data!!){
                 val fieldID = field.key
                 val date = field.value as String
                 val favorite = UserFavorites(fieldID, date)
                 mFavorites.add(favorite)
-            }
+            }*/
         }
         completion(mFavorites)
     }

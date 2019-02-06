@@ -123,6 +123,11 @@ class MainActivity : AppCompatActivity(), NavigationView.OnNavigationItemSelecte
                 supportActionBar!!.title = "הכרטיסים שלי"
                 return@OnNavigationItemSelectedListener true
             }
+            R.id.bot_nav_add_event->{
+                supportFragmentManager.beginTransaction().replace(R.id.fragments_container,AddMyEventFragment()).commit()
+                supportActionBar!!.title = "הוספת אירוע"
+                return@OnNavigationItemSelectedListener true
+            }
 
         }
         false
