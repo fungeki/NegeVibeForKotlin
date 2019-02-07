@@ -11,5 +11,6 @@
     <color name="colorPurple">#B62FD2</color>
     <color name="titleColor">#4B4B4B</color>
     <color name="colorWhite">#FFFFFF</color>
+    <color name="colorGrayBackground">#E4E4E4</color>
     <color name="colorBlack">#000000</color>
 </resources>
