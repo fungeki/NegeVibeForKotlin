@@ -8,6 +8,7 @@ import android.content.pm.PackageManager
 import android.net.Uri
 import android.os.Build
 import android.os.Bundle
+import android.provider.MediaStore
 import android.support.v4.app.ActivityCompat
 import android.support.v4.app.Fragment
 import android.support.v4.content.ContextCompat.checkSelfPermission
@@ -30,6 +31,8 @@ class AddMyEventFragment : Fragment() {
     private val IMAGE_PICK_CODE: Int = 100
     private val REQUEST_CODE_FOR_USING_CAMERA: Int = 101
     private val PERMISSION_CODE = 1001
+
+    var fileUri: Uri? = null
 
     override fun onCreateView(inflater: LayoutInflater, container: ViewGroup?, savedInstanceState: Bundle?): View? {
         // Create an ArrayAdapter
@@ -66,8 +69,6 @@ class AddMyEventFragment : Fragment() {
         adapter.setDropDownViewResource(android.R.layout.simple_spinner_dropdown_item)
         // Apply the adapter to the spinner
         addEventCategorySpinner.adapter = adapter
-
-
         addEventCategorySpinner.onItemSelectedListener = object : AdapterView.OnItemSelectedListener{
             override fun onNothingSelected(parent: AdapterView<*>?) {
 
@@ -82,9 +83,11 @@ class AddMyEventFragment : Fragment() {
     }
 
     private fun pickPhotoFromCallery(){
-        val intent = Intent(Intent.ACTION_PICK)
-        intent.type = "image/*"
-        startActivityForResult(intent,IMAGE_PICK_CODE)
+//        val intent = Intent(Intent.ACTION_PICK)
+//        intent.type = "image/*"
+        val pickImageIntent = Intent(Intent.ACTION_PICK,
+            MediaStore.Images.Media.EXTERNAL_CONTENT_URI)
+        startActivityForResult(pickImageIntent,IMAGE_PICK_CODE)
 
 
     }
@@ -100,7 +103,7 @@ class AddMyEventFragment : Fragment() {
                 }
             }
 
-            
+
         }
 
     }
@@ -108,13 +111,25 @@ class AddMyEventFragment : Fragment() {
 
     override fun onActivityResult(requestCode: Int, resultCode: Int, data: Intent?) {
         super.onActivityResult(requestCode, resultCode, data)
-        if(requestCode == Activity.RESULT_OK && requestCode == IMAGE_PICK_CODE){
-            addEventCategoryImage.setImageURI(data?.data)
+        if (resultCode == Activity.RESULT_OK
+            && requestCode == REQUEST_CODE_FOR_USING_CAMERA) {
+            //photo from camera
+            //display the photo on the imageview
+            addEventCategoryImage.setImageURI(fileUri)
+        }else if(resultCode == Activity.RESULT_OK
+            && requestCode == IMAGE_PICK_CODE){
+            //photo from gallery
+            fileUri = data?.data
+            addEventCategoryImage.setImageURI(fileUri)
+        } else {
+            super.onActivityResult(requestCode, resultCode, data)
         }
     }
 
-
-
-
 }
+
+
+
+
+
 
