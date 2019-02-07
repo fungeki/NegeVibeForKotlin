@@ -96,17 +96,13 @@ object SignedInUser{
     }
     fun removeFavorite(mFavorite: UserFavorites) {
         userFavorites?.let { userFavorites ->
-            if (userFavorites.contains(mFavorite)) {
-                userFavorites.remove(mFavorite)
-            }
+            this.userFavorites!!.removeAll { obj -> obj.id == mFavorite.id }
         }
     }
 
     fun addFavorite(mFavorite: UserFavorites){
         userFavorites?.let{ userFavorites ->
-            if (!userFavorites.contains(mFavorite)){
-                userFavorites.add(mFavorite)
-            }
+            this.userFavorites!!.add(mFavorite)
         }
     }
 }

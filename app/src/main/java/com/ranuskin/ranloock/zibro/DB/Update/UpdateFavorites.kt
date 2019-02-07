@@ -1,14 +1,19 @@
 package com.ranuskin.ranloock.zibro.DB.Update
 
 import com.google.firebase.firestore.FieldValue
-import com.ranuskin.ranloock.zibro.DB.Constructors.createFavoritesList
+import com.ranuskin.ranloock.zibro.DB.Constructors.createUserFavoritesList
 import com.ranuskin.ranloock.zibro.DB.Libraries.SignedInUser
 import com.ranuskin.ranloock.zibro.Objects.UserUtils.UserFavorites
 
-fun UpdateFavorites(mFavorite: UserFavorites,completion: ((Boolean)->Unit)?){
+
+
+
+
+fun updateFavorites(mFavorite: UserFavorites,completion: ((Boolean)->Unit)?){
     var userFavoritesList = SignedInUser.getFavorites()
     if (userFavoritesList.size == 0){ //creates a user favorites list if doesnt exist or is empty
-        createFavoritesList(mFavorite){ bool ->
+        createUserFavoritesList(mFavorite){ bool ->
+            SignedInUser.addFavorite(mFavorite)
             completion?.let{ comp ->
                 comp(bool)
             }//end of let
@@ -17,13 +22,14 @@ fun UpdateFavorites(mFavorite: UserFavorites,completion: ((Boolean)->Unit)?){
     } else {
         val userReactionRef = SignedInUser.dbUserReactionRef()
         val userFavoritesRef =  userReactionRef.document("favorites") //refernece to user favorites
-        if (userFavoritesList.contains(mFavorite)){ // favorite exists, delete it
+        val contains = userFavoritesList.any { it.id == mFavorite.id }
+        if (contains){ // favorite exists, delete it
             val id = mFavorite.id
             val updates = HashMap<String, Any>() //hashmap to delete field from document in Firestore
             updates[id] = FieldValue.delete() //FieldValue.delete() reflects deleting from documents
             userFavoritesRef.update(updates).addOnCompleteListener {
+                SignedInUser.removeFavorite(mFavorite)
                 completion?.let{ completion ->
-                    SignedInUser.removeFavorite(mFavorite)
                     completion(true)
                 }//end of success listener
             }.addOnFailureListener{

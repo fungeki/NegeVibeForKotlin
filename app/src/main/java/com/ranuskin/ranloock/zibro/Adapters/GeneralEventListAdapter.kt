@@ -12,6 +12,8 @@ import android.view.animation.AnimationUtils
 import android.widget.Filter
 import android.widget.Filterable
 import com.ranuskin.ranloock.zibro.DB.Libraries.EventsLibrary
+import com.ranuskin.ranloock.zibro.DB.Update.updateFavorites
+import com.ranuskin.ranloock.zibro.Objects.UserUtils.UserFavorites
 import com.ranuskin.ranloock.zibro.Objects.ZibroEvent
 import com.ranuskin.ranloock.zibro.R
 import com.squareup.picasso.Picasso
@@ -72,6 +74,10 @@ class GeneralEventListAdapter(val listener: (ZibroEvent) -> Unit): RecyclerView.
         }
         p0.itemView.general_event_add_to_favorites.setOnClickListener {
             p0.itemView.general_event_add_to_favorites.isEnabled = false
+            val favorite = UserFavorites(model.id.toString(), model.date)
+            updateFavorites(favorite){ bool ->
+                println(bool)
+            }
             if (isFavorite){
                 val fadeOut = AnimationUtils.loadAnimation(mContext, R.anim.fade_out)
                 p0.itemView.general_event_add_to_favorites.startAnimation(fadeOut)
