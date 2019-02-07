@@ -21,7 +21,7 @@ class ChatListAdapter(val listener: (ZibroEvent) -> Unit): RecyclerView.Adapter<
     }
 
     override fun getItemCount(): Int {
-        arr = EventsLibrary.getMyEvents()
+        arr = EventsLibrary.getAllEvents()
         return arr.size
     }
 

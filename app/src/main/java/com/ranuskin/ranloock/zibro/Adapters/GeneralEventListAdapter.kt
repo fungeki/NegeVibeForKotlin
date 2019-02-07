@@ -24,10 +24,10 @@ import java.util.*
 
 class GeneralEventListAdapter(val listener: (ZibroEvent) -> Unit): RecyclerView.Adapter<GeneralEventListViewHolder>(), Filterable{
 
-    var searchedEvents: MutableList<ZibroEvent> = EventsLibrary.getMyEvents()
+    var searchedEvents: MutableList<ZibroEvent> = EventsLibrary.getAllEvents()
     var isFavorite = false
     lateinit var mContext: Context
-    private var events = EventsLibrary.getMyEvents()
+    private var events = EventsLibrary.getAllEvents()
     //number of items
     override fun getItemCount(): Int {
         return searchedEvents.size

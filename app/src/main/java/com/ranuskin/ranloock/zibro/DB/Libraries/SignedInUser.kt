@@ -10,6 +10,7 @@ import com.ranuskin.ranloock.zibro.DB.Get.getUser
 import com.ranuskin.ranloock.zibro.DB.Get.getUserFavorites
 import com.ranuskin.ranloock.zibro.Objects.UserUtils.User
 import com.ranuskin.ranloock.zibro.Objects.UserUtils.UserFavorites
+import com.ranuskin.ranloock.zibro.Objects.ZibroEvent
 
 object SignedInUser{
 
@@ -104,6 +105,21 @@ object SignedInUser{
         userFavorites?.let{ userFavorites ->
             this.userFavorites!!.add(mFavorite)
         }
+    }
+
+    fun getFavoritesEventDetails(): MutableList<ZibroEvent>{
+
+        //save favorite event details in userdefaults and download only incase it doesnt exist there.
+        var mList = mutableListOf<ZibroEvent>()
+        userFavorites?.let{
+            for (event in EventsLibrary.getAllEvents()){
+                val contains = userFavorites!!.any { obj -> obj.id == event.id.toString() }
+                if (contains){
+                    mList.add(event)
+                }
+            }
+        }
+        return mList
     }
 }
 

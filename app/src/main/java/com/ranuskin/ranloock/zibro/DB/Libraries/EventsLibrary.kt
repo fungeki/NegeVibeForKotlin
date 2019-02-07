@@ -9,7 +9,7 @@ object EventsLibrary{
     //initializes the var only on creation
     private lateinit var events: List<ZibroEvent>
 
-    fun getMyEvents(completion: (List<ZibroEvent>)->Unit){
+    fun getAllEvents(completion: (List<ZibroEvent>)->Unit){
         //checks if events is initialized
         if (this::events.isInitialized) {
             completion(events)
@@ -23,7 +23,7 @@ object EventsLibrary{
         }
 
     }
-    fun getMyEvents(): MutableList<ZibroEvent>{
+    fun getAllEvents(): MutableList<ZibroEvent>{
         return events.toMutableList()
     }
 }

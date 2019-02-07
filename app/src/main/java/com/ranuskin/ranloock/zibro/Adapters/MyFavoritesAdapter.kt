@@ -4,7 +4,7 @@ import android.support.v7.widget.RecyclerView
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
-import com.ranuskin.ranloock.zibro.DB.Libraries.EventsLibrary
+import com.ranuskin.ranloock.zibro.DB.Libraries.SignedInUser
 import com.ranuskin.ranloock.zibro.Objects.ZibroEvent
 import com.ranuskin.ranloock.zibro.R
 import com.squareup.picasso.Picasso
@@ -19,7 +19,7 @@ class MyFavoritesAdapter(): RecyclerView.Adapter<MyFavoritesViewHolder>(){
     }
 
     override fun getItemCount(): Int {
-        arr = EventsLibrary.getMyEvents()
+        arr = SignedInUser.getFavoritesEventDetails()
         return arr.size
     }
 

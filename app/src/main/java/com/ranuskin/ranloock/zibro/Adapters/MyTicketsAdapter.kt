@@ -20,7 +20,7 @@ class MyTicketsAdapter(): RecyclerView.Adapter<MyTicketsViewHolder>(){
     }
 
     override fun getItemCount(): Int {
-        mTickets = EventsLibrary.getMyEvents()
+        mTickets = EventsLibrary.getAllEvents()
         return mTickets.size
 
     }

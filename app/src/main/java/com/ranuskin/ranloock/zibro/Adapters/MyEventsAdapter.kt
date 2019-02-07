@@ -24,7 +24,7 @@ class MyEventsAdapter: RecyclerView.Adapter<MyEventsViewHolder>(){
     }
 
     override fun getItemCount(): Int {
-        mEvents = EventsLibrary.getMyEvents()
+        mEvents = EventsLibrary.getAllEvents()
         return mEvents.size
     }
 

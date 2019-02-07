@@ -18,7 +18,6 @@ fun updateFavorites(mFavorite: UserFavorites,completion: ((Boolean)->Unit)?){
                 comp(bool)
             }//end of let
         }//end of create favorites
-
     } else {
         val userReactionRef = SignedInUser.dbUserReactionRef()
         val userFavoritesRef =  userReactionRef.document("favorites") //refernece to user favorites
