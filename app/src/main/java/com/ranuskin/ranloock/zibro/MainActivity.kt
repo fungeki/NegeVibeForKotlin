@@ -79,6 +79,7 @@ class MainActivity : AppCompatActivity(), NavigationView.OnNavigationItemSelecte
         when (item.itemId) {
             R.id.nav_favorites -> {
                 // Handle the camera action
+                supportActionBar!!.title = "מועדפים"
                 supportFragmentManager.beginTransaction().replace(R.id.fragments_container, MyFavoritesListFragment()).commit()
             }
             R.id.nav_gallery -> {
