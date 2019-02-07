@@ -120,7 +120,7 @@ class AddMyEventFragment : Fragment() {
             && requestCode == IMAGE_PICK_CODE){
             //photo from gallery
             fileUri = data?.data
-            addEventCategoryImage.setImageURI(fileUri)
+            addEventImage.setImageURI(fileUri)
         } else {
             super.onActivityResult(requestCode, resultCode, data)
         }
