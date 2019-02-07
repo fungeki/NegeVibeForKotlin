@@ -20,4 +20,18 @@
     <string name="to_chatHebrew">לציאט האירועו</string>
     <string name="eventNameHebrew">שם האירוע</string>
     <string name="eventDescriptionHebrew">תיאור האירוע</string>
+    <string name="smallCharactersHedrew">האותיות הקטנות</string>
+
+    <string-array name="categoriesHebrew">
+        <item>מוזיקה</item>
+        <item>מופעים</item>
+        <item>פסטיבלים</item>
+        <item>סרטים</item>
+        <item>אוכל</item>
+        <item>אירועים</item>
+        <item>מסיבות</item>
+        <item>פאבים|בארים </item>
+        <item> ספורט </item>
+        <item> דיגיטל </item>
+    </string-array>
 </resources>

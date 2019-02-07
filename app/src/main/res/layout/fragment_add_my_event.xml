@@ -64,12 +64,9 @@
                         android:id="@+id/containerForEditText"
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content"
-                        app:layout_constraintStart_toStartOf="parent"
-                        app:layout_constraintEnd_toEndOf="parent"
-                        app:layout_constraintTop_toTopOf="parent"
-                        app:layout_collapseMode="parallax"
                         android:background="@color/colorPrimary"
-                        android:orientation="vertical">
+                        android:orientation="vertical" app:layout_constraintTop_toTopOf="parent"
+                        app:layout_constraintEnd_toEndOf="parent" app:layout_constraintStart_toStartOf="parent">
                     <EditText
                             android:id="@+id/addEventNameOfEvent"
                             android:layout_width="wrap_content"
@@ -93,6 +90,72 @@
                             android:paddingBottom="80dp"
                             android:paddingTop="10dp"
                             android:paddingStart="10dp"/>
+                    <EditText
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:background="@color/colorGrayBackground"
+                            android:hint="@string/smallCharactersHedrew"
+                            android:paddingTop="15dp"
+                            android:paddingBottom="15dp"
+                            android:paddingStart="10dp"/>
+                    <android.support.constraint.ConstraintLayout
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:background="@color/colorPrimary"
+                            app:layout_constraintTop_toTopOf="@+id/addEventDate"
+                            app:layout_constraintBottom_toTopOf="@+id/addEventDate">
+                        <Spinner
+                                android:id="@+id/addEventCategorySpinner"
+                                android:layout_width="316dp"
+                                android:layout_height="34dp"
+                                android:background="@drawable/rounded_edit_text"
+                                app:layout_constraintStart_toStartOf="parent"
+                                android:layout_marginStart="64dp"
+                                android:layout_marginTop="16dp"
+                                android:paddingStart="10dp"
+                                android:spinnerMode="dropdown"
+                                app:layout_constraintTop_toTopOf="parent"/>
+                        <ImageView
+                                android:layout_width="24dp"
+                                android:layout_height="24dp"
+                                android:src="@drawable/ic_category_blue"
+                                android:id="@+id/addEventCategoryImage"
+                                android:layout_marginTop="16dp"
+                                app:layout_constraintTop_toTopOf="parent"
+                                app:layout_constraintEnd_toEndOf="parent"
+                                android:layout_marginEnd="356dp"
+                                app:layout_constraintStart_toEndOf="@+id/addEventCategorySpinner"
+                                android:layout_marginStart="8dp"
+                                app:layout_constraintHorizontal_bias="1.0"/>
+                        <EditText
+                                android:layout_width="316dp"
+                                android:layout_height="34dp"
+                                android:hint="יום ה, 24 בינואר 2019"
+                                android:paddingStart="10dp"
+                                android:background="@drawable/rounded_edit_text"
+                                android:id="@+id/addEventDate"
+                                app:layout_constraintStart_toStartOf="parent"
+                                android:layout_marginStart="64dp"
+                                android:layout_marginTop="16dp"
+                                app:layout_constraintTop_toBottomOf="@+id/addEventCategorySpinner"
+                                app:layout_constraintBottom_toBottomOf="parent"
+                                android:layout_marginBottom="1dp"
+                                app:layout_constraintVertical_bias="0.0"/>
+                        <ImageView
+                                android:layout_width="24dp"
+                                android:layout_height="24dp"
+                                android:src="@drawable/ic_date_red"
+                                android:id="@+id/imageView2"
+                                android:layout_marginTop="24dp"
+                                app:layout_constraintTop_toBottomOf="@+id/addEventCategoryImage"
+                                app:layout_constraintEnd_toEndOf="parent"
+                                android:layout_marginEnd="356dp"
+                                app:layout_constraintStart_toEndOf="@+id/addEventDate"
+                                android:layout_marginStart="16dp"
+                                app:layout_constraintHorizontal_bias="1.0"/>
+
+
+                    </android.support.constraint.ConstraintLayout>
 
                 </LinearLayout>
 
