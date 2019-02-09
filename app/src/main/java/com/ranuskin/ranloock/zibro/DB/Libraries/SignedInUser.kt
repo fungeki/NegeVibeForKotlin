@@ -8,15 +8,17 @@ import com.google.firebase.firestore.FirebaseFirestore
 import com.ranuskin.ranloock.zibro.DB.Constructors.CreateAnonUser
 import com.ranuskin.ranloock.zibro.DB.Get.getUser
 import com.ranuskin.ranloock.zibro.DB.Get.getUserFavorites
+import com.ranuskin.ranloock.zibro.DB.Get.getUserLikes
 import com.ranuskin.ranloock.zibro.Objects.UserUtils.User
-import com.ranuskin.ranloock.zibro.Objects.UserUtils.UserFavorites
+import com.ranuskin.ranloock.zibro.Objects.UserUtils.UserReaction
 import com.ranuskin.ranloock.zibro.Objects.ZibroEvent
 
 object SignedInUser{
 
     private var currentUser: FirebaseUser? = null
     private var user: User? = null
-    private var userFavorites: MutableList<UserFavorites>? = null
+    private var userFavorites: MutableList<UserReaction>? = null
+    private var userLikes: MutableMap<String, Any?>? = null
 
     fun isUserConnected(completion: ((Boolean)->Unit)?){
         currentUser?.let {  currentUser ->
@@ -34,9 +36,13 @@ object SignedInUser{
                     this.user = user
                     getUserFavorites { favorites ->
                         userFavorites = favorites
-                        completion?.let { completion ->
-                            completion(true)
+                        getUserLikes { mList ->
+                            userLikes = mList
+                            completion?.let { completion ->
+                                completion(true)
+                            }
                         }
+
                     }
 
                 }
@@ -49,6 +55,7 @@ object SignedInUser{
                     this.currentUser = user
                     CreateAnonUser {
                         userFavorites = mutableListOf()
+                        userLikes = mutableMapOf()
                         completion?.let {
                             completion(true)
                         }
@@ -88,20 +95,20 @@ object SignedInUser{
         return userRef.collection("reaction")
     }
 
-    fun getFavorites(): MutableList<UserFavorites>{
-        var mFavorites = mutableListOf<UserFavorites>()
+    fun getFavorites(): MutableList<UserReaction>{
+        var mFavorites = mutableListOf<UserReaction>()
         userFavorites?.let{ userFavorites ->
             mFavorites = userFavorites.toMutableList()
         }
         return mFavorites
     }
-    fun removeFavorite(mFavorite: UserFavorites) {
+    fun removeFavorite(mFavorite: UserReaction) {
         userFavorites?.let { userFavorites ->
             this.userFavorites!!.removeAll { obj -> obj.id == mFavorite.id }
         }
     }
 
-    fun addFavorite(mFavorite: UserFavorites){
+    fun addFavorite(mFavorite: UserReaction){
         userFavorites?.let{ userFavorites ->
             this.userFavorites!!.add(mFavorite)
         }
@@ -121,5 +128,41 @@ object SignedInUser{
         }
         return mList
     }
+    fun addLike(mLike: UserReaction){
+        userLikes?.let {
+            userLikes!!.put(mLike.id, null)
+        }
+    }
+    fun removeLike(mLike: UserReaction){
+        userLikes?.let {
+            if (userLikes!!.contains(mLike.id)){
+                userLikes!!.remove(mLike.id)
+            }
+        }
+    }
+
+    fun getLikes(): MutableMap<String, Any?>{
+        var mList = mutableMapOf<String, Any?>()
+        userLikes?.let {
+            mList = userLikes!!.toMutableMap()
+        }
+        return mList
+    }
+
+    fun addLike(id: String){
+        userLikes?.let{
+            userLikes!!.put(id, null)
+        }
+    }
+
+    fun removeLike(id: String){
+        userLikes?.let{
+            if (userLikes!!.containsKey(id)){
+                userLikes!!.remove(id)
+            }
+        }
+    }
+
+
 }
 

@@ -31,7 +31,6 @@ class MainActivity : AppCompatActivity(), NavigationView.OnNavigationItemSelecte
         drawer_layout.addDrawerListener(toggle)
         toggle.syncState()
 
-
        // supportFragmentManager.beginTransaction().add(R.id.main_fragment_container, EventListFragment()).commit()
         nav_view.setNavigationItemSelectedListener(this)
         ViewCompat.setLayoutDirection(nav_view,ViewCompat.LAYOUT_DIRECTION_RTL)

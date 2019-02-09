@@ -3,13 +3,13 @@ package com.ranuskin.ranloock.zibro.DB.Update
 import com.google.firebase.firestore.FieldValue
 import com.ranuskin.ranloock.zibro.DB.Constructors.createUserFavoritesList
 import com.ranuskin.ranloock.zibro.DB.Libraries.SignedInUser
-import com.ranuskin.ranloock.zibro.Objects.UserUtils.UserFavorites
+import com.ranuskin.ranloock.zibro.Objects.UserUtils.UserReaction
 
 
 
 
 
-fun updateFavorites(mFavorite: UserFavorites,completion: ((Boolean)->Unit)?){
+fun updateFavorites(mFavorite: UserReaction, completion: ((Boolean)->Unit)?){
     var userFavoritesList = SignedInUser.getFavorites()
     if (userFavoritesList.size == 0){ //creates a user favorites list if doesnt exist or is empty
         createUserFavoritesList(mFavorite){ bool ->

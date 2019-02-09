@@ -13,17 +13,8 @@ import com.ranuskin.ranloock.zibro.Adapters.GeneralEventListAdapter
 import com.ranuskin.ranloock.zibro.R
 import kotlinx.android.synthetic.main.fragment_general_event_list.*
 
-// TODO: Rename parameter arguments, choose names that match
-// the fragment initialization parameters, e.g. ARG_ITEM_NUMBER
-//private const val ARG_PARAM1 = "param1"
-//private const val ARG_PARAM2 = "param2"
 
-/**
- * A simple [Fragment] subclass.
- * Use the [EventListFragment.newInstance] factory method to
- * create an instance of this fragment.
- *
- */
+
 class EventListFragment : Fragment() {
 
     override fun onCreate(savedInstanceState: Bundle?) {
@@ -41,7 +32,7 @@ class EventListFragment : Fragment() {
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
         general_event_list.layoutManager = LinearLayoutManager(context)
-        val mAdapter = GeneralEventListAdapter{ event ->
+        val mAdapter = GeneralEventListAdapter(activity!!){ event ->
             val bundle = Bundle()
             bundle.putSerializable("event",event)
             val ft = activity!!.supportFragmentManager.beginTransaction().addToBackStack(null)
