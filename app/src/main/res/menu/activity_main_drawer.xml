@@ -30,7 +30,7 @@
                     android:icon="@drawable/ic_settings"
                     android:title="@string/settingsHebrew"/>
             <item
-                    android:id="@+id/nav_send"
+                    android:id="@+id/nav_signout"
                     android:icon="@drawable/ic_logout"
                     android:title="יציאה"/>
 

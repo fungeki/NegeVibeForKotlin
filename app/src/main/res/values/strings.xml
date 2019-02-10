@@ -7,7 +7,6 @@
     <string name="nav_header_desc">Navigation header</string>
     <string name="action_settings">Settings</string>
 
-    <!-- TODO: Remove or change this placeholder text -->
     <string name="hello_blank_fragment">Hello blank fragment</string>
     <string name="eventsHebrew">אירועים</string>
     <string name="chatHebrew">צ׳אט</string>
@@ -21,7 +20,6 @@
     <string name="eventNameHebrew">שם האירוע</string>
     <string name="eventDescriptionHebrew">תיאור האירוע</string>
     <string name="smallCharactersHedrew">האותיות הקטנות</string>
-
     <string-array name="categoriesHebrew">
         <item>מוזיקה</item>
         <item>מופעים</item>

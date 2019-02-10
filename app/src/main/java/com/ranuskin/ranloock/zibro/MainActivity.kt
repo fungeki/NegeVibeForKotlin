@@ -11,6 +11,7 @@ import android.view.Gravity
 import android.view.Menu
 import android.view.MenuItem
 import android.widget.Toast
+import com.google.firebase.auth.FirebaseAuth
 import com.ranuskin.ranloock.zibro.Fragments.*
 import kotlinx.android.synthetic.main.activity_main.*
 import kotlinx.android.synthetic.main.app_bar_main.*
@@ -37,6 +38,9 @@ class MainActivity : AppCompatActivity(), NavigationView.OnNavigationItemSelecte
         bottom_nav_bar.setOnNavigationItemSelectedListener(mOnNavigationItemSelectedListener)
         bottom_nav_bar.itemIconTintList = null
         supportFragmentManager.beginTransaction().replace(R.id.fragments_container, EventListFragment()).commit()
+        if (FirebaseAuth.getInstance().currentUser!!.isAnonymous){
+            Toast.makeText(this, "שלום, אורח/ת",Toast.LENGTH_SHORT).show()
+        }
     }
 
     override fun onBackPressed() {
@@ -57,6 +61,8 @@ class MainActivity : AppCompatActivity(), NavigationView.OnNavigationItemSelecte
 
     override fun onOptionsItemSelected(item: MenuItem): Boolean {
         val id = item.itemId
+        supportFragmentManager.beginTransaction().replace(R.id.fragments_container, AuthenticationFragment()).commit()
+        supportActionBar!!.title = "חיבור / רישום"
         Toast.makeText(this, "לחצת על התראות, אין בנתיים",Toast.LENGTH_LONG).show()
         return true
 
@@ -90,8 +96,9 @@ class MainActivity : AppCompatActivity(), NavigationView.OnNavigationItemSelecte
             R.id.nav_share -> {
 
             }
-            R.id.nav_send -> {
-
+            R.id.nav_signout -> {
+                FirebaseAuth.getInstance().signOut()
+                Toast.makeText(this, "התנתקנו, שמח?",Toast.LENGTH_SHORT).show()
             }
         }
 
