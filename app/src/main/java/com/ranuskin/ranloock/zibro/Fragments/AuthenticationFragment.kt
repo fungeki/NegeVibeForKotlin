@@ -85,7 +85,7 @@ class AuthenticationFragment : Fragment() {
         auth.currentUser?.linkWithCredential(credential)
             ?.addOnCompleteListener(activity!!) { task ->
                 if (task.isSuccessful) {
-                    Toast.makeText(context, "Authentication successful.",
+                    Toast.makeText(context, "ברוך הבא, זברה.",
                         Toast.LENGTH_SHORT).show()
                     val user = task.result?.user
                 } else {
@@ -93,21 +93,7 @@ class AuthenticationFragment : Fragment() {
                         Toast.LENGTH_SHORT).show()
                 }
 
-                // ...
+
             }
-//        auth.signInWithCredential(credential)
-//            .addOnCompleteListener(activity!!) { task ->
-//                if (task.isSuccessful) {
-//                    // Sign in success, update UI with the signed-in user's information
-//
-//                    val user = auth.currentUser
-//                } else {
-//                    // If sign in fails, display a message to the user.
-//                    Snackbar.make(view!!, "Authentication Failed.", Snackbar.LENGTH_SHORT).show()
-//
-//                }
-//
-//                // ...
-//            }
     }
 }
