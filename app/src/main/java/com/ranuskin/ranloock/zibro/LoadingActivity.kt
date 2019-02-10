@@ -14,7 +14,7 @@ class LoadingActivity : AppCompatActivity() {
 
 
 
-        EventsLibrary.getAllEvents {
+        this.runOnUiThread { EventsLibrary.getAllEvents {
             SignedInUser.isUserConnected { didSucceed ->
                 if (didSucceed) {
                     val intent = Intent(this, MainActivity::class.java)
@@ -23,5 +23,7 @@ class LoadingActivity : AppCompatActivity() {
             }
 
         }
+        }
+
     }
 }
