@@ -9,6 +9,7 @@ import android.util.Log
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
+import android.widget.Toast
 import com.google.android.gms.auth.api.signin.GoogleSignIn
 import com.google.android.gms.auth.api.signin.GoogleSignInAccount
 import com.google.android.gms.auth.api.signin.GoogleSignInClient
@@ -58,9 +59,10 @@ class AuthenticationFragment : Fragment() {
     private fun signIn() {
         val signInIntent = googleSignInClient.signInIntent
         startActivityForResult(signInIntent, RC_SIGN_IN)
+
     }
 
-    public override fun onActivityResult(requestCode: Int, resultCode: Int, data: Intent?) {
+    override fun onActivityResult(requestCode: Int, resultCode: Int, data: Intent?) {
         super.onActivityResult(requestCode, resultCode, data)
 
         // Result returned from launching the Intent from GoogleSignInApi.getSignInIntent(...);
@@ -80,19 +82,32 @@ class AuthenticationFragment : Fragment() {
     private fun firebaseAuthWithGoogle(acct: GoogleSignInAccount) {
 
         val credential = GoogleAuthProvider.getCredential(acct.idToken, null)
-        auth.signInWithCredential(credential)
-            .addOnCompleteListener(activity!!) { task ->
+        auth.currentUser?.linkWithCredential(credential)
+            ?.addOnCompleteListener(activity!!) { task ->
                 if (task.isSuccessful) {
-                    // Sign in success, update UI with the signed-in user's information
-
-                    val user = auth.currentUser
+                    Toast.makeText(context, "Authentication successful.",
+                        Toast.LENGTH_SHORT).show()
+                    val user = task.result?.user
                 } else {
-                    // If sign in fails, display a message to the user.
-                    Snackbar.make(view!!, "Authentication Failed.", Snackbar.LENGTH_SHORT).show()
-
+                    Toast.makeText(context, "Authentication failed.",
+                        Toast.LENGTH_SHORT).show()
                 }
 
                 // ...
             }
+//        auth.signInWithCredential(credential)
+//            .addOnCompleteListener(activity!!) { task ->
+//                if (task.isSuccessful) {
+//                    // Sign in success, update UI with the signed-in user's information
+//
+//                    val user = auth.currentUser
+//                } else {
+//                    // If sign in fails, display a message to the user.
+//                    Snackbar.make(view!!, "Authentication Failed.", Snackbar.LENGTH_SHORT).show()
+//
+//                }
+//
+//                // ...
+//            }
     }
 }
