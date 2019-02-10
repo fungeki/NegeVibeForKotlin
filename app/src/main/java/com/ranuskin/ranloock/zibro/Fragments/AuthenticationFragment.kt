@@ -24,6 +24,7 @@ class AuthenticationFragment : Fragment() {
         super.onViewCreated(view, savedInstanceState)
         // Configure Google Sign In
 // Configure Google Sign In
+        // Configure Google Sign In
 
     }
 
