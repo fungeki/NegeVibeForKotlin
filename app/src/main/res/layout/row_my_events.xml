@@ -53,4 +53,3 @@
             app:layout_constraintBottom_toBottomOf="@+id/numberOfParticipantsTextView"/>
 </android.support.constraint.ConstraintLayout>
 
-//update
