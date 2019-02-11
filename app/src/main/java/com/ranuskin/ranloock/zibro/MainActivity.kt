@@ -11,6 +11,8 @@ import android.view.Gravity
 import android.view.Menu
 import android.view.MenuItem
 import android.widget.Toast
+import com.facebook.FacebookSdk
+import com.facebook.appevents.AppEventsLogger
 import com.google.firebase.auth.FirebaseAuth
 import com.ranuskin.ranloock.zibro.Fragments.*
 import kotlinx.android.synthetic.main.activity_main.*
