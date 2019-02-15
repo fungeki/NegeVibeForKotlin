@@ -1,0 +1,31 @@
+<?xml version="1.0" encoding="utf-8"?>
+<android.support.constraint.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+                                             xmlns:app="http://schemas.android.com/apk/res-auto"
+                                             xmlns:tools="http://schemas.android.com/tools"
+                                             android:background="@color/colorPrimary"
+                                             android:layout_width="match_parent"
+                                             android:layout_height="wrap_content">
+    <ImageView android:layout_width="30dp"
+               android:layout_height="30dp"
+               android:src="@drawable/ic_category_sport"
+               app:layout_constraintEnd_toStartOf="@+id/spinner_category_contentstart_gl"
+               android:layout_marginEnd="8dp"
+               android:id="@+id/spinner_category_row_icon_imageview"
+               app:layout_constraintTop_toTopOf="@+id/spinner_category_row_textview"
+               app:layout_constraintBottom_toBottomOf="@+id/spinner_category_row_textview"/>
+    <android.support.constraint.Guideline android:layout_width="wrap_content" android:layout_height="wrap_content"
+                                          android:id="@+id/spinner_category_contentstart_gl"
+                                          android:orientation="vertical"
+                                          app:layout_constraintGuide_percent="0.74"/>
+    <TextView
+            android:text="קטגוריה"
+            android:textSize="24sp"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:textColor="@color/colorBlue"
+            android:id="@+id/spinner_category_row_textview"
+            app:layout_constraintTop_toTopOf="parent" android:layout_marginTop="8dp"
+            android:layout_marginEnd="8dp"
+            app:layout_constraintEnd_toStartOf="@+id/spinner_category_row_icon_imageview"/>
+
+</android.support.constraint.ConstraintLayout>

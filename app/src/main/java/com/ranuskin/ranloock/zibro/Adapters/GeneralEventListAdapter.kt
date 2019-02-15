@@ -178,10 +178,21 @@ class GeneralEventListAdapter(activity: Activity,val listener: (ZibroEvent) -> U
 
 
     override fun getFilter(): Filter {
-        return eventsFilter
+        return eventsFilterByName
     }
 
-    private var eventsFilter = object: Filter(){
+    fun filterByType(type: Int){
+        var filteredList = mutableListOf<ZibroEvent>()
+        for (model in events){
+            if (model.type == type){
+                filteredList.add(model)
+            }
+        }
+        searchedEvents.clear()
+        searchedEvents.addAll(filteredList)
+    }
+
+    private var eventsFilterByName = object: Filter(){
         override fun performFiltering(constraint: CharSequence?): FilterResults {
             var filteredList = mutableListOf<ZibroEvent>()
             if (constraint == null || constraint.length < 2){
