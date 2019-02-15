@@ -13,20 +13,38 @@
             app:layout_constraintTop_toTopOf="@+id/my_events_imageview"
             app:layout_constraintBottom_toBottomOf="@+id/my_events_imageview"
             app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintEnd_toEndOf="parent"/>
+            app:layout_constraintEnd_toEndOf="parent" app:layout_constraintHorizontal_bias="0.0"
+            app:layout_constraintVertical_bias="0.0"/>
     <ImageView
             android:layout_width="64dp"
             android:layout_height="64dp" app:srcCompat="@drawable/zebra"
             android:id="@+id/my_events_imageview"
             app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintTop_toTopOf="parent" android:layout_marginTop="24dp" android:scaleType="centerCrop"/>
+            app:layout_constraintTop_toTopOf="parent" android:layout_marginTop="16dp" android:scaleType="centerCrop"/>
     <TextView
-            android:text="משתתפים"
+            android:text="32"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:id="@+id/textView6"
+            android:id="@+id/numberOfParticipantsTextView"
             android:textColor="@color/colorYellow"
-            app:layout_constraintTop_toTopOf="@+id/my_events_imageview"
-            app:layout_constraintBottom_toBottomOf="@+id/my_events_imageview"
-            app:layout_constraintStart_toStartOf="parent" android:layout_marginStart="32dp"/>
+            app:layout_constraintBottom_toBottomOf="@+id/background_for_my_events_cell"
+            app:layout_constraintTop_toTopOf="@+id/background_for_my_events_cell"
+            app:layout_constraintEnd_toStartOf="@+id/imageView4" android:layout_marginEnd="8dp"/>
+    <ImageView
+            android:layout_width="19dp"
+            android:layout_height="33dp"
+            android:src="@drawable/ic_participants"
+            android:id="@+id/imageView4"
+            app:layout_constraintTop_toTopOf="@+id/numberOfParticipantsTextView" app:layout_constraintBottom_toBottomOf="@+id/numberOfParticipantsTextView"
+            app:layout_constraintStart_toStartOf="@+id/background_for_my_events_cell"
+            android:layout_marginStart="48dp"/>
+    <TextView
+            android:text="קייטנת האגוז"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:id="@+id/titleEventTextView" android:textColor="@color/colorWhite"
+            app:layout_constraintBottom_toBottomOf="@+id/background_for_my_events_cell"
+            app:layout_constraintTop_toTopOf="@+id/background_for_my_events_cell"
+            app:layout_constraintEnd_toStartOf="@+id/my_events_imageview" android:layout_marginEnd="16dp"
+            app:layout_constraintStart_toEndOf="@+id/imageView4" android:layout_marginStart="8dp"/>
 </android.support.constraint.ConstraintLayout>

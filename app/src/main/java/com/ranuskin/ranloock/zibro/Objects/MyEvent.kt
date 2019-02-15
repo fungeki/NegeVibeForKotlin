@@ -4,5 +4,5 @@ class MyEvent(
     val id: Int,
     val images: EventImage,
     val title: String,
-    val ParticipantsNum: Int
+    val participantsNum: Int
 )
