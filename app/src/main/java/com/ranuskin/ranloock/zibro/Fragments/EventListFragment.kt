@@ -1,7 +1,6 @@
 package com.ranuskin.ranloock.zibro.Fragments
 
 
-import android.graphics.drawable.Drawable
 import android.os.Bundle
 import android.support.v4.app.Fragment
 import android.support.v7.widget.LinearLayoutManager
@@ -16,12 +15,12 @@ import com.ranuskin.ranloock.zibro.Adapters.GeneralEventListAdapter
 import com.ranuskin.ranloock.zibro.Objects.Category
 import com.ranuskin.ranloock.zibro.R
 import kotlinx.android.synthetic.main.fragment_general_event_list.*
-import kotlinx.android.synthetic.main.fragment_general_event_list.view.*
-import java.util.*
 
 
 class EventListFragment : Fragment() {
 
+    var isFilterCategory = false
+    var isFiltered = false
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
     }
@@ -47,19 +46,7 @@ class EventListFragment : Fragment() {
             ft.replace(R.id.fragments_container, eventDetailFragment).commit()
         }
 
-        val mCategoryAdapter = GeneralEventCategoryFilterAdapter(context!!, R.layout.spinner_category_row_layout,
-            Category.getList())
 
-        general_list_filter_category_spinner.adapter = mCategoryAdapter
-        general_list_filter_category_spinner.onItemSelectedListener = object: AdapterView.OnItemSelectedListener {
-            override fun onNothingSelected(parent: AdapterView<*>?) {
-
-            }
-
-            override fun onItemSelected(parent: AdapterView<*>?, view: View?, position: Int, id: Long) {
-                view?.setBackgroundResource(R.drawable.background_spinner)
-            }
-        }
             general_list_filter_category_spinner.setBackgroundColor(resources.getColor(R.color.colorWhite))
         general_event_list.adapter = mAdapter
         general_event_list_search_edittext.addTextChangedListener(object: TextWatcher{
@@ -81,6 +68,38 @@ class EventListFragment : Fragment() {
 
         })
 
+        val mCategoryAdapter = GeneralEventCategoryFilterAdapter(
+            context!!, R.layout.spinner_category_row_layout,
+            Category.getList()
+        )
+
+        general_list_filter_category_spinner.adapter = mCategoryAdapter
+        general_list_filter_category_spinner.onItemSelectedListener =
+            object : AdapterView.OnItemSelectedListener {
+                override fun onNothingSelected(parent: AdapterView<*>?) {
+
+                }
+
+                override fun onItemSelected(parent: AdapterView<*>?, view: View?, position: Int, id: Long) {
+                    if (isFiltered) {
+                        view?.setBackgroundResource(R.drawable.background_spinner)
+                        mAdapter.filterByType(position)
+                        mAdapter.notifyDataSetChanged()
+                        general_event_list_filter_layout.visibility = View.INVISIBLE
+                        isFilterCategory = !isFilterCategory
+                    }
+                }
+            }
+        general_event_list_filter_background_view.setOnClickListener {
+            isFiltered = true
+            if (!isFilterCategory) {
+                general_event_list_filter_layout.visibility = View.VISIBLE
+
+            } else {
+                general_event_list_filter_layout.visibility = View.INVISIBLE
+            }
+            isFilterCategory = !isFilterCategory
+        }
 
     }
 

@@ -23,40 +23,73 @@
             android:imeOptions="actionDone"
             android:id="@+id/general_event_list_search_edittext"
             app:layout_constraintTop_toTopOf="parent"
-            android:layout_marginEnd="8dp" app:layout_constraintEnd_toEndOf="parent" android:layout_marginStart="8dp"
-            app:layout_constraintStart_toStartOf="parent" android:hint="חיפוש"/>
-    <View
+            android:layout_marginEnd="8dp" app:layout_constraintEnd_toEndOf="parent"
+            android:hint="חיפוש"
+            app:layout_constraintStart_toStartOf="@+id/guideline5"/>
+    <android.support.constraint.ConstraintLayout
             android:layout_width="414dp"
-            android:layout_height="124dp" android:id="@+id/general_event_list_filter_view"
+            android:layout_height="124dp" android:id="@+id/general_event_list_filter_layout"
             android:background="@color/colorPrimary"
             app:layout_constraintStart_toStartOf="parent" app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintTop_toBottomOf="@+id/general_event_list_search_edittext"/>
-    <TextView
-            android:text="סנן"
-            android:layout_width="wrap_content"
-            android:textColor="@color/colorWhite"
-            android:textSize="24sp"
-            android:layout_height="wrap_content"
-            android:id="@+id/general_event_list_filter_textview" android:layout_marginBottom="8dp"
-            app:layout_constraintBottom_toBottomOf="@+id/general_event_list_filter_view"
-            app:layout_constraintEnd_toEndOf="parent" android:layout_marginEnd="8dp"
-            app:layout_constraintStart_toStartOf="parent" android:layout_marginStart="8dp"/>
-    <ImageView
-            android:src="@drawable/ic_category_blue"
-            android:layout_width="24dp"
-            android:layout_height="24dp"
-            android:id="@+id/general_event_list_imageview_categories"
-            app:layout_constraintEnd_toEndOf="@+id/general_event_list_filter_view" android:layout_marginEnd="16dp"
-            app:layout_constraintTop_toTopOf="@+id/general_list_filter_category_spinner"
-            app:layout_constraintBottom_toBottomOf="@+id/general_list_filter_category_spinner"/>
-    <Spinner
+            app:layout_constraintTop_toBottomOf="@+id/general_event_list_search_edittext"
+            android:visibility="invisible">
+        <Spinner
+                android:layout_width="0dp"
+                android:layout_height="56dp"
+                android:id="@+id/general_list_filter_category_spinner"
+                app:layout_constraintEnd_toStartOf="@+id/general_event_list_imageview_categories"
+                android:layout_marginEnd="8dp" android:layout_marginBottom="8dp"
+                app:layout_constraintBottom_toTopOf="@+id/general_event_list_filter_textview"
+                android:layout_marginTop="8dp"
+                app:layout_constraintTop_toTopOf="@+id/general_event_list_filter_layout"
+                style="@style/spinner_style"
+                app:layout_constraintStart_toStartOf="parent" android:layout_marginStart="16dp"/>
+        <ImageView
+                android:src="@drawable/ic_category_blue"
+                android:layout_width="40dp"
+                android:layout_height="40dp"
+                android:id="@+id/general_event_list_imageview_categories"
+                app:layout_constraintEnd_toEndOf="@+id/general_event_list_filter_layout" android:layout_marginEnd="16dp"
+                app:layout_constraintTop_toTopOf="@+id/general_list_filter_category_spinner"
+                app:layout_constraintBottom_toBottomOf="@+id/general_list_filter_category_spinner"/>
+        <TextView
+                android:text="סנן"
+                android:layout_width="wrap_content"
+                android:textColor="@color/colorWhite"
+                android:textSize="24sp"
+                android:layout_height="wrap_content"
+                android:id="@+id/general_event_list_filter_textview" android:layout_marginBottom="8dp"
+                app:layout_constraintBottom_toBottomOf="@+id/general_event_list_filter_layout"
+                app:layout_constraintEnd_toEndOf="parent" android:layout_marginEnd="8dp"
+                app:layout_constraintStart_toStartOf="parent" android:layout_marginStart="8dp"/>
+    </android.support.constraint.ConstraintLayout>
+    <RelativeLayout
             android:layout_width="0dp"
-            android:layout_height="48dp"
-            android:id="@+id/general_list_filter_category_spinner"
-            app:layout_constraintEnd_toStartOf="@+id/general_event_list_imageview_categories"
-            android:layout_marginEnd="8dp" android:layout_marginBottom="8dp"
-            app:layout_constraintBottom_toTopOf="@+id/general_event_list_filter_textview" android:layout_marginTop="8dp"
-            app:layout_constraintTop_toTopOf="@+id/general_event_list_filter_view"
-            style="@style/spinner_style"
-            app:layout_constraintStart_toStartOf="parent" android:layout_marginStart="16dp"/>
+            android:layout_height="0dp"
+            android:background="@color/colorPrimary"
+            android:id="@+id/general_event_list_filter_background_view" app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent" app:layout_constraintEnd_toStartOf="@+id/guideline5"
+            app:layout_constraintBottom_toBottomOf="@+id/general_event_list_search_edittext">
+        <ImageView
+                android:src="@drawable/ic_filtering_blue"
+                android:layout_width="30dp"
+                android:layout_height="match_parent"
+                tools:layout_editor_absoluteY="0dp" tools:layout_editor_absoluteX="0dp"
+                android:id="@+id/general_event_list_filter_imageview"/>
+        <TextView
+                android:text="סינון"
+                android:layout_toRightOf="@id/general_event_list_filter_imageview"
+                android:layout_alignParentRight="true"
+                android:gravity="center"
+                android:textColor="@color/colorWhite"
+                android:layout_centerVertical="true"
+                android:layout_width="wrap_content"
+                android:textSize="24sp"
+                android:layout_height="wrap_content"
+                android:id="@+id/general_event_list_filtering_next_to_icon_textview"/>
+    </RelativeLayout>
+    <android.support.constraint.Guideline android:layout_width="wrap_content" android:layout_height="wrap_content"
+                                          android:id="@+id/guideline5"
+                                          android:orientation="vertical"
+                                          app:layout_constraintGuide_percent="0.25"/>
 </android.support.constraint.ConstraintLayout>
