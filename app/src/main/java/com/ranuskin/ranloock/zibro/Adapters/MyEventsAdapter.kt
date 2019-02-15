@@ -18,11 +18,11 @@ class MyEventsAdapter: RecyclerView.Adapter<MyEventsViewHolder>(){
 
 
     private lateinit var mEvents: List<ZibroEvent>
-    val myEvent01 = MyEvent(1, listOf(EventImage("")), "קייטנת האגוז", 40)
-    val myEvent02 = MyEvent(1, listOf(EventImage("")), "ערב תה מסורתי", 72)
-    val myEvent03 = MyEvent(1, listOf(EventImage("")), "פסטיבל היפ-הופ גול", 102)
-    val myEvent04 = MyEvent(1, listOf(EventImage("")), "כנס קיי פופ", 209)
-    val myEvent05 = MyEvent(1, listOf(EventImage("")), "מסיבת גג איציק", 301)
+    val myEvent01 = MyEvent(1, EventImage("https://c.pxhere.com/photos/0b/3b/photo-5329.jpg!d"), "קייטנת האגוז", 40)
+    val myEvent02 = MyEvent(1, EventImage("https://cdn.pixabay.com/photo/2017/12/08/11/53/event-party-3005668_960_720.jpg"), "ערב תה מסורתי", 72)
+    val myEvent03 = MyEvent(1, EventImage("https://cdn.pixabay.com/photo/2017/12/08/11/53/event-party-3005668_960_720.jpg"), "פסטיבל היפ-הופ גול", 102)
+    val myEvent04 = MyEvent(1, EventImage("https://cdn.pixabay.com/photo/2017/12/08/11/53/event-party-3005668_960_720.jpg"), "כנס קיי פופ", 209)
+    val myEvent05 = MyEvent(1, EventImage("https://cdn.pixabay.com/photo/2017/12/08/11/53/event-party-3005668_960_720.jpg"), "מסיבת גג איציק", 301)
 
     val zevelEvent = listOf(myEvent01,myEvent02,myEvent03,myEvent04,myEvent05)
 
@@ -45,7 +45,7 @@ class MyEventsAdapter: RecyclerView.Adapter<MyEventsViewHolder>(){
         val model2 = zevelEvent[p1]
 
         val ref = p0.itemView
-       Picasso.get().load(model.images[0].link).placeholder(com.ranuskin.ranloock.zibro.R.drawable.zebra).into(ref.my_events_imageview)
+       Picasso.get().load(model2.images.link).placeholder(com.ranuskin.ranloock.zibro.R.drawable.zebra).into(ref.my_events_imageview)
         ref.titleEventTextView.text = zevelEvent[p1].title
         ref.numberOfParticipantsTextView.text = zevelEvent[p1].participantsNum.toString()
         //   ref.numberOfParticipantsTextView.text = model2.ParticipantsNum

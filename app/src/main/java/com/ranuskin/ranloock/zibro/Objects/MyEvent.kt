@@ -3,7 +3,7 @@ import java.io.Serializable
 
 class MyEvent(
     val id: Int,
-    val images: List<EventImage>,
+    val images: EventImage,
     val title: String,
     val participantsNum: Int
 ) : Serializable{
