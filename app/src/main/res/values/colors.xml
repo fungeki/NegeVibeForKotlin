@@ -13,4 +13,8 @@
     <color name="colorWhite">#FFFFFF</color>
     <color name="colorGrayBackground">#E4E4E4</color>
     <color name="colorBlack">#000000</color>
+    <color name="colorChatEditTextGray">#E4E4E4</color>
+    <color name="colorOtherChatBubbleBackground">#D5D6D6</color>
+    <color name="colorGrayTimeOfOtherChatBubble">#909090</color>
+
 </resources>
