@@ -1,0 +1,41 @@
+<?xml version="1.0" encoding="utf-8"?>
+<android.support.constraint.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+                                             xmlns:app="http://schemas.android.com/apk/res-auto"
+                                             xmlns:tools="http://schemas.android.com/tools"
+                                             android:layout_width="match_parent"
+                                             android:layout_height="match_parent">
+
+    <android.support.constraint.Guideline android:layout_width="wrap_content" android:layout_height="wrap_content"
+                                          android:id="@+id/row_chat_signed_user_message_gl_30pc"
+                                          android:orientation="vertical"
+                                          app:layout_constraintGuide_percent="0.2"/>
+    <android.support.constraint.ConstraintLayout
+            android:layout_width="0dp"
+            android:background="@drawable/background_event_chat_signed_user_message"
+            android:layout_height="wrap_content"
+            app:layout_constraintStart_toStartOf="@id/row_chat_signed_user_message_gl_30pc" android:layout_marginStart="8dp"
+            app:layout_constraintEnd_toEndOf="parent" app:layout_constraintTop_toTopOf="parent"
+            android:layout_marginTop="8dp" android:layout_marginEnd="16dp">
+        <TextView
+                android:text="הודעה"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:gravity="start"
+                android:textColor="@color/colorWhite"
+                android:id="@+id/row_chat_signed_user_message_content_textview"
+                app:layout_constraintTop_toTopOf="parent" android:layout_marginTop="8dp"
+                app:layout_constraintBottom_toBottomOf="parent" app:layout_constraintEnd_toEndOf="parent"
+                android:layout_marginEnd="8dp" android:layout_marginBottom="8dp"
+                app:layout_constraintStart_toEndOf="@+id/row_chat_signed_user_message_time_textview"
+                android:layout_marginStart="8dp"/>
+        <TextView
+                android:text="שעה"
+                android:textColor="@color/colorWhite"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:id="@+id/row_chat_signed_user_message_time_textview"
+                app:layout_constraintTop_toTopOf="parent" android:layout_marginTop="8dp"
+                app:layout_constraintStart_toStartOf="parent" android:layout_marginStart="16dp"
+        />
+    </android.support.constraint.ConstraintLayout>
+</android.support.constraint.ConstraintLayout>
