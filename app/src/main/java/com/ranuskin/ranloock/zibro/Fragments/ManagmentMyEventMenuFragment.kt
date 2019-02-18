@@ -13,10 +13,6 @@ import com.ranuskin.ranloock.zibro.R
 import kotlinx.android.synthetic.main.fragment_managment_my_event_menu.*
 import kotlinx.android.synthetic.main.fragment_my_events_list.*
 
-// TODO: Rename parameter arguments, choose names that match
-// the fragment initialization parameters, e.g. ARG_ITEM_NUMBER
-private const val ARG_PARAM1 = "param1"
-private const val ARG_PARAM2 = "param2"
 
 /**
  * A simple [Fragment] subclass.
@@ -37,9 +33,5 @@ class ManagmentMyEventMenuFragment : Fragment() {
 
 
     }
-//my_events_recyclerview.adapter = MyEventsAdapter(
-    //managementMyEventMenuRecyclerView
-    //managementMyEventMenuRecyclerView.layoutManager = LinearLayoutManager(context)
-
 
 }
