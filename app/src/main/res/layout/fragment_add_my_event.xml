@@ -107,8 +107,58 @@
                                 android:orientation="vertical"
                                 android:layout_width="0dp"
                                 android:layout_height="match_parent"
-                                app:layout_constraintGuide_percent="0.13"
-                                android:id="@+id/guideLineLeft"/>
+                                app:layout_constraintGuide_percent="0.16"
+                                android:id="@+id/guideLineVertical2"/>
+
+                        <android.support.constraint.Guideline
+                                android:layout_width="0dp"
+                                android:id="@+id/guideLineVertical"
+                                app:layout_constraintGuide_percent="0.05"
+                                android:layout_height="match_parent"
+                                android:orientation="vertical"/>
+                        <android.support.constraint.Guideline
+                                android:layout_width="0dp"
+                                android:id="@+id/guideLineVertical3"
+                                app:layout_constraintGuide_percent="0.57"
+                                android:layout_height="match_parent"
+                                android:orientation="vertical"/>
+
+                        <android.support.constraint.Guideline
+                                android:layout_width="wrap_content"
+                                android:layout_height="wrap_content"
+                                android:orientation="horizontal"
+                                android:id="@+id/guideLineHorizontal"
+                                app:layout_constraintGuide_percent="0.14"/>
+                        <android.support.constraint.Guideline
+                                android:layout_width="match_parent"
+                                android:layout_height="0dp"
+                                android:orientation="horizontal"
+                                android:id="@+id/guideLineHorizontal2"
+                                app:layout_constraintGuide_percent="0.27"/>
+                        <android.support.constraint.Guideline
+                                android:layout_width="match_parent"
+                                android:layout_height="0dp"
+                                android:orientation="horizontal"
+                                android:id="@+id/guideLineHorizontal3"
+                                app:layout_constraintGuide_percent="0.4"/>
+                        <android.support.constraint.Guideline
+                                android:layout_width="match_parent"
+                                android:layout_height="0dp"
+                                android:orientation="horizontal"
+                                android:id="@+id/guideLineHorizontal4"
+                                app:layout_constraintGuide_percent="0.55"/>
+                        <android.support.constraint.Guideline
+                                android:layout_width="match_parent"
+                                android:layout_height="0dp"
+                                android:orientation="horizontal"
+                                android:id="@+id/guideLineHorizontal5"
+                                app:layout_constraintGuide_percent="0.68"/>
+                        <android.support.constraint.Guideline
+                                android:layout_width="match_parent"
+                                android:layout_height="0dp"
+                                android:orientation="horizontal"
+                                android:id="@+id/guideLineHorizontal6"
+                                app:layout_constraintGuide_percent="0.82"/>
                         <Spinner
                                 android:id="@+id/addEventCategorySpinner"
                                 android:layout_width="0dp"
@@ -119,52 +169,135 @@
                                 android:layout_marginEnd="24dp"
                                 app:layout_constraintEnd_toEndOf="parent"
                                 app:layout_constraintTop_toTopOf="parent"
-                                app:layout_constraintStart_toEndOf="@+id/guideLineLeft"/>
-                        <android.support.constraint.Guideline
-                                android:layout_width="0dp"
-                                android:id="@+id/guideLineRight"
-                                app:layout_constraintGuide_percent="0.05"
-                                android:layout_height="match_parent"
-                                android:orientation="vertical"
-                        />
-                        <android.support.constraint.Guideline
-                                android:layout_width="match_parent"
-                                android:layout_height="0dp"
-                                android:orientation="horizontal"
-                                android:id="@+id/guideLineButtom"
-                                app:layout_constraintGuide_percent="0.45"/>
+                                app:layout_constraintStart_toEndOf="@+id/guideLineVertical2"/>
                         <ImageView
                                 android:layout_width="24dp"
                                 android:layout_height="0dp"
                                 android:src="@drawable/ic_category_blue"
                                 android:id="@+id/addEventCategoryImage"
                                 app:layout_constraintTop_toTopOf="parent"
-                                app:layout_constraintStart_toEndOf="@+id/guideLineRight"/>
+                                app:layout_constraintStart_toEndOf="@+id/guideLineVertical"/>
+
                         <EditText
                                 android:layout_width="0dp"
-                                android:layout_height="30dp"
+                                android:layout_height="35dp"
                                 android:hint="יום ה, 24 בינואר 2019"
                                 android:background="@drawable/rounded_edit_text"
                                 android:id="@+id/addEventDate"
                                 app:layout_constraintEnd_toEndOf="parent"
                                 android:layout_marginEnd="24dp"
-                                app:layout_constraintStart_toEndOf="@id/guideLineLeft"
-                                app:layout_constraintTop_toBottomOf="@+id/guideLineButtom"/>
+                                android:paddingStart="20dp"
+                                app:layout_constraintStart_toEndOf="@id/guideLineVertical2"
+                                app:layout_constraintTop_toBottomOf="@+id/guideLineHorizontal"/>
+                        <ImageView
+                                android:layout_width="24dp"
+                                android:layout_height="28dp"
+                                android:src="@drawable/ic_date_red"
+                                android:id="@+id/addEventCaledarImage"
+                                app:layout_constraintTop_toBottomOf="@id/guideLineHorizontal"
+                                app:layout_constraintStart_toEndOf="@+id/guideLineVertical"/>
+
+
+
+                        <EditText
+                                android:id="@+id/addEventLocationEditText"
+                                android:layout_width="0dp"
+                                android:layout_height="35dp"
+                                app:layout_constraintTop_toBottomOf="@id/guideLineHorizontal2"
+                                app:layout_constraintStart_toEndOf="@id/guideLineVertical2"
+                                android:hint="@string/locationHebrew"
+                                android:background="@drawable/rounded_edit_text"
+                                app:layout_constraintEnd_toEndOf="parent"
+                                android:paddingStart="20dp"
+                                android:layout_marginEnd="24dp"/>
+                        <ImageView
+                                android:layout_width="24dp"
+                                android:layout_height="28dp"
+                                app:layout_constraintStart_toEndOf="@id/guideLineVertical"
+                                app:layout_constraintTop_toBottomOf="@id/guideLineHorizontal2"
+                                android:src="@drawable/ic_address_green"/>
+                        <EditText
+                                android:id="@+id/addEventLocationDescriptionEditText"
+                                android:layout_width="0dp"
+                                android:layout_height="35dp"
+                                app:layout_constraintTop_toBottomOf="@id/guideLineHorizontal3"
+                                app:layout_constraintStart_toEndOf="@id/guideLineVertical2"
+                                android:hint="תאור של המקום"
+                                android:background="@drawable/rounded_edit_text"
+                                app:layout_constraintEnd_toEndOf="parent"
+                                android:paddingStart="20dp"
+                                android:layout_marginEnd="24dp" tools:ignore="HardcodedText"/>
+                        <ImageView
+                                android:layout_width="24dp"
+                                android:layout_height="28dp"
+                                app:layout_constraintStart_toEndOf="@id/guideLineVertical"
+                                app:layout_constraintTop_toBottomOf="@id/guideLineHorizontal3"
+                                android:src="@drawable/ic_address_description_yellow"/>
+
+
+                        <EditText
+                                android:id="@+id/addEventTimeEditText"
+                                android:layout_width="0dp"
+                                android:layout_height="35dp"
+                                app:layout_constraintTop_toBottomOf="@id/guideLineHorizontal4"
+                                app:layout_constraintStart_toEndOf="@id/guideLineVertical2"
+                                android:hint="@string/activityTimeHebrew"
+                                android:background="@drawable/rounded_edit_text"
+                                app:layout_constraintEnd_toEndOf="parent"
+                                android:paddingStart="20dp"
+                                android:layout_marginEnd="24dp"/>
+                        <ImageView
+                                android:layout_width="24dp"
+                                android:layout_height="24dp"
+                                app:layout_constraintStart_toEndOf="@id/guideLineVertical"
+                                app:layout_constraintTop_toBottomOf="@id/guideLineHorizontal4"
+                                android:src="@drawable/ic_time_purple"/>
+
+
+                        <EditText
+                                android:id="@+id/addEventTicketPriceEditText"
+                                android:layout_width="0dp"
+                                android:layout_height="35dp"
+                                app:layout_constraintTop_toBottomOf="@id/guideLineHorizontal5"
+                                app:layout_constraintStart_toEndOf="@id/guideLineVertical2"
+                                android:hint="@string/priceHebrew"
+                                android:textAlignment="center"
+                                android:background="@drawable/rounded_edit_text"
+                                app:layout_constraintEnd_toEndOf="@id/guideLineVertical3"
+                                android:paddingStart="20dp"
+                                android:layout_marginEnd="24dp"/>
+                        <EditText
+                                android:id="@+id/addEventTicketFreeEditText"
+                                android:layout_width="0dp"
+                                android:layout_height="35dp"
+                                app:layout_constraintTop_toBottomOf="@id/guideLineHorizontal5"
+                                app:layout_constraintStart_toEndOf="@id/guideLineVertical3"
+                                android:hint="@string/freeHebrew"
+                                android:textAlignment="center"
+                                android:background="@drawable/rounded_edit_text_yellow"
+                                app:layout_constraintEnd_toEndOf="parent"
+                                android:paddingStart="20dp"
+                                android:layout_marginEnd="24dp"/>
+                        <ImageView
+                                android:layout_width="24dp"
+                                android:layout_height="24dp"
+                                app:layout_constraintStart_toEndOf="@id/guideLineVertical"
+                                app:layout_constraintTop_toBottomOf="@id/guideLineHorizontal5"
+                                android:src="@drawable/ic_ticket_yellow"/>
                         <ImageView
                                 android:layout_width="24dp"
                                 android:layout_height="0dp"
-                                android:src="@drawable/ic_date_red"
-                                android:id="@+id/addEventCaledarImage"
-                                app:layout_constraintTop_toBottomOf="@id/guideLineButtom"
-                                app:layout_constraintStart_toEndOf="@+id/guideLineRight"/>
-                        
-                        <android.support.constraint.Guideline
-                                android:layout_width="match_parent"
-                                android:layout_height="0dp"
-                                android:orientation="horizontal"
-                                android:id="@+id/guideLineHorizontal2"
-                                app:layout_constraintGuide_percent="0.8"/>
-
+                                app:layout_constraintStart_toEndOf="@id/guideLineVertical"
+                                app:layout_constraintTop_toBottomOf="@id/guideLineHorizontal6"
+                                android:src="@drawable/ic_plus_green"/>
+                        <TextView
+                                android:layout_width="wrap_content"
+                                android:layout_height="wrap_content"
+                                app:layout_constraintTop_toBottomOf="@id/guideLineHorizontal6"
+                                app:layout_constraintStart_toEndOf="@id/guideLineVertical2"
+                                android:text="@string/beerGoldstarHebrew"
+                                android:textSize="16sp"
+                                android:textColor="@color/colorGreen"/>
 
 
                     </android.support.constraint.ConstraintLayout>
