@@ -4,7 +4,7 @@
              android:layout_width="match_parent"
              android:layout_height="match_parent"
              android:layoutDirection="rtl"
-             tools:context=".Fragments.ChatListFragment">
+             tools:context=".Fragments.GeneralChatChannelsFragment">
     <android.support.v7.widget.RecyclerView
             android:layout_width="match_parent"
             android:layout_height="match_parent" android:id="@+id/chat_list_recycler_view"/>

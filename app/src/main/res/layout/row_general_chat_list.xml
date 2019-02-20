@@ -33,16 +33,16 @@
             android:text="שעה וזה"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:id="@+id/textView4"
+            android:id="@+id/row_general_chat_list_message_time_textview"
             app:layout_constraintStart_toStartOf="parent"
             android:layout_marginStart="8dp"
-            app:layout_constraintBottom_toBottomOf="@+id/textView5"/>
+            app:layout_constraintBottom_toBottomOf="@+id/row_general_chat_list_message_textview"/>
     <TextView
             android:text="הודעה"
             android:layout_width="0dp"
             android:layout_height="19dp"
-            android:id="@+id/textView5"
-            app:layout_constraintStart_toEndOf="@+id/textView4" android:layout_marginStart="8dp"
+            android:id="@+id/row_general_chat_list_message_textview"
+            app:layout_constraintStart_toEndOf="@+id/row_general_chat_list_message_time_textview" android:layout_marginStart="8dp"
             app:layout_constraintEnd_toStartOf="@+id/cardView"
             android:layout_marginEnd="8dp" android:layout_marginBottom="8dp"
             app:layout_constraintBottom_toBottomOf="@+id/cardView"/>

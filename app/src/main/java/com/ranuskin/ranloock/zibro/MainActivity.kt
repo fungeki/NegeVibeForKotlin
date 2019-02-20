@@ -11,8 +11,6 @@ import android.view.Gravity
 import android.view.Menu
 import android.view.MenuItem
 import android.widget.Toast
-import com.facebook.FacebookSdk
-import com.facebook.appevents.AppEventsLogger
 import com.google.firebase.auth.FirebaseAuth
 import com.ranuskin.ranloock.zibro.Fragments.*
 import kotlinx.android.synthetic.main.activity_main.*
@@ -118,7 +116,7 @@ class MainActivity : AppCompatActivity(), NavigationView.OnNavigationItemSelecte
                 return@OnNavigationItemSelectedListener true
             }
             R.id.bot_nav_chats ->{
-                supportFragmentManager.beginTransaction().replace(R.id.fragments_container, ChatListFragment()).commit()
+                supportFragmentManager.beginTransaction().replace(R.id.fragments_container, GeneralChatChannelsFragment()).commit()
                 supportActionBar!!.title = "הצ׳אטים שלי"
                 return@OnNavigationItemSelectedListener true
             }

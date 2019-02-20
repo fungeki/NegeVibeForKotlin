@@ -13,6 +13,7 @@ import android.view.ViewGroup
 import com.ranuskin.ranloock.zibro.Adapters.ChatListAdapter
 import com.ranuskin.ranloock.zibro.DB.Libraries.SignedInUser
 import com.ranuskin.ranloock.zibro.DB.Update.updateUsername
+import com.ranuskin.ranloock.zibro.Objects.Chat.ChatChannel
 import com.ranuskin.ranloock.zibro.R
 import kotlinx.android.synthetic.main.fragment_chat_list.*
 import kotlinx.android.synthetic.main.username_select_dialog.view.*
@@ -23,8 +24,9 @@ import java.util.regex.Pattern
  * A simple [Fragment] subclass.
  *
  */
-class ChatListFragment : Fragment() {
+class GeneralChatChannelsFragment : Fragment() {
 
+    var chatChannel = ChatChannel(0, "woof", "meow", "20:00")
 
     override fun onCreateView(
         inflater: LayoutInflater, container: ViewGroup?,
@@ -41,6 +43,14 @@ class ChatListFragment : Fragment() {
         chat_list_recycler_view.adapter = ChatListAdapter{ event ->
             if (SignedInUser.getUsername() == null){
                 showUsernameDialog()
+            } else {
+                val ft = activity!!.supportFragmentManager.beginTransaction().addToBackStack(null)
+                    .setCustomAnimations(R.anim.enter_from_right, R.anim.exit_from_right, R.anim.enter_from_right, R.anim.exit_from_right)
+                val bundle = Bundle()
+                bundle.putSerializable("event",event)
+                val chatForEventFragment = ChatForEventFragment()
+                chatForEventFragment.arguments = bundle
+                ft.replace(R.id.fragments_container, chatForEventFragment).commit()
             }
 
 
@@ -63,6 +73,9 @@ class ChatListFragment : Fragment() {
                 updateUsername(dialogView.username_select_dialog_name_edittext.text.toString().trim()) {
                     println("meow")
                     println("new usernamed successfully updated")
+                    val ft = activity!!.supportFragmentManager.beginTransaction().addToBackStack(null)
+                        .setCustomAnimations(R.anim.enter_from_right, R.anim.exit_from_right, R.anim.enter_from_right, R.anim.exit_from_right)
+                    ft.replace(R.id.fragments_container, ChatForEventFragment()).commit()
                 }
             }
         }

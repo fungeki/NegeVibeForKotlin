@@ -5,6 +5,7 @@ import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import com.ranuskin.ranloock.zibro.DB.Libraries.EventsLibrary
+import com.ranuskin.ranloock.zibro.Objects.Chat.ChatChannel
 import com.ranuskin.ranloock.zibro.Objects.ZibroEvent
 import com.ranuskin.ranloock.zibro.R
 import com.squareup.picasso.Picasso
@@ -13,8 +14,9 @@ import kotlinx.android.synthetic.main.row_general_chat_list.view.*
 class ChatListAdapter(val listener: (ZibroEvent) -> Unit): RecyclerView.Adapter<ChatListViewHolder>(){
 
     lateinit var arr: List<ZibroEvent>
+    var chatChannel = ChatChannel(0, "meow", "מיאו, כפרה", "19:20")
     override fun onCreateViewHolder(p0: ViewGroup, p1: Int): ChatListViewHolder {
-
+        println(p1.toString())
         var layoutInflater = LayoutInflater.from(p0.context)
         var cellForRow = layoutInflater.inflate(R.layout.row_general_chat_list, p0, false)
         return ChatListViewHolder(cellForRow)
@@ -33,6 +35,8 @@ class ChatListAdapter(val listener: (ZibroEvent) -> Unit): RecyclerView.Adapter<
         p0.itemView.setOnClickListener {
             listener(model)
         }
+        p0.itemView.row_general_chat_list_message_time_textview.text = chatChannel.messageTime
+        p0.itemView.row_general_chat_list_message_textview.text = chatChannel.lastMessage
     }
 
 }
