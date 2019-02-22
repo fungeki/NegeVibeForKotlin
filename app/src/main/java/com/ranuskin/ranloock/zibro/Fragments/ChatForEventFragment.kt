@@ -9,6 +9,7 @@ import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import com.ranuskin.ranloock.zibro.Adapters.ChatEventAdapter
+import com.ranuskin.ranloock.zibro.DB.Libraries.SignedInUser
 import com.ranuskin.ranloock.zibro.Objects.Chat.ChatMessage
 import com.ranuskin.ranloock.zibro.Objects.ZibroEvent
 
@@ -38,11 +39,14 @@ class ChatForEventFragment : Fragment() {
             val msg = ChatMessage("", "woof","מיאו", "12:00")
             chatList.add(msg)
         }
+        val mymsg = ChatMessage(SignedInUser.getUID(), "woof","מיאו", "12:00")
+        chatList.add(mymsg)
         var msg = ChatMessage("", "woof","meow\nmeow\nmeow\n", "12:00")
         chatList.add(msg)
         msg.message = "הב הב הב הב הב הב הב הב הב הב הב הב הב הב הב הב הב הב הב הב הב הב הב הב הב הב הב הב הב הב הב הב הב הב הב הב הב הב הב הב הב הב"
         chatList.add(msg)
         println(chatList)
+
         val chatAdapter = ChatEventAdapter(chatList)
         chat_for_event_chat_recyclerview.layoutManager = LinearLayoutManager(context)
         chat_for_event_chat_recyclerview.adapter = chatAdapter
