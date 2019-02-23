@@ -10,17 +10,31 @@ import android.support.v7.app.AppCompatActivity
 import android.view.Gravity
 import android.view.Menu
 import android.view.MenuItem
+import android.view.View
 import android.widget.Toast
 import com.google.firebase.auth.FirebaseAuth
 import com.ranuskin.ranloock.zibro.DB.Constructors.createChatChannel
 import com.ranuskin.ranloock.zibro.Fragments.*
+import com.ranuskin.ranloock.zibro.Interfaces.BarDelegate
 import com.ranuskin.ranloock.zibro.Objects.Chat.ChatChannel
 import com.ranuskin.ranloock.zibro.Objects.Chat.ChatMessage
 import kotlinx.android.synthetic.main.activity_main.*
 import kotlinx.android.synthetic.main.app_bar_main.*
 import kotlinx.android.synthetic.main.content_main.*
 
-class MainActivity : AppCompatActivity(), NavigationView.OnNavigationItemSelectedListener, BottomNavigationView.OnNavigationItemSelectedListener {
+class MainActivity : AppCompatActivity(), NavigationView.OnNavigationItemSelectedListener, BottomNavigationView.OnNavigationItemSelectedListener
+,BarDelegate {
+
+    override fun onStateChanged(isHidden: Boolean) {
+
+        if (isHidden){
+            bottom_nav_bar.visibility = View.GONE
+        }
+        else {
+            bottom_nav_bar.visibility = View.VISIBLE
+        }
+
+    }
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)

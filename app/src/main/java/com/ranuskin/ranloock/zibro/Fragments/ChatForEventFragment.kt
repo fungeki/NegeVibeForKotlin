@@ -1,23 +1,24 @@
 package com.ranuskin.ranloock.zibro.Fragments
 
 
+import android.content.Context
 import android.content.DialogInterface
 import android.os.Bundle
 import android.support.v4.app.Fragment
 import android.support.v7.app.AppCompatActivity
 import android.support.v7.widget.LinearLayoutManager
+import android.text.Editable
 import android.util.Log
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
-import com.google.firebase.firestore.EventListener
 import android.widget.Toast
-import com.google.firebase.firestore.DocumentChange
-import com.google.firebase.firestore.FirebaseFirestore
-import com.google.firebase.firestore.QuerySnapshot
+import com.google.firebase.firestore.*
+import com.google.firebase.firestore.EventListener
 import com.ranuskin.ranloock.zibro.Adapters.ChatEventAdapter
 import com.ranuskin.ranloock.zibro.DB.Libraries.SignedInUser
 import com.ranuskin.ranloock.zibro.DB.Push.pushEventChatMessage
+import com.ranuskin.ranloock.zibro.Interfaces.BarDelegate
 import com.ranuskin.ranloock.zibro.Objects.Chat.ChatMessage
 import com.ranuskin.ranloock.zibro.Objects.ZibroEvent
 
@@ -32,7 +33,13 @@ class ChatForEventFragment : Fragment(), View.OnClickListener {
 
     var chatList = mutableListOf<ChatMessage>()
     var chatAdapter = ChatEventAdapter(chatList)
+    lateinit var dbListener: ListenerRegistration
+    lateinit var barDelegate: BarDelegate
 
+    override fun onAttach(context: Context?) {
+        super.onAttach(context)
+        barDelegate = context as BarDelegate
+    }
     override fun onClick(v: View?) {
         sendMessage()
     }
@@ -60,9 +67,11 @@ class ChatForEventFragment : Fragment(), View.OnClickListener {
         chat_for_event_chat_recyclerview.scrollToPosition(lastItem)
         fragment_chat_for_event_send_button.setOnClickListener(this)
         listenToMessages()
-
-
+        fragment_chat_for_event_input_message_edittext.setOnFocusChangeListener { v, hasFocus ->
+            barDelegate.onStateChanged(hasFocus)
+        }
     }
+
 
     private fun sendMessage(){
         val text = fragment_chat_for_event_input_message_edittext.text.toString()
@@ -77,6 +86,8 @@ class ChatForEventFragment : Fragment(), View.OnClickListener {
                 if (!bool){
                     Toast.makeText(context!!,"שליחת הודעה נכשלה",Toast.LENGTH_SHORT).show()
                 }
+                fragment_chat_for_event_input_message_edittext.text.clear()
+
                 fragment_chat_for_event_send_button.isEnabled = true
 
             }
@@ -86,7 +97,7 @@ class ChatForEventFragment : Fragment(), View.OnClickListener {
     }
 
     private fun listenToMessages(){
-        FirebaseFirestore.getInstance().collection("chats").document("test")
+        dbListener = FirebaseFirestore.getInstance().collection("chats").document("test")
             .collection("messages").addSnapshotListener(EventListener<QuerySnapshot> { snapshots, e ->
             if (e != null) {
                 Log.w("chat", "Listen failed.", e)
@@ -106,16 +117,23 @@ class ChatForEventFragment : Fragment(), View.OnClickListener {
 
 
                             val lastItem = chatAdapter.itemCount - 1
-                            chatAdapter.notifyDataSetChanged()
-                            chat_for_event_chat_recyclerview.scrollToPosition(lastItem)
-
+                            if (chat_for_event_chat_recyclerview != null) {
+                                chatAdapter.notifyDataSetChanged()
+                                chat_for_event_chat_recyclerview.scrollToPosition(lastItem)
+                            }
 
                         }
 
                     }
                 }
         })
+
     }
 
 
+
+    override fun onDestroyView() {
+        super.onDestroyView()
+        dbListener.remove()
+    }
 }
