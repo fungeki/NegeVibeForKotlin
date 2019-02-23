@@ -6,16 +6,16 @@ import com.ranuskin.ranloock.zibro.Objects.Chat.ChatChannel
 import com.ranuskin.ranloock.zibro.Objects.Chat.ChatMessage
 import com.ranuskin.ranloock.zibro.Objects.ZibroEvent
 
-fun createChatChannel(chatMessage: ChatMessage,chatChannel: ChatChannel, completion: (Boolean)->Unit){
+fun createChatChannel(channelName: String, completion: (Boolean)->Unit){
     val db = FirebaseFirestore.getInstance()
-    val chatRef = db.collection("chats").document(chatChannel.id)
+    val chatRef = db.collection("chats").document(channelName)
     var chatChannelMap = HashMap<String, Any>()
-    chatChannelMap["event_id"] = chatChannel.eventid
-    chatChannelMap["last_message"] = chatChannel.lastMessage
-    chatChannelMap["message_time"] = chatChannel.messageTime
+    chatChannelMap["event_id"] = ""
+    chatChannelMap["last_message"] = "הצ׳אט ריק"
+    chatChannelMap["message_time"] = ""
+    val chatMessage = ChatMessage("0","0", "צ׳אט $channelName נוצר", "")
     val chatMessageMap = chatMessage.toMap()
     chatRef.set(chatChannelMap).addOnSuccessListener {
-        Log.d(chatChannel.id,"chat was created")
         chatRef.collection("messages").document("0").set(chatMessageMap).addOnSuccessListener {
             completion(true)
         }.addOnFailureListener {

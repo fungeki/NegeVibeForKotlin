@@ -61,6 +61,7 @@ class ChatForEventFragment : Fragment(), View.OnClickListener {
         fragment_chat_for_event_send_button.setOnClickListener(this)
         listenToMessages()
 
+
     }
 
     private fun sendMessage(){
@@ -85,7 +86,7 @@ class ChatForEventFragment : Fragment(), View.OnClickListener {
     }
 
     private fun listenToMessages(){
-        val ref = FirebaseFirestore.getInstance().collection("chats").document("test")
+        FirebaseFirestore.getInstance().collection("chats").document("test")
             .collection("messages").addSnapshotListener(EventListener<QuerySnapshot> { snapshots, e ->
             if (e != null) {
                 Log.w("chat", "Listen failed.", e)
