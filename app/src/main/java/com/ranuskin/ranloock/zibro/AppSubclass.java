@@ -8,5 +8,6 @@ public class AppSubclass extends Application {
     public void onCreate() {
         super.onCreate();
         FirebaseApp.initializeApp(this);
+        //asdasd
     }
 }
