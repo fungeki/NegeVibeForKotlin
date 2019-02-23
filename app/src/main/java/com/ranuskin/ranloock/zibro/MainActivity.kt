@@ -43,7 +43,7 @@ class MainActivity : AppCompatActivity(), NavigationView.OnNavigationItemSelecte
         supportFragmentManager.beginTransaction().replace(R.id.fragments_container, EventListFragment()).commit()
         if (FirebaseAuth.getInstance().currentUser!!.isAnonymous){
             Toast.makeText(this, "שלום, אורח/ת",Toast.LENGTH_SHORT).show()
-        } 
+        }
     }
 
     override fun onBackPressed() {
