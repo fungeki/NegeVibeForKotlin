@@ -16,7 +16,7 @@ fun createChatChannel(chatMessage: ChatMessage,chatChannel: ChatChannel, complet
     val chatMessageMap = chatMessage.toMap()
     chatRef.set(chatChannelMap).addOnSuccessListener {
         Log.d(chatChannel.id,"chat was created")
-        chatRef.collection("messages").document().set(chatMessageMap).addOnSuccessListener {
+        chatRef.collection("messages").document("0").set(chatMessageMap).addOnSuccessListener {
             completion(true)
         }.addOnFailureListener {
             completion(false)

@@ -5,7 +5,7 @@ import com.ranuskin.ranloock.zibro.DB.Libraries.SignedInUser
 import com.ranuskin.ranloock.zibro.Objects.Chat.ChatChannel
 import com.ranuskin.ranloock.zibro.Objects.Chat.ChatMessage
 
-fun pushEventChatMessage(chatid: String,chatMessage: ChatMessage,completion: (Boolean)->Unit){
+fun pushEventChatMessage(msgNum: String,chatid: String,chatMessage: ChatMessage,completion: (Boolean)->Unit){
 //    // Access a Cloud Firestore instance from your Activity
     val db = FirebaseFirestore.getInstance().collection("chats")
     val chatRef = db.document(chatid)
@@ -16,7 +16,7 @@ fun pushEventChatMessage(chatid: String,chatMessage: ChatMessage,completion: (Bo
 
 
     chatRef.update(messageUpdate).addOnSuccessListener {
-        chatRef.collection("messages").document().set(chatMessageMap).addOnSuccessListener {
+        chatRef.collection("messages").document("$msgNum ${SignedInUser.getUID()}").set(chatMessageMap).addOnSuccessListener {
             completion(true)
         }.addOnFailureListener {
             completion(false)
