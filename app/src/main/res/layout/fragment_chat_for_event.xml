@@ -33,6 +33,7 @@
                 android:inputType="textMultiLine"
                 android:hint="הקלד הודעה"
                 android:gravity="right"
+                android:imeOptions="actionDone"
                 android:paddingTop="8dp"
                 android:paddingBottom="8dp"
                 app:layout_constraintStart_toEndOf="@+id/fragment_chat_for_event_send_button"

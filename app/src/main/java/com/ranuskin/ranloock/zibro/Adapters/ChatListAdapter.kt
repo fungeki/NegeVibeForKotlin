@@ -14,7 +14,7 @@ import kotlinx.android.synthetic.main.row_general_chat_list.view.*
 class ChatListAdapter(val listener: (ZibroEvent) -> Unit): RecyclerView.Adapter<ChatListViewHolder>(){
 
     lateinit var arr: List<ZibroEvent>
-    var chatChannel = ChatChannel(0, "meow", "מיאו, כפרה", "19:20")
+    var chatChannel = ChatChannel("0", "meow", "מיאו, כפרה", "19:20")
     override fun onCreateViewHolder(p0: ViewGroup, p1: Int): ChatListViewHolder {
         println(p1.toString())
         var layoutInflater = LayoutInflater.from(p0.context)

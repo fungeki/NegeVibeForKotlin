@@ -54,7 +54,7 @@
                         app:layout_constraintTop_toBottomOf="@+id/eventDetailsImage"
                         app:layout_constraintBottom_toBottomOf="@+id/eventDetailsImage"
                         app:layout_constraintEnd_toStartOf="@id/eventDetailsAddToFavorite"
-                        android:layout_marginEnd="@dimen/activity_horizontal_margin"/>
+                        android:layout_marginEnd="8dp"/>
                 <ImageView
                         android:layout_width="40dp"
                         android:layout_height="40dp"
@@ -63,7 +63,7 @@
                         app:layout_constraintBottom_toBottomOf="@+id/eventDetailsImage"
                         app:layout_constraintTop_toBottomOf="@+id/eventDetailsImage"
                         android:id="@+id/eventDetailsShare" app:layout_constraintEnd_toStartOf="@id/eventDetailLike"
-                        android:layout_marginEnd="@dimen/activity_horizontal_margin"/>
+                        android:layout_marginEnd="8dp"/>
 
                 <android.support.v7.widget.Toolbar
                         android:layout_width="wrap_content"

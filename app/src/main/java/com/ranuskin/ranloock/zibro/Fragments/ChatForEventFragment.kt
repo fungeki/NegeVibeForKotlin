@@ -1,23 +1,34 @@
 package com.ranuskin.ranloock.zibro.Fragments
 
 
+import android.content.DialogInterface
 import android.os.Bundle
 import android.support.v4.app.Fragment
 import android.support.v7.app.AppCompatActivity
 import android.support.v7.widget.LinearLayoutManager
+import android.util.Log
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
+import android.widget.Button
+import android.widget.EditText
+import android.widget.Toast
 import com.ranuskin.ranloock.zibro.Adapters.ChatEventAdapter
 import com.ranuskin.ranloock.zibro.DB.Libraries.SignedInUser
+import com.ranuskin.ranloock.zibro.DB.Push.pushEventChatMessage
 import com.ranuskin.ranloock.zibro.Objects.Chat.ChatMessage
 import com.ranuskin.ranloock.zibro.Objects.ZibroEvent
 
 import com.ranuskin.ranloock.zibro.R
 import kotlinx.android.synthetic.main.fragment_chat_for_event.*
+import java.text.SimpleDateFormat
+import java.util.*
 
 
-class ChatForEventFragment : Fragment() {
+class ChatForEventFragment : Fragment(), View.OnClickListener {
+    override fun onClick(v: View?) {
+        sendMessage()
+    }
 
     override fun onCreateView(
         inflater: LayoutInflater, container: ViewGroup?,
@@ -30,11 +41,15 @@ class ChatForEventFragment : Fragment() {
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
         val bundle = arguments
+        var chatList = mutableListOf<ChatMessage>()
         bundle?.let { bundle ->
             val event = bundle.getSerializable("event") as ZibroEvent
             (activity as AppCompatActivity).supportActionBar?.title = "צ׳אט " + event.title
+            val openingMsg = ChatMessage("0", "", "צ׳אט " + event.title + " נוצר", "")
+            chatList.add(openingMsg)
         }
-        var chatList = mutableListOf<ChatMessage>()
+
+
         for (i in 1..5){
             val msg = ChatMessage("", "woof","מיאו", "12:00")
             chatList.add(msg)
@@ -50,6 +65,30 @@ class ChatForEventFragment : Fragment() {
         val chatAdapter = ChatEventAdapter(chatList)
         chat_for_event_chat_recyclerview.layoutManager = LinearLayoutManager(context)
         chat_for_event_chat_recyclerview.adapter = chatAdapter
+        val lastItem = chatAdapter.itemCount - 1
+        chat_for_event_chat_recyclerview.scrollToPosition(lastItem)
+        fragment_chat_for_event_send_button.setOnClickListener(this)
+
+    }
+
+    private fun sendMessage(){
+        val text = fragment_chat_for_event_input_message_edittext.text.toString()
+        val sdf = SimpleDateFormat("HH:mm", Locale("he"))
+        val currentTime = sdf.format(Date())
+        if (text.count() > 0 && SignedInUser.getUsername() != null){
+            fragment_chat_for_event_send_button.isEnabled = false
+            val chatMessage = ChatMessage(SignedInUser.getUID(),SignedInUser.getUsername()!!,text,currentTime)
+            pushEventChatMessage("test",chatMessage){ bool->
+                println("was the message sent: $bool")
+
+                if (!bool){
+                    Toast.makeText(context!!,"שליחת הודעה נכשלה",Toast.LENGTH_SHORT).show()
+                }
+
+            }
+        } else {
+            Toast.makeText(context!!,"הודעה קצרה מידי, נא להכניס הודעה ארוכה יותר",Toast.LENGTH_SHORT).show()
+        }
     }
 
 }

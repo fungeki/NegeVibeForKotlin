@@ -26,7 +26,7 @@ import java.util.regex.Pattern
  */
 class GeneralChatChannelsFragment : Fragment() {
 
-    var chatChannel = ChatChannel(0, "woof", "meow", "20:00")
+    var chatChannel = ChatChannel("0", "woof", "meow", "20:00")
 
     override fun onCreateView(
         inflater: LayoutInflater, container: ViewGroup?,
@@ -55,6 +55,7 @@ class GeneralChatChannelsFragment : Fragment() {
 
 
         }
+
 
     }
     fun showUsernameDialog(){

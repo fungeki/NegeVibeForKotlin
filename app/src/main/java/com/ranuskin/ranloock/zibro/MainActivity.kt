@@ -12,7 +12,10 @@ import android.view.Menu
 import android.view.MenuItem
 import android.widget.Toast
 import com.google.firebase.auth.FirebaseAuth
+import com.ranuskin.ranloock.zibro.DB.Constructors.createChatChannel
 import com.ranuskin.ranloock.zibro.Fragments.*
+import com.ranuskin.ranloock.zibro.Objects.Chat.ChatChannel
+import com.ranuskin.ranloock.zibro.Objects.Chat.ChatMessage
 import kotlinx.android.synthetic.main.activity_main.*
 import kotlinx.android.synthetic.main.app_bar_main.*
 import kotlinx.android.synthetic.main.content_main.*
