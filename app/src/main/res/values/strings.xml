@@ -35,4 +35,5 @@
         <item>ספורט</item>
         <item>דיגיטל</item>
     </string-array>
+    <string name="title_activity_upsales">Upsales</string>
 </resources>

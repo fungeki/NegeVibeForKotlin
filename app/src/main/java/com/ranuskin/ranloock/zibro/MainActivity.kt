@@ -1,5 +1,6 @@
 package com.ranuskin.ranloock.zibro
 
+import android.content.Intent
 import android.os.Bundle
 import android.support.design.widget.BottomNavigationView
 import android.support.design.widget.NavigationView
@@ -114,8 +115,11 @@ class MainActivity : AppCompatActivity(), NavigationView.OnNavigationItemSelecte
 
             }
             R.id.nav_signout -> {
-                FirebaseAuth.getInstance().signOut()
-                Toast.makeText(this, "התנתקנו, שמח?",Toast.LENGTH_SHORT).show()
+//                FirebaseAuth.getInstance().signOut()
+//                Toast.makeText(this, "התנתקנו, שמח?",Toast.LENGTH_SHORT).show()
+//                val intent = Intent(this, UpsalesActivity::class.java)
+//                startActivity(intent)
+
             }
         }
 
