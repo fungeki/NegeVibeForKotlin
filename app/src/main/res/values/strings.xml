@@ -36,4 +36,10 @@
         <item>דיגיטל</item>
     </string-array>
     <string name="title_activity_upsales">Upsales</string>
+    <string name="publishEventHebrew">פרסם אירוע</string>
+    <string name="freeHebrew">חינם</string>
+    <string name="priceHebrew">מחיר</string>
+    <string name="hoursHebrew">שעות פעילות</string>
+    <string name="chooseCategoryHebrew">בחר קטגוריה</string>
+    <string name="exit_app">press back again to exit app</string>
 </resources>
