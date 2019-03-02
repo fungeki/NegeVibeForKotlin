@@ -19,7 +19,7 @@ import kotlinx.android.synthetic.main.fragment_general_event_list.*
 
 class EventListFragment : Fragment() {
 
-    var isFilterCategory = false
+    var isFilterCategory = true
     var isFiltered = false
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
@@ -47,7 +47,7 @@ class EventListFragment : Fragment() {
         }
 
 
-            general_list_filter_category_spinner.setBackgroundColor(resources.getColor(R.color.colorWhite))
+//        general_list_filter_category_spinner.setBackgroundColor(resources.getColor(R.color.colorWhite))
         general_event_list.adapter = mAdapter
         general_event_list_search_edittext.addTextChangedListener(object: TextWatcher{
             override fun afterTextChanged(s: Editable?) {
@@ -75,28 +75,27 @@ class EventListFragment : Fragment() {
 
         general_list_filter_category_spinner.adapter = mCategoryAdapter
         general_list_filter_category_spinner.onItemSelectedListener =
-            object : AdapterView.OnItemSelectedListener {
-                override fun onNothingSelected(parent: AdapterView<*>?) {
+                object : AdapterView.OnItemSelectedListener {
+                    override fun onNothingSelected(parent: AdapterView<*>?) {
 
-                }
+                    }
 
-                override fun onItemSelected(parent: AdapterView<*>?, view: View?, position: Int, id: Long) {
-                    if (isFiltered) {
-                        view?.setBackgroundResource(R.drawable.background_spinner)
-                        mAdapter.filterByType(position)
-                        mAdapter.notifyDataSetChanged()
-                        general_event_list_filter_layout.visibility = View.GONE
-                        isFilterCategory = !isFilterCategory
+                    override fun onItemSelected(parent: AdapterView<*>?, view: View?, position: Int, id: Long) {
+                            view?.setBackgroundResource(R.drawable.background_spinner)
+                            mAdapter.filterByType(position)
+                            mAdapter.notifyDataSetChanged()
+                            general_event_list_filter_layout.visibility = View.INVISIBLE
+                            isFilterCategory = !isFilterCategory
+
                     }
                 }
-            }
         general_event_list_filter_background_view.setOnClickListener {
             isFiltered = true
             if (!isFilterCategory) {
                 general_event_list_filter_layout.visibility = View.VISIBLE
 
             } else {
-                general_event_list_filter_layout.visibility = View.GONE
+                general_event_list_filter_layout.visibility = View.INVISIBLE
             }
             isFilterCategory = !isFilterCategory
         }
