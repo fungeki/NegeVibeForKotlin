@@ -1,5 +1,29 @@
 <?xml version="1.0" encoding="utf-8"?>
-<selector xmlns:android="http://schemas.android.com/apk/res/android">
+<layer-list xmlns:android="http://schemas.android.com/apk/res/android">
+    <item>
+        <shape>
+            <stroke
+                    android:width="2dp"
+                    android:color="@color/colorBlue"/>
+            <padding
+                    android:top="2dp"
+                    android:bottom="2dp"
+                    android:right="10dp"
+                    android:left="20dp"/>
+            <corners
+                    android:bottomRightRadius="15dp"
+                    android:bottomLeftRadius="15dp"
+                    android:topLeftRadius="15dp"
+                    android:topRightRadius="15dp"/>
+            <solid
+                    android:color="@color/colorWhite"/>
+
+        </shape>
+    </item>
+    <item
+            android:drawable="@drawable/ic_arrow_play"
+            android:gravity="center_vertical|end"
+    />
 
 
-</selector>
+</layer-list>

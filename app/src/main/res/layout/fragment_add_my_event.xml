@@ -53,7 +53,8 @@
     <android.support.v4.widget.NestedScrollView
             android:layout_width="match_parent"
             android:layout_height="match_parent"
-            app:layout_behavior="@string/appbar_scrolling_view_behavior" tools:layout_editor_absoluteY="0dp"
+            app:layout_behavior="@string/appbar_scrolling_view_behavior"
+            tools:layout_editor_absoluteY="0dp"
             tools:layout_editor_absoluteX="0dp">
         <android.support.v7.widget.CardView
                 android:layout_width="match_parent"
@@ -66,8 +67,10 @@
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content"
                         android:background="@color/colorPrimary"
-                        android:orientation="vertical" app:layout_constraintTop_toTopOf="parent"
-                        app:layout_constraintEnd_toEndOf="parent" app:layout_constraintStart_toStartOf="parent">
+                        android:orientation="vertical"
+                        app:layout_constraintTop_toTopOf="parent"
+                        app:layout_constraintEnd_toEndOf="parent"
+                        app:layout_constraintStart_toStartOf="parent">
                     <EditText
                             android:id="@+id/addEventNameOfEvent"
                             android:layout_width="wrap_content"
@@ -171,34 +174,20 @@
                                 android:orientation="horizontal"
                                 android:id="@+id/guideLineHorizontal8"
                                 app:layout_constraintGuide_percent="0.85"/>
-                        <LinearLayout
-                                android:orientation="horizontal"
+
+                        <Spinner
+                                android:id="@+id/addEventCategorySpinner"
                                 android:layout_width="0dp"
-                                android:layout_height="wrap_content"
-                                android:layout_marginTop="8dp"
+                                android:layout_height="35dp"
+                                android:layout_marginTop="10dp"
                                 android:layout_marginEnd="24dp"
-                                android:background="@drawable/rounded_edit_text"
+                                android:spinnerMode="dropdown"
+                                android:background="@drawable/spinner_style"
                                 app:layout_constraintEnd_toEndOf="parent"
                                 app:layout_constraintTop_toTopOf="parent"
-                                app:layout_constraintStart_toEndOf="@id/guideLineVertical2">
-                            <TextView
-                                    android:id="@+id/addEventCategoryTextView"
-                                    android:layout_width="wrap_content"
-                                    android:layout_height="wrap_content"
-                                    android:text="@string/chooseCategoryHebrew"
-                                    android:paddingStart="20dp"
-                                    android:textColor="@color/colorBlue"
-                                    android:textSize="16sp"
-                                    android:layout_gravity="center_vertical"/>
-                            <Spinner
-                                    android:id="@+id/addEventCategorySpinner"
-                                    android:layout_width="70dp"
-                                    android:layout_height="35dp"
-                                    android:spinnerMode="dropdown"
-                                    android:layout_marginStart="120dp"
-                                    android:layout_gravity="center_vertical|end"/>
+                                app:layout_constraintStart_toEndOf="@id/guideLineVertical2"/>
 
-                        </LinearLayout>
+
                         <ImageView
                                 android:layout_width="24dp"
                                 android:layout_height="0dp"
@@ -350,10 +339,11 @@
                                 android:background="@drawable/rounded_edit_text_green"
                                 app:layout_constraintStart_toEndOf="@id/guideLineVertical2"
                                 android:text="@string/publishEventHebrew"
+                                android:textSize="18sp"
                                 android:textColor="@color/colorPrimary"
                                 android:textAlignment="center"
-                                android:paddingEnd="10dp"
-                                android:paddingStart="10dp"
+                                android:paddingEnd="5dp"
+                                android:paddingStart="5dp"
                                 app:layout_constraintBottom_toBottomOf="parent"
                                 android:layout_marginBottom="40dp"
                                 android:layout_marginEnd="60dp"
