@@ -77,6 +77,7 @@ class GeneralChatChannelsFragment : Fragment() {
                     val ft = activity!!.supportFragmentManager.beginTransaction().addToBackStack(null)
                         .setCustomAnimations(R.anim.enter_from_right, R.anim.exit_from_right, R.anim.enter_from_right, R.anim.exit_from_right)
                     ft.replace(R.id.fragments_container, ChatForEventFragment()).commit()
+                    SignedInUser.setUsername(dialogView.username_select_dialog_name_edittext.text.toString().trim())
                     dialog.dismiss()
                 }
             }

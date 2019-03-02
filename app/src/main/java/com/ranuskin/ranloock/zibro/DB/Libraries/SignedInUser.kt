@@ -83,6 +83,9 @@ object SignedInUser{
     fun getUsername(): String?{
         return user?.userName
     }
+    fun setUsername(username: String){
+        user?.userName = username
+    }
 
     fun dbUserRef(): DocumentReference{
         val db = FirebaseFirestore.getInstance()
