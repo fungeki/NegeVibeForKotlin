@@ -1,0 +1,120 @@
+<?xml version="1.0" encoding="utf-8"?>
+<android.support.constraint.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+                                             xmlns:app="http://schemas.android.com/apk/res-auto"
+                                             xmlns:tools="http://schemas.android.com/tools"
+                                             android:layout_width="match_parent"
+                                             android:layout_height="match_parent"
+                                             android:background="@color/colorPrimary"
+                                             tools:context=".Fragments.TicketForEventFragment">
+
+
+    <ImageView
+            android:src="@drawable/ic_date_blue"
+            android:layout_width="24dp"
+            android:layout_height="24dp"
+            android:id="@+id/fragment_ticket_for_event_date_icon"
+            android:layout_marginTop="8dp"
+            app:layout_constraintTop_toBottomOf="@+id/fragment_ticket_for_event_ticket_icon"
+            app:layout_constraintEnd_toStartOf="@+id/fragment_ticket_for_event_end_guideline"
+            android:layout_marginEnd="8dp"/>
+    <ImageView
+            android:src="@drawable/ic_address_blue"
+            android:layout_width="24dp"
+            android:layout_height="24dp"
+            android:id="@+id/fragment_ticket_for_event_location_icon"
+            android:layout_marginTop="8dp"
+            app:layout_constraintTop_toBottomOf="@+id/fragment_ticket_for_event_date_icon"
+            app:layout_constraintEnd_toStartOf="@+id/fragment_ticket_for_event_end_guideline"
+            android:layout_marginEnd="8dp"/>
+    <ImageView
+            android:src="@drawable/ic_logo"
+            android:layout_width="0dp"
+            android:layout_height="100dp"
+            android:id="@+id/fragment_ticket_for_event_logo"
+            android:layout_marginTop="24dp"
+            app:layout_constraintTop_toBottomOf="@+id/fragment_ticket_for_event_upper_background_view"
+            app:layout_constraintEnd_toStartOf="@+id/fragment_ticket_for_event_end_guideline"
+            app:layout_constraintStart_toStartOf="@+id/fragment_for_event_starting_guideline"
+            android:scaleType="fitCenter"/>
+    <View
+            android:layout_width="0dp"
+            android:background="@color/colorBlue"
+            android:layout_height="16dp"
+            android:id="@+id/fragment_ticket_for_event_upper_background_view" app:layout_constraintTop_toTopOf="parent"
+            app:layout_constraintStart_toStartOf="parent" app:layout_constraintEnd_toEndOf="parent"/>
+    <android.support.constraint.Guideline android:layout_width="wrap_content" android:layout_height="wrap_content"
+                                          android:id="@+id/fragment_for_event_starting_guideline"
+                                          android:orientation="vertical"
+                                          app:layout_constraintGuide_percent="0.15"/>
+    <android.support.constraint.Guideline android:layout_width="wrap_content" android:layout_height="wrap_content"
+                                          android:id="@+id/fragment_ticket_for_event_end_guideline"
+                                          android:orientation="vertical"
+                                          app:layout_constraintGuide_percent="0.85"/>
+    <TextView
+            android:text="שם האירוע"
+            android:layout_width="0dp"
+            android:textColor="@color/colorYellow"
+            android:gravity="center"
+            android:maxLines="2"
+            android:scrollbars="vertical"
+            android:layout_height="wrap_content"
+            android:textSize="16sp"
+            android:id="@+id/fragment_ticket_for_event_title_textview"
+            app:layout_constraintStart_toStartOf="@+id/fragment_for_event_starting_guideline"
+            android:layout_marginStart="8dp"
+            app:layout_constraintEnd_toStartOf="@+id/fragment_ticket_for_event_end_guideline"
+            android:layout_marginEnd="8dp" android:layout_marginTop="8dp"
+            app:layout_constraintTop_toBottomOf="@+id/fragment_ticket_for_event_logo"/>
+    <ImageView
+            android:src="@drawable/ic_ticket_blue"
+            android:layout_width="24dp"
+            android:layout_height="24dp"
+            android:id="@+id/fragment_ticket_for_event_ticket_icon"
+            app:layout_constraintEnd_toStartOf="@+id/fragment_ticket_for_event_end_guideline"
+            android:layout_marginEnd="8dp" android:layout_marginTop="8dp"
+            app:layout_constraintTop_toBottomOf="@+id/fragment_ticket_for_event_title_textview"/>
+    <TextView
+            android:text="4 ספרות אחרונות בכרטיס"
+            android:layout_width="0dp"
+            android:textColor="@color/colorWhite"
+            android:layout_height="wrap_content"
+            app:layout_constraintEnd_toStartOf="@+id/fragment_ticket_for_event_ticket_icon"
+            android:layout_marginEnd="8dp"
+            app:layout_constraintStart_toStartOf="@+id/fragment_for_event_starting_guideline"
+            android:layout_marginStart="8dp"
+            app:layout_constraintBottom_toBottomOf="@+id/fragment_ticket_for_event_ticket_icon"
+            app:layout_constraintTop_toTopOf="@+id/fragment_ticket_for_event_ticket_icon"
+            android:id="@+id/fragment_ticket_for_event_ticket_number_textview"/>
+    <TextView
+            android:text="תאריך"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:textColor="@color/colorWhite"
+            app:layout_constraintEnd_toStartOf="@+id/fragment_ticket_for_event_date_icon"
+            android:layout_marginEnd="8dp"
+            app:layout_constraintTop_toTopOf="@+id/fragment_ticket_for_event_date_icon"
+            app:layout_constraintBottom_toBottomOf="@+id/fragment_ticket_for_event_date_icon"
+            app:layout_constraintStart_toStartOf="@+id/fragment_for_event_starting_guideline"
+            android:layout_marginStart="8dp" android:id="@+id/fragment_ticket_for_event_date_textview"/>
+    <TextView
+            android:text="כתובת"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:maxLines="2"
+            android:textColor="@color/colorWhite"
+            android:scrollbars="vertical"
+            android:id="@+id/fragment_ticket_for_address_textview"
+            app:layout_constraintTop_toTopOf="@+id/fragment_ticket_for_event_location_icon"
+            app:layout_constraintBottom_toBottomOf="@+id/fragment_ticket_for_event_location_icon"
+            app:layout_constraintEnd_toStartOf="@+id/fragment_ticket_for_event_location_icon"
+            android:layout_marginEnd="8dp"
+            app:layout_constraintStart_toStartOf="@+id/fragment_for_event_starting_guideline"
+            android:layout_marginStart="8dp"/>
+    <View
+            android:layout_width="0dp"
+            android:layout_height="16dp"
+            android:background="@color/colorBlue"
+            android:id="@+id/fragment_ticket_for_event_bottom_closer_view"
+            app:layout_constraintBottom_toBottomOf="parent" app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"/>
+</android.support.constraint.ConstraintLayout>
