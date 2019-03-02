@@ -7,19 +7,17 @@ import android.view.View
 import android.view.ViewGroup
 import android.widget.AdapterView
 import android.widget.ArrayAdapter
-import android.widget.Toast
 import com.ranuskin.ranloock.zibro.Interfaces.UpsalesDelegate
 import com.ranuskin.ranloock.zibro.Objects.Upsales.UpsaleType
 import com.ranuskin.ranloock.zibro.Objects.Upsales.UpsalesObj
 import kotlinx.android.synthetic.main.row_upsales_add_item.view.*
-import android.support.v4.content.res.TypedArrayUtils.getText
+import android.text.SpannableStringBuilder
+import com.ranuskin.ranloock.zibro.Fragments.UpsalesSelectFragment
 
 
-class UpsalesBasketAdapter(private val mContext: Context): RecyclerView.Adapter<UpsalesBasketViewHolder>(){
+class UpsalesBasketAdapter(private val mContext: Context, val fragment: UpsalesSelectFragment, var upsaleList: MutableList<UpsalesObj>): RecyclerView.Adapter<UpsalesBasketViewHolder>(){
 
-
-    lateinit var upsaleDelegate: UpsalesDelegate
-    lateinit var upsaleLists : MutableList<UpsalesObj>
+    lateinit var upsalesDelegate: UpsalesDelegate
 
     override fun onCreateViewHolder(p0: ViewGroup, p1: Int): UpsalesBasketViewHolder {
         var layoutInflater = LayoutInflater.from(p0.context)
@@ -27,12 +25,9 @@ class UpsalesBasketAdapter(private val mContext: Context): RecyclerView.Adapter<
         return UpsalesBasketViewHolder(cellForRow)
     }
 
-    lateinit var upsalesDelegate: UpsalesDelegate
-
     override fun getItemCount(): Int {
-        upsalesDelegate = mContext as UpsalesDelegate
-        upsaleLists = mutableListOf()
-        return upsaleLists.size + 1
+        upsalesDelegate = fragment
+        return upsaleList.size + 1
     }
 
     override fun onBindViewHolder(p0: UpsalesBasketViewHolder, p1: Int) {
@@ -60,20 +55,24 @@ class UpsalesBasketAdapter(private val mContext: Context): RecyclerView.Adapter<
             }
         }
 
-        itemView.row_upsale_add_or_save_button.setOnClickListener{
-            val priceStr = itemView.row_upsales_add_item_price_edittext.text.toString()
-            val descriptionStr = itemView.row_upsales_item_description_edittext.text.toString()
-            if (priceStr.count() > 0 && descriptionStr.count() > 0){
-                val priceDbl = java.lang.Double.parseDouble(priceStr)
-                val mUpsale = UpsalesObj(upsaleType, descriptionStr, priceDbl)
-                upsaleLists.add(mUpsale)
-                upsalesDelegate.addToList(mUpsale)
-                //notifyDataSetChanged()
+        if (p1 == upsaleList.size){
+            itemView.row_upsale_add_or_save_button.setOnClickListener{
+                val priceStr = itemView.row_upsales_add_item_price_edittext.text.toString()
+                val descriptionStr = itemView.row_upsales_item_description_edittext.text.toString()
+                if (priceStr.count() > 0 && descriptionStr.count() > 0){
+                    val priceDbl = java.lang.Double.parseDouble(priceStr)
+                    val mUpsale = UpsalesObj(upsaleType, descriptionStr, priceDbl)
+                    itemView.clearFocus()
+                    upsalesDelegate.addToList(mUpsale)
+                    //notifyDataSetChanged()
+                }
             }
-
-
-
-
+        } else {
+            val model = upsaleList[p1]
+            itemView.row_upsale_add_or_save_button.text = "שמור"
+            itemView.row_upsales_item_description_edittext.text = SpannableStringBuilder(model.titleStr)
+            itemView.row_upsales_add_item_price_edittext.text = SpannableStringBuilder(model.price.toString())
+            itemView.upsales_spinner.setSelection(model.upsaleType.value)
         }
     }
 

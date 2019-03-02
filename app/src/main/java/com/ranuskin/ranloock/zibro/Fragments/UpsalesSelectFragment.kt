@@ -3,6 +3,7 @@ package com.ranuskin.ranloock.zibro.Fragments
 
 import android.os.Bundle
 import android.support.v4.app.Fragment
+import android.support.v7.widget.LinearLayoutManager
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
@@ -22,6 +23,8 @@ class UpsalesSelectFragment : Fragment(), UpsalesDelegate {
         mUpsalesList.add(mUpsalesObj)
         mAdapter.notifyDataSetChanged()
 
+
+
     }
 
     override fun onCreateView(
@@ -35,8 +38,10 @@ class UpsalesSelectFragment : Fragment(), UpsalesDelegate {
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
         mUpsalesList = mutableListOf()
-        mAdapter = UpsalesBasketAdapter(activity!!)
+        mAdapter = UpsalesBasketAdapter(context!!, this, mUpsalesList)
+        fragment_upsales_select_recyclerview.layoutManager = LinearLayoutManager(context)
         fragment_upsales_select_recyclerview.adapter = mAdapter
+
     }
 
 }

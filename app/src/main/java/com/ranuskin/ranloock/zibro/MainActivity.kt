@@ -120,6 +120,8 @@ class MainActivity : AppCompatActivity(), NavigationView.OnNavigationItemSelecte
 //                val intent = Intent(this, UpsalesActivity::class.java)
 //                startActivity(intent)
 
+                supportFragmentManager.beginTransaction().replace(R.id.fragments_container, UpsalesSelectFragment()).commit()
+
             }
         }
 
