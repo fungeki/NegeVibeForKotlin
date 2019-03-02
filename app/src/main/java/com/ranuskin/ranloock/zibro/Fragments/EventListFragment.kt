@@ -85,7 +85,7 @@ class EventListFragment : Fragment() {
                         view?.setBackgroundResource(R.drawable.background_spinner)
                         mAdapter.filterByType(position)
                         mAdapter.notifyDataSetChanged()
-                        general_event_list_filter_layout.visibility = View.INVISIBLE
+                        general_event_list_filter_layout.visibility = View.GONE
                         isFilterCategory = !isFilterCategory
                     }
                 }
@@ -96,7 +96,7 @@ class EventListFragment : Fragment() {
                 general_event_list_filter_layout.visibility = View.VISIBLE
 
             } else {
-                general_event_list_filter_layout.visibility = View.INVISIBLE
+                general_event_list_filter_layout.visibility = View.GONE
             }
             isFilterCategory = !isFilterCategory
         }

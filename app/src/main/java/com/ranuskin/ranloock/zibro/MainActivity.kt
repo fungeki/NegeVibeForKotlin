@@ -2,6 +2,7 @@ package com.ranuskin.ranloock.zibro
 
 import android.content.Intent
 import android.os.Bundle
+import android.os.Handler
 import android.support.design.widget.BottomNavigationView
 import android.support.design.widget.NavigationView
 import android.support.v4.view.GravityCompat
@@ -24,18 +25,10 @@ import kotlinx.android.synthetic.main.app_bar_main.*
 import kotlinx.android.synthetic.main.content_main.*
 
 class MainActivity : AppCompatActivity(), NavigationView.OnNavigationItemSelectedListener, BottomNavigationView.OnNavigationItemSelectedListener
-,BarDelegate {
+    ,BarDelegate {
 
-    override fun onStateChanged(isHidden: Boolean) {
-
-        if (isHidden){
-            bottom_nav_bar.visibility = View.GONE
-        }
-        else {
-            bottom_nav_bar.visibility = View.VISIBLE
-        }
-
-    }
+    lateinit var mHandler : Handler
+    var mBackPressed = false
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
@@ -46,11 +39,13 @@ class MainActivity : AppCompatActivity(), NavigationView.OnNavigationItemSelecte
         )
         nav_view.itemIconTintList = null
 
+        mHandler = Handler()
+
         bottom_nav_bar.selectedItemId = R.id.bot_nav_event_list
         drawer_layout.addDrawerListener(toggle)
         toggle.syncState()
 
-       // supportFragmentManager.beginTransaction().add(R.id.main_fragment_container, EventListFragment()).commit()
+        // supportFragmentManager.beginTransaction().add(R.id.main_fragment_container, EventListFragment()).commit()
         nav_view.setNavigationItemSelectedListener(this)
         ViewCompat.setLayoutDirection(nav_view,ViewCompat.LAYOUT_DIRECTION_RTL)
         bottom_nav_bar.setOnNavigationItemSelectedListener(mOnNavigationItemSelectedListener)
@@ -62,13 +57,29 @@ class MainActivity : AppCompatActivity(), NavigationView.OnNavigationItemSelecte
     }
 
     override fun onBackPressed() {
-        when {
-            drawer_layout.isDrawerOpen(GravityCompat.START) -> drawer_layout.closeDrawer(GravityCompat.START)
-            supportFragmentManager.backStackEntryCount == 0 -> {
+
+        if (drawer_layout.isDrawerOpen(GravityCompat.START)){
+            drawer_layout.closeDrawer(GravityCompat.START)
+        }
+        else{
+            if (!mBackPressed){
+                Toast.makeText(this, getString(R.string.exit_app), Toast.LENGTH_LONG).show()
+                mBackPressed = true
+                mHandler.postDelayed({
+                    mBackPressed = false
+                }, 2000)
+            }
+            else{
+                super.onBackPressed()
 
             }
-            else -> super.onBackPressed()
         }
+    }
+
+    override fun onDestroy() {
+        super.onDestroy()
+        mHandler.removeCallbacks(null)
+
     }
 
     override fun onCreateOptionsMenu(menu: Menu): Boolean {
@@ -159,6 +170,17 @@ class MainActivity : AppCompatActivity(), NavigationView.OnNavigationItemSelecte
 
         }
         false
+    }
+
+    override fun onStateChanged(isHidden: Boolean) {
+
+        if (isHidden){
+            bottom_nav_bar.visibility = View.GONE
+        }
+        else {
+            bottom_nav_bar.visibility = View.VISIBLE
+        }
+
     }
 
 }

@@ -28,6 +28,7 @@ class LoadingActivity : AppCompatActivity() {
                 if (didSucceed) {
                     val intent = Intent(this, MainActivity::class.java)
                     startActivity(intent)
+                    finish()
                 }
             }
 
