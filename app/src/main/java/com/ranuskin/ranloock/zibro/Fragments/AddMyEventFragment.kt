@@ -5,13 +5,18 @@ import android.app.Instrumentation
 import android.content.Context
 import android.content.Intent
 import android.content.pm.PackageManager
+import android.graphics.Bitmap
+import android.graphics.Canvas
+import android.graphics.drawable.Drawable
 import android.net.Uri
 import android.os.Build
 import android.os.Bundle
 import android.provider.MediaStore
 import android.support.v4.app.ActivityCompat
 import android.support.v4.app.Fragment
+import android.support.v4.content.ContextCompat
 import android.support.v4.content.ContextCompat.checkSelfPermission
+import android.support.v4.graphics.drawable.DrawableCompat
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
@@ -80,7 +85,10 @@ class AddMyEventFragment : Fragment() {
         }
 
 
+
     }
+
+
 
     private fun pickPhotoFromCallery(){
 //        val intent = Intent(Intent.ACTION_PICK)
@@ -125,6 +133,8 @@ class AddMyEventFragment : Fragment() {
             super.onActivityResult(requestCode, resultCode, data)
         }
     }
+
+
 
 }
 
