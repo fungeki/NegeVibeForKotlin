@@ -22,9 +22,90 @@
             app:layout_constraintEnd_toEndOf="parent" android:layout_marginEnd="24dp"/>
     <android.support.v7.widget.RecyclerView
             android:layout_width="0dp"
-            android:layout_height="0dp" android:layout_marginTop="8dp"
-            app:layout_constraintTop_toBottomOf="@+id/fragment_upsales_select_save"
+            android:layout_height="0dp"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintBottom_toBottomOf="parent" android:id="@+id/fragment_upsales_select_recyclerview"/>
+            app:layout_constraintBottom_toBottomOf="parent" android:id="@+id/fragment_upsales_select_recyclerview"
+            android:layout_marginTop="8dp"
+            app:layout_constraintTop_toBottomOf="@+id/fragment_upsales_select_app_price_edittext"/>
+    <ImageView
+            android:src="@drawable/ic_plus_green"
+            android:layout_width="70dp"
+            android:layout_height="0dp"
+            android:id="@+id/fragment_upsales_select_plus_imageview" android:scaleType="fitCenter"
+            app:layout_constraintTop_toTopOf="@+id/fragment_upsales_select_item_title_edittext"
+            app:layout_constraintEnd_toEndOf="parent" android:layout_marginEnd="8dp"/>
+    <EditText
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:inputType="text"
+            android:background="@null"
+            android:textSize="16sp"
+            android:padding="8dp"
+            android:ems="10"
+            android:id="@+id/fragment_upsales_select_item_title_edittext"
+            android:hint="הכנס שם מוצר"
+            android:layout_marginStart="16dp"
+            app:layout_constraintStart_toStartOf="parent"
+            android:layout_marginTop="16dp" app:layout_constraintTop_toBottomOf="@+id/fragment_upsales_select_save"
+            android:layout_marginEnd="8dp"
+            app:layout_constraintEnd_toStartOf="@+id/fragment_upsales_select_plus_imageview"/>
+    <EditText
+            android:layout_width="0dp"
+            android:padding="8dp"
+            android:textSize="16sp"
+            android:layout_height="wrap_content"
+            android:background="@null"
+            android:ems="10"
+            android:id="@+id/fragment_upsales_select_price_in_event_edittext"
+            android:hint="הכנס מחיר באירוע"
+            android:layout_marginTop="8dp"
+            app:layout_constraintTop_toBottomOf="@+id/fragment_upsales_select_item_title_edittext"
+            app:layout_constraintEnd_toStartOf="@+id/fragment_upsales_select_plus_imageview"
+            android:layout_marginEnd="8dp" android:inputType="numberDecimal"
+            app:layout_constraintStart_toEndOf="@+id/fragment_upsales_select_coin_icon_textview3"
+            android:layout_marginStart="8dp"/>
+    <EditText
+            android:layout_width="0dp"
+            android:padding="8dp"
+            android:layout_height="wrap_content"
+            android:textSize="16sp"
+            android:background="@null"
+            android:ems="10"
+            android:id="@+id/fragment_upsales_select_app_price_edittext"
+            android:hint="הכנס מחיר באפליקציה"
+            app:layout_constraintStart_toEndOf="@+id/fragment_upsales_select_coin_icon_textview"
+            android:layout_marginStart="8dp"
+            android:layout_marginTop="8dp"
+            app:layout_constraintTop_toBottomOf="@+id/fragment_upsales_select_price_in_event_edittext"
+            android:layout_marginEnd="8dp"
+            app:layout_constraintEnd_toStartOf="@+id/fragment_upsales_select_plus_imageview"
+            android:inputType="numberDecimal"/>
+    <Button
+            android:text="הוסף"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:id="@+id/fragment_upsales_select_add_upsales_button" app:layout_constraintStart_toStartOf="parent"
+            android:layout_marginStart="8dp"
+            app:layout_constraintBottom_toBottomOf="@+id/fragment_upsales_select_app_price_edittext"/>
+    <TextView
+            android:text="₪"
+            android:layout_width="wrap_content"
+            android:textSize="16sp"
+            android:layout_height="wrap_content"
+            android:id="@+id/fragment_upsales_select_coin_icon_textview"
+            app:layout_constraintStart_toEndOf="@+id/fragment_upsales_select_add_upsales_button"
+            android:layout_marginStart="8dp"
+            app:layout_constraintTop_toTopOf="@+id/fragment_upsales_select_app_price_edittext"
+            app:layout_constraintBottom_toBottomOf="@+id/fragment_upsales_select_app_price_edittext"/>
+    <TextView
+            android:text="₪"
+            android:layout_width="wrap_content"
+            android:textSize="16sp"
+            android:layout_height="wrap_content"
+            android:id="@+id/fragment_upsales_select_coin_icon_textview3"
+            android:layout_marginStart="8dp"
+            app:layout_constraintTop_toTopOf="@+id/fragment_upsales_select_price_in_event_edittext"
+            app:layout_constraintBottom_toBottomOf="@+id/fragment_upsales_select_price_in_event_edittext"
+            app:layout_constraintStart_toEndOf="@+id/fragment_upsales_select_add_upsales_button"/>
 </android.support.constraint.ConstraintLayout>
