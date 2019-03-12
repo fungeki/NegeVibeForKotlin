@@ -40,7 +40,7 @@
                         android:layout_width="40dp"
                         android:layout_height="40dp"
                         android:src="@drawable/ic_circle_favorites_hollow"
-                        android:id="@+id/eventDetailsAddToFavorite"
+                        android:id="@+id/eventDetailsAddToFavoriteImage"
                         android:layout_marginTop="8dp"
                         app:layout_constraintTop_toBottomOf="@+id/eventDetailsImage"
                         app:layout_constraintBottom_toBottomOf="@+id/eventDetailsImage"
@@ -50,10 +50,10 @@
                         android:layout_width="40dp"
                         android:layout_height="40dp"
                         android:src="@drawable/ic_circle_like_hollow"
-                        android:id="@+id/eventDetailLike"
+                        android:id="@+id/eventDetailLikeImage"
                         app:layout_constraintTop_toBottomOf="@+id/eventDetailsImage"
                         app:layout_constraintBottom_toBottomOf="@+id/eventDetailsImage"
-                        app:layout_constraintEnd_toStartOf="@id/eventDetailsAddToFavorite"
+                        app:layout_constraintEnd_toStartOf="@id/eventDetailsAddToFavoriteImage"
                         android:layout_marginEnd="8dp"/>
                 <ImageView
                         android:layout_width="40dp"
@@ -62,7 +62,8 @@
                         android:layout_marginBottom="8dp"
                         app:layout_constraintBottom_toBottomOf="@+id/eventDetailsImage"
                         app:layout_constraintTop_toBottomOf="@+id/eventDetailsImage"
-                        android:id="@+id/eventDetailsShare" app:layout_constraintEnd_toStartOf="@id/eventDetailLike"
+                        android:id="@+id/eventDetailsShareImage"
+                        app:layout_constraintEnd_toStartOf="@id/eventDetailLikeImage"
                         android:layout_marginEnd="8dp"/>
 
                 <android.support.v7.widget.Toolbar
@@ -126,6 +127,15 @@
                                 android:textSize="16sp"
                                 android:layout_gravity="center_vertical"
                                 android:textAlignment="center"/>
+                        <TextView
+                                android:layout_width="match_parent"
+                                android:layout_height="wrap_content"
+                                android:text="@string/StatusHebrew"
+                                android:textColor="@color/colorWhite"
+                                android:textSize="16sp"
+                                android:layout_marginEnd="30dp"
+                                android:layout_marginTop="10dp"
+                                android:gravity="end"/>
                     </LinearLayout>
                     <LinearLayout
                             android:layout_width="match_parent"
@@ -150,6 +160,10 @@
                                 android:layout_gravity="center_vertical"
                                 android:layout_marginStart="25dp"
                                 android:textAlignment="center"/>
+                        <TextView
+                                android:layout_width="match_parent"
+                                android:layout_height="wrap_content"
+                                android:text="s"/>
                     </LinearLayout>
                     <LinearLayout
                             android:layout_width="match_parent"

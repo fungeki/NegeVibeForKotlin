@@ -76,29 +76,29 @@ class GeneralEventListAdapter(activity: Activity,val listener: (ZibroEvent) -> U
                 println(bool)
                 likes = SignedInUser.getLikes()
                 if (likes.containsKey(model.id.toString())){
-                    p0.itemView.general_event_like_imageview.setImageResource(com.ranuskin.ranloock.zibro.R.drawable.ic_circle_llike_full)
-                    val newLikes = (model.likes + 1)
-                    mActivity.runOnUiThread {
-                        EventsLibrary.updateLocalLikes(p1, true)
-                        searchedEvents[p1].likes = newLikes
-                        model.likes = newLikes
-                        Toast.makeText(mActivity, "אהבת? גם אנחנו", Toast.LENGTH_LONG).show()
-                        p0.itemView.row_general_event_likes_textview.text = "$newLikes" }
+            p0.itemView.general_event_like_imageview.setImageResource(com.ranuskin.ranloock.zibro.R.drawable.ic_circle_llike_full)
+            val newLikes = (model.likes + 1)
+            mActivity.runOnUiThread {
+                EventsLibrary.updateLocalLikes(p1, true)
+                searchedEvents[p1].likes = newLikes
+                model.likes = newLikes
+                Toast.makeText(mActivity, "אהבת? גם אנחנו", Toast.LENGTH_LONG).show()
+                p0.itemView.row_general_event_likes_textview.text = "$newLikes" }
 
 
-                } else {
-                    p0.itemView.general_event_like_imageview.setImageResource(com.ranuskin.ranloock.zibro.R.drawable.ic_circle_like_hollow)
-                    val newLikes = (model.likes - 1)
-                    mActivity.runOnUiThread {
-                        EventsLibrary.updateLocalLikes(p1, false)
-                        searchedEvents[p1].likes = newLikes
-                        model.likes = newLikes
-                        Toast.makeText(mActivity, "הורדנו את הלייק", Toast.LENGTH_LONG).show()
-                        p0.itemView.row_general_event_likes_textview.text = "$newLikes" }
+        } else {
+            p0.itemView.general_event_like_imageview.setImageResource(com.ranuskin.ranloock.zibro.R.drawable.ic_circle_like_hollow)
+            val newLikes = (model.likes - 1)
+            mActivity.runOnUiThread {
+                EventsLibrary.updateLocalLikes(p1, false)
+                searchedEvents[p1].likes = newLikes
+                model.likes = newLikes
+                Toast.makeText(mActivity, "הורדנו את הלייק", Toast.LENGTH_LONG).show()
+                p0.itemView.row_general_event_likes_textview.text = "$newLikes" }
 
-                }
-            }
         }
+    }
+}
 
         p0.itemView.general_event_share.setOnClickListener {
             var sendIntent = Intent()
