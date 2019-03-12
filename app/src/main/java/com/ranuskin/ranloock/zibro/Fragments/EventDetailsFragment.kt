@@ -68,6 +68,8 @@ class EventDetailsFragment : Fragment() {
             eventDetailsEventDescription.text = event.description
             eventDetailsPrice.text = " מחיר :  ${event.price} ₪"
 
+            event_details_count_likes_text_view.text = searchedEvents[0].likes.toString()
+
             Picasso.get().load(event.images[0].link).placeholder(R.drawable.zebra)
                 .into(eventDetailsImage)
 
@@ -85,7 +87,8 @@ class EventDetailsFragment : Fragment() {
                             event.likes = newLikes
                             event.likes = newLikes
                             Toast.makeText(activity, "אהבת? גם אנחנו", Toast.LENGTH_LONG).show()
-                            }
+                            event_details_count_likes_text_view.text = "$newLikes"
+                        }
 
 
                     } else {
@@ -95,7 +98,8 @@ class EventDetailsFragment : Fragment() {
                             EventsLibrary.updateLocalLikes(p1, false)
                             searchedEvents[p1].likes = newLikes
                             event.likes = newLikes
-                            Toast.makeText(activity, "הורדנו את הלייק", Toast.LENGTH_LONG).show() }
+                            Toast.makeText(activity, "הורדנו את הלייק", Toast.LENGTH_LONG).show()
+                            event_details_count_likes_text_view.text = "$newLikes"}
 
                     }
                 }

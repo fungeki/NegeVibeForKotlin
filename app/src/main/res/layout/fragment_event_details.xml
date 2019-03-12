@@ -100,145 +100,199 @@
                         android:textSize="22sp"
                         android:padding="6dp"
                         android:layout_margin="12dp"/>
-                <LinearLayout
+                <android.support.constraint.ConstraintLayout
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content"
-                        android:orientation="vertical"
+                        android:layoutDirection="rtl"
                         android:background="@color/colorPrimary">
-                    <LinearLayout
+                    <android.support.constraint.Guideline
+                            android:layout_width="0dp"
+                            android:layout_height="match_parent"
+                            android:orientation="vertical"
+                            app:layout_constraintGuide_percent="0.05"
+                            android:id="@+id/guide_line_vertical1"/>
+                    <android.support.constraint.Guideline
+                            android:layout_width="0dp"
+                            android:layout_height="match_parent"
+                            android:orientation="vertical"
+                            app:layout_constraintGuide_percent="0.14"
+                            android:id="@+id/guide_line_vertical2"/>
+                    <android.support.constraint.Guideline
+                            android:layout_width="0dp"
+                            android:layout_height="match_parent"
+                            android:orientation="vertical"
+                            app:layout_constraintGuide_percent="0.81"
+                            android:id="@+id/guide_line_vertical3"/>
+                    <android.support.constraint.Guideline
                             android:layout_width="match_parent"
-                            android:layout_height="wrap_content"
+                            android:layout_height="0dp"
                             android:orientation="horizontal"
-                            android:layoutDirection="rtl">
-                        <ImageView
-                                android:layout_width="24dp"
-                                android:layout_height="24dp"
-                                android:src="@drawable/ic_date_blue"
-                                android:background="@color/colorPrimary"
-                                android:layout_marginTop="5dp"
-                                android:layout_marginStart="12dp"/>
-                        <TextView
-                                android:id="@+id/eventDetailsEventDate"
-                                android:layout_width="wrap_content"
-                                android:layout_height="wrap_content"
-                                android:textColor="@color/colorWhite"
-                                android:text="יום ה, 1 בדצמבר"
-                                android:layout_marginStart="25dp"
-                                android:textSize="16sp"
-                                android:layout_gravity="center_vertical"
-                                android:textAlignment="center"/>
-                        <TextView
-                                android:layout_width="match_parent"
-                                android:layout_height="wrap_content"
-                                android:text="@string/StatusHebrew"
-                                android:textColor="@color/colorWhite"
-                                android:textSize="16sp"
-                                android:layout_marginEnd="30dp"
-                                android:layout_marginTop="10dp"
-                                android:gravity="end"/>
-                    </LinearLayout>
-                    <LinearLayout
+                            app:layout_constraintGuide_percent="0.21"
+                            android:id="@+id/guide_line_horizontal1"/>
+                    <android.support.constraint.Guideline
                             android:layout_width="match_parent"
-                            android:layout_height="wrap_content"
+                            android:layout_height="0dp"
                             android:orientation="horizontal"
-                            android:layout_marginBottom="6dp"
-                            android:layout_marginTop="6dp">
-                        <ImageView
-                                android:layout_width="24dp"
-                                android:layout_height="24dp"
-                                android:background="@color/colorPrimary"
-                                android:layout_marginStart="15dp"
-                                android:layout_marginTop="5dp"
-                                android:src="@drawable/ic_category_blue"/>
-                        <TextView
-                                android:id="@+id/eventDetailsCategory"
-                                android:layout_width="wrap_content"
-                                android:layout_height="wrap_content"
-                                android:textColor="@color/colorWhite"
-                                android:text="פסטיבל"
-                                android:textSize="16sp"
-                                android:layout_gravity="center_vertical"
-                                android:layout_marginStart="25dp"
-                                android:textAlignment="center"/>
-                        <TextView
-                                android:layout_width="match_parent"
-                                android:layout_height="wrap_content"
-                                android:text="s"/>
-                    </LinearLayout>
-                    <LinearLayout
+                            app:layout_constraintGuide_percent="0.4"
+                            android:id="@+id/guide_line_horizontal2"/>
+                    <android.support.constraint.Guideline
                             android:layout_width="match_parent"
-                            android:layout_height="wrap_content"
+                            android:layout_height="0dp"
                             android:orientation="horizontal"
-                            android:layout_marginBottom="12dp"
-                            android:layout_marginTop="6dp">
-                        <ImageView
-                                android:layout_width="24dp"
-                                android:layout_height="24dp"
-                                android:src="@drawable/ic_address_blue"
-                                android:background="@color/colorPrimary"
-                                android:layout_marginTop="5dp"
-                                android:layout_marginStart="15dp"/>
-                        <TextView
-                                android:id="@+id/eventDetailsLocation"
-                                android:layout_width="wrap_content"
-                                android:layout_height="wrap_content"
-                                android:textColor="@color/colorWhite"
-                                android:text="פארק וולפסון"
-                                android:textSize="16sp"
-                                android:layout_gravity="center_vertical"
-                                android:layout_marginStart="25dp"
-                                android:textAlignment="center"/>
-                    </LinearLayout>
-                    <LinearLayout
+                            app:layout_constraintGuide_percent="0.6"
+                            android:id="@+id/guide_line_horizontal3"/>
+                    <android.support.constraint.Guideline
                             android:layout_width="match_parent"
-                            android:layout_height="wrap_content"
+                            android:layout_height="0dp"
                             android:orientation="horizontal"
-                            android:layout_marginBottom="6dp"
-                            android:layout_marginTop="6dp">
-                        <ImageView
-                                android:layout_width="24dp"
-                                android:layout_height="24dp"
-                                android:src="@drawable/ic_address_description_blue"
-                                android:background="@color/colorPrimary"
-                                android:layout_marginStart="12dp"
-                                android:layout_marginTop="5dp"/>
-                        <TextView
-                                android:id="@+id/eventDetailsLocationDescription"
-                                android:layout_width="wrap_content"
-                                android:layout_height="wrap_content"
-                                android:textColor="@color/colorWhite"
-                                android:text="כביש 6"
-                                android:textSize="16sp"
-                                android:layout_gravity="center_vertical"
-                                android:layout_marginStart="25dp"
-                                android:textAlignment="center"/>
-                    </LinearLayout>
-                    <LinearLayout
-                            android:layout_width="match_parent"
+                            app:layout_constraintGuide_percent="0.8"
+                            android:id="@+id/guide_line_horizontal4"/>
+                    <ImageView
+                            android:layout_width="24dp"
+                            android:layout_height="24dp"
+                            android:src="@drawable/ic_date_blue"
+                            android:background="@color/colorPrimary"
+                            app:layout_constraintStart_toEndOf="@id/guide_line_vertical1"
+                            app:layout_constraintTop_toTopOf="parent"
+                            android:layout_marginTop="7dp"
+                    />
+                    <TextView
+                            android:id="@+id/eventDetailsEventDate"
+                            android:layout_width="wrap_content"
                             android:layout_height="wrap_content"
-                            android:orientation="horizontal"
-                            android:layout_marginBottom="6dp"
-                            android:layout_marginTop="6dp">
-                        <ImageView
-                                android:layout_width="24dp"
-                                android:layout_height="24dp"
-                                android:src="@drawable/ic_time_blue"
-                                android:background="@color/colorPrimary"
-                                android:layout_marginStart="12dp"
-                                android:layout_marginTop="5dp"/>
-                        <TextView
-                                android:id="@+id/eventDetailsEventDuration"
-                                android:layout_width="wrap_content"
-                                android:layout_height="wrap_content"
-                                android:textColor="@color/colorWhite"
-                                android:text="24/7"
-                                android:textSize="16sp"
-                                android:layout_gravity="center_vertical"
-                                android:layout_marginStart="25dp"
-                                android:textAlignment="center"/>
-                    </LinearLayout>
+                            android:textColor="@color/colorWhite"
+                            android:text="יום ה, 1 בדצמבר"
+                            android:textSize="16sp"
+                            android:layout_gravity="center_vertical"
+                            android:textAlignment="center"
+                            app:layout_constraintStart_toEndOf="@id/guide_line_vertical2"
+                            app:layout_constraintTop_toTopOf="parent"
+                            android:layout_marginTop="7dp"/>
+                    <TextView
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:text="@string/StatusHebrew"
+                            android:id="@+id/event_details_status"
+                            android:textColor="@color/colorWhite"
+                            android:textSize="16sp"
+                            app:layout_constraintTop_toTopOf="parent"
+                            android:layout_marginTop="20dp"
+                            app:layout_constraintEnd_toEndOf="parent"
+                            app:layout_constraintStart_toEndOf="@id/guide_line_vertical3"/>
+                    <TextView
+                            android:id="@+id/event_details_status_text_view"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:text="פעיל"
+                            android:textColor="@color/colorGreen"
+                            android:textSize="16sp"
+                            app:layout_constraintStart_toEndOf="@id/guide_line_vertical3"
+                            app:layout_constraintTop_toBottomOf="@id/event_details_status"
+                            app:layout_constraintEnd_toEndOf="parent"
+                            android:layout_marginTop="2dp"
+                            android:layout_marginEnd="5dp"
+                    />
+                    <ImageView
+                            android:id="@+id/event_details_count_likes_image_view"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:src="@drawable/ic_circle_like_white"
+                            app:layout_constraintTop_toBottomOf="@id/guide_line_horizontal2"
+                            app:layout_constraintStart_toEndOf="@id/guide_line_vertical3"
+                            app:layout_constraintEnd_toEndOf="parent"
+                            android:layout_marginEnd="10dp"
+                    />
+                    <TextView
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:id="@+id/event_details_count_likes_text_view"
+                            android:textColor="@color/colorBlue"
+                            android:textSize="18sp"
+                            android:text="300"
+                            app:layout_constraintTop_toBottomOf="@id/event_details_count_likes_image_view"
+                            app:layout_constraintStart_toEndOf="@id/guide_line_vertical3"
+                            app:layout_constraintEnd_toEndOf="parent"
+                            android:layout_marginEnd="10dp"/>
 
-                </LinearLayout>
+                    <ImageView
+                            android:layout_width="24dp"
+                            android:layout_height="24dp"
+                            android:background="@color/colorPrimary"
+                            android:src="@drawable/ic_category_blue"
+                            app:layout_constraintStart_toEndOf="@id/guide_line_vertical1"
+                            app:layout_constraintTop_toBottomOf="@id/guide_line_horizontal1"/>
+
+                    <TextView
+                            android:id="@+id/eventDetailsCategory"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:textColor="@color/colorWhite"
+                            android:text="פסטיבל"
+                            android:textSize="16sp"
+                            android:textAlignment="center"
+                            app:layout_constraintStart_toEndOf="@id/guide_line_vertical2"
+                            app:layout_constraintTop_toBottomOf="@id/guide_line_horizontal1"/>
+
+
+                    <ImageView
+                            android:layout_width="24dp"
+                            android:layout_height="24dp"
+                            android:src="@drawable/ic_address_blue"
+                            android:background="@color/colorPrimary"
+                            app:layout_constraintStart_toEndOf="@id/guide_line_vertical1"
+                            app:layout_constraintTop_toBottomOf="@id/guide_line_horizontal2"/>
+                    <TextView
+                            android:id="@+id/eventDetailsLocation"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:textColor="@color/colorWhite"
+                            android:text="פארק וולפסון"
+                            android:textSize="16sp"
+                            android:textAlignment="center"
+                            app:layout_constraintStart_toEndOf="@id/guide_line_vertical2"
+                            app:layout_constraintTop_toBottomOf="@id/guide_line_horizontal2"/>
+
+
+                    <ImageView
+                            android:layout_width="24dp"
+                            android:layout_height="24dp"
+                            android:src="@drawable/ic_address_description_blue"
+                            android:background="@color/colorPrimary"
+                            app:layout_constraintTop_toBottomOf="@id/guide_line_horizontal3"
+                            app:layout_constraintStart_toEndOf="@id/guide_line_vertical1"/>
+                    <TextView
+                            android:id="@+id/eventDetailsLocationDescription"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:textColor="@color/colorWhite"
+                            android:text="כביש 6"
+                            android:textSize="16sp"
+                            android:textAlignment="center"
+                            app:layout_constraintStart_toEndOf="@id/guide_line_vertical2"
+                            app:layout_constraintTop_toBottomOf="@id/guide_line_horizontal3"/>
+
+
+                    <ImageView
+                            android:layout_width="24dp"
+                            android:layout_height="24dp"
+                            android:src="@drawable/ic_time_blue"
+                            android:background="@color/colorPrimary"
+                            app:layout_constraintStart_toEndOf="@id/guide_line_vertical1"
+                            app:layout_constraintTop_toBottomOf="@id/guide_line_horizontal4"
+                            android:layout_marginBottom="20dp"/>
+                    <TextView
+                            android:id="@+id/eventDetailsEventDuration"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:textColor="@color/colorWhite"
+                            android:text="24/7"
+                            android:textSize="16sp"
+                            android:textAlignment="center"
+                            android:paddingBottom="20dp"
+                            app:layout_constraintStart_toEndOf="@id/guide_line_vertical2"
+                            app:layout_constraintTop_toBottomOf="@id/guide_line_horizontal4"/>
+
+                </android.support.constraint.ConstraintLayout>
                 <LinearLayout android:layout_width="match_parent"
                               android:layout_height="10dp"
                               android:background="@color/titleColor"/>
